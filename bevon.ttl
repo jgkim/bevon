@@ -1,8 +1,30 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix bevon: <http://data.dakchigo.kr/bevon#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix bevon: <http://data.dakchigo.kr/bevon/> .
 
-<http://data.dakchigo.kr/bevon> a owl:Ontology ;
+<http://data.dakchigo.kr/bevon> a owl:Ontology , adms:SemanticAsset ;
+  dcterms:title "Beverage Ontology"@en ;
+  dcterms:description """
+    Beverage Ontology is a Web vocabulary for describing beverages, mainly alcoholic.
+    """@en ;
   rdfs:seeAlso <https://github.com/jgkim/bevon> ;
+  dcterms:creator [
+  ] , [
+    a foaf:Person ;
+    owl:sameAs <http://data.dakchigo.kr/resource/James_G._Boram_Kim> , <http://jayg.me/> ;
+    foaf:name "James G. Kim"@en , "김보람"@ko ;
+    foaf:mbox_sha1sum "a637717b7e34b83694018e8fdd3ff334fffcd4f3" ;
+    foaf:homepage <http://jayg.org/>
+  ] ;
+  vann:preferredNamespaceUri "http://data.dakchigo.kr/bevon/" ;
+  vann:preferredNamespacePrefix "bevon" ;
+  dcterms:type <http://purl.org/adms/assettype/Ontology> ;
+  adms:status <http://purl.org/adms/status/UnderDevelopment> ;
+  dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
+  dcterms:created "2013-07-04+09:00"^^xsd:date ;
+  dcterms:modified "2013-07-05+09:00"^^xsd:date ;
   owl:versionInfo “0.1” .
