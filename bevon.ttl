@@ -1,30 +1,171 @@
+#
+#  Copyright © 2013 James G. Kim All Rights Reserved.
+#
+#  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+#  To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/
+#  or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View,
+#  California, 94041, USA.
+#
+#  This copyright applies only to the Beverage Ontology Specification and accompanying
+#  documentation in RDF or Turtle; it does not apply to data formats, ontology terms,
+#  or technology. Regarding underlying technology, Beverage Ontology relies heavily on
+#  W3C's RDF technology, an open Web standard that can be freely used by anyone.
+#
+
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix bevon: <http://data.dakchigo.kr/bevon/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix food: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
+@prefix pto: <http://www.productontology.org/id/> .
+@prefix vocab: <http://vocab.jayg.org/> .
+@prefix bevon: <http://vocab.jayg.org/bevon#> .
 
-<http://data.dakchigo.kr/bevon> a owl:Ontology , adms:SemanticAsset ;
+# Ontology #####################################################################
+
+vocab:bevon a owl:Ontology , adms:SemanticAsset ;
   dcterms:title "Beverage Ontology"@en ;
   dcterms:description """
     Beverage Ontology is a Web vocabulary for describing beverages, mainly alcoholic.
     """@en ;
   rdfs:seeAlso <https://github.com/jgkim/bevon> ;
   dcterms:creator [
-  ] , [
     a foaf:Person ;
-    owl:sameAs <http://data.dakchigo.kr/resource/James_G._Boram_Kim> , <http://jayg.me/> ;
+    owl:sameAs <http://jayg.me/> ;
     foaf:name "James G. Kim"@en , "김보람"@ko ;
     foaf:mbox_sha1sum "a637717b7e34b83694018e8fdd3ff334fffcd4f3" ;
     foaf:homepage <http://jayg.org/>
   ] ;
-  vann:preferredNamespaceUri "http://data.dakchigo.kr/bevon/" ;
+  vann:preferredNamespaceUri "http://vocab.jayg.org/bevon#" ;
   vann:preferredNamespacePrefix "bevon" ;
   dcterms:type <http://purl.org/adms/assettype/Ontology> ;
   adms:status <http://purl.org/adms/status/UnderDevelopment> ;
   dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
   dcterms:created "2013-07-04+09:00"^^xsd:date ;
-  dcterms:modified "2013-07-05+09:00"^^xsd:date ;
+  dcterms:modified "2013-07-09+09:00"^^xsd:date ;
   owl:versionInfo “0.1” .
+
+# Classes #####################################################################
+
+bevon:Beverage a owl:Class ;
+  rdfs:subClassOf food:PotableLiquid , pto:Drink ;
+  skos:prefLabel "Beverage"@en , "음료"@ko ;
+  rdfs:comment """
+    A beverage, or drink, is a kind of liquid which is specifically prepared
+    for human consumption.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Beverage> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:AlcoholicBeverage a owl:Class ;
+  rdfs:subClassOf bevon:Beverage , pto:Alcoholic_beverage ;
+  owl:disjointWith bevon:NonAlcoholicBeverage ;
+  skos:prefLabel "Alcoholic Beverage"@en , "알콜 음료"@ko ;
+  rdfs:comment """
+     An alcoholic beverage is a drink and psychoactive drug containing
+     ethyl alcohol which is commonly referred to as ethanol.
+     """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Alcoholic_beverage> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:NonAlcoholicBeverage a owl:Class ;
+  rdfs:subClassOf bevon:Beverage , pto:Non-alcoholic_beverage ;
+  owl:disjointWith bevon:AlcoholicBeverage ;
+  skos:prefLabel "Non-alcoholic Beverage"@en , "비알콜 음료"@ko ;
+  rdfs:comment """
+     A non-alcoholic beverage (also known as a virgin drink) is defined
+     in the U.S. as a beverage that contains less than 0.5% alcohol by volume.
+     """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Non-alcoholic_beverage> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:FermentedBeverages a owl:Class ;
+  rdfs:subClassOf bevon:AlcoholicBeverage ;
+  skos:prefLabel "Fermented Beverage"@en , "양조주"@ko ;
+  skos:altLabel "발효주"@ko ;
+  rdfs:comment """
+    A fermented beverage is a drink produced by fermenting grain, fruit, or vegetables.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:DistilledBeverage a owl:Class ;
+  rdfs:subClassOf bevon:AlcoholicBeverage , pto:Distilled_beverage ;
+  skos:prefLabel "Distilled Beverage"@en , "증류주"@ko ;
+  skos:altLabel "Spirit"@en , "Liquor"@en ;
+  rdfs:comment """
+     A distilled beverage, spirit, or liquor is an alcoholic beverage containing ethanol
+     that is produced by distilling (i.e., concentrating by distillation) ethanol produced
+     by means of fermenting grain, fruit, or vegetables.
+     This excludes undistilled fermented beverages such as beer, wine, and cider.
+     """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Distilled_beverage> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:MixedDrink a owl:Class ;
+  rdfs:subClassOf bevon:Beverage , pto:Mixed_drink ;
+  skos:prefLabel "Mixed Drink"@en , "혼합 음료"@ko ;
+  rdfs:comment """
+    A mixed drink is a beverage in which two or more ingredients are mixed.
+    Some mixed drinks are alcoholic beverages that contain liquor; others are non-alcoholic.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Mixed_drink> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Cocktail a owl:Class ;
+  rdfs:subClassOf bevon:MixedDrink , bevon:AlcoholicBeverage , pto:Cocktail ;
+  owl:disjointWith bevon:Mocktail ;
+  skos:prefLabel "Cocktail"@en , "칵테일"@ko ;
+  rdfs:comment """
+    Cocktails were originally a mixture of spirits, sugar, water, and bitters. It is now often
+    used for almost any mixed drink that contains alcohol, including mixers, mixed shots, etc.
+    A cocktail today usually contains one or more kinds of spirit and one or more mixers,
+    such as soda or fruit juice. Additional ingredients may be sugar, honey, milk, cream, and
+    various herbs.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Cocktail> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Mocktail a owl:Class ;
+  rdfs:subClassOf bevon:MixedDrink , bevon:NonAlcoholicBeverage ;
+  owl:disjointWith bevon:Cocktail ;
+  rdfs:comment """
+    Mocktails are mock cocktails, or those that do not contain any alcohol.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+# Properties ##################################################################
+
+bevon:abv a owl:DatatypeProperty ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range xsd:decimal ;
+  skos:prefLabel "alcohol by volume"@en , "알콜 도수"@ko ;
+  rdfs:comment """
+    ABV (Alcohol by Volume) is a standard measure of how much alcohol is contained in the drink.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:non_alcoholic_version a owl:ObjectProperty ;
+  rdfs:domain bevon:AlcoholicBeverage ;
+  rdfs:range bevon:NonAlcoholicBeverage ;
+  skos:prefLabel "non-alcoholic version"@en , "비알콜 버전"@ko ;
+  rdfs:comment """
+    Some alcoholic beverages have non-alcoholic versions,
+    such as non-alcoholic beer ("near beer") and cocktails ("mocktails").
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
