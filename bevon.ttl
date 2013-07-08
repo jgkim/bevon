@@ -24,6 +24,8 @@
 @prefix food: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#> .
 @prefix gr: <http://purl.org/goodrelations/v1#> .
 @prefix pto: <http://www.productontology.org/id/> .
+@prefix wine: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#> .
+@prefix whisky: <http://purl.org/vocab/whisky/terms/> .
 @prefix vocab: <http://vocab.jayg.org/> .
 @prefix bevon: <http://vocab.jayg.org/bevon#> .
 
@@ -147,6 +149,296 @@ bevon:Mocktail a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:Beer a owl:Class ;
+  rdfs:subClassOf bevon:FermentedBeverages , pto:Beer ;
+  owl:disjointWith bevon:NonAlcoholicBeer ;
+  skos:prefLabel "Beer"@en , "맥주"@ko ;
+  rdfs:comment """
+    Beer is an alcoholic beverage produced by the saccharification of starch and
+    fermentation of the resulting sugar. The starch and saccharification enzymes
+    are often derived from malted cereal grains, most commonly malted barley and malted wheat.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Beer> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:NonAlcoholicBeer a owl:Class ;
+  rdfs:subClassOf bevon:NonAlcoholicBeverage , pto:Low-alcohol_beer ;
+  owl:disjointWith bevon:Beer ;
+  skos:prefLabel "Non-alcoholic Beer"@en , "비알콜 맥주"@ko ;
+  skos:altLabel "Low-alcoholic Beer"@en ;
+  rdfs:comment """
+    Non-alcohol beer (also called light beer, low-alcoholic beer, small beer, small ale,
+    or near-beer) is beer with low alcohol content or no alcohol, which aim to reproduce
+    the taste of beer without the inebriating effects of standard alcoholic brews.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Low-alcohol_beer> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Sake a owl:Class ;
+  rdfs:subClassOf bevon:FermentedBeverages , pto:Sake ;
+  skos:prefLabel "Sake"@en, "Saké"@fr, "사케"@ko ;
+  skos:altLabel "Rice Wine"@en ;
+  rdfs:comment """
+    Sake or saké is an alcoholic beverage of Japanese origin that is made from fermented rice.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Sake> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Wine a owl:Class ;
+  rdfs:sameAs wine:Wine ;
+  rdfs:subClassOf bevon:FermentedBeverages , pto:Wine ;
+  skos:prefLabel "Wine"@en , "Vin"@fr, "와인"@ko ;
+  rdfs:comment """
+    Wine is an alcoholic beverage made from fermented grapes or other fruits.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Wine> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Brandy a owl:Class ;
+  rdfs:subClassOf bevon:DistilledBeverage , pto:Brandy ;
+  skos:prefLabel "Brandy"@en , "브랜디"@ko ;
+  rdfs:comment """
+    Brandy (from brandywine, derived from Dutch brandewijn—"burnt wine") is a spirit
+    produced by distilling wine. Brandy generally contains 35–60% alcohol by volume
+    (70–120 US proof) and is typically taken as an after-dinner drink.
+    Some brandies are aged in wooden casks, some are coloured with caramel colouring
+    to imitate the effect of aging, and some brandies are produced
+    using a combination of both aging and colouring.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Brandy> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Cognac a owl:Class ;
+  subClassOf bevon:Brandy , pto:Cognac ;
+  skos:prefLabel "Cognac"@en , "코냑"@ko ;
+  rdfs:comment """
+    Cognac, named after the town of Cognac in France, is a variety of brandy.
+    It is produced in the wine-growing region surrounding the town from which it takes
+    its name, in the French Departements of Charente and Charente-Maritime.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Cognac> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Pisco a owl:Class ;
+  rdfs:subClassOf bevon:Brandy , pto:Pisco ;
+  skos:prefLabel "Pisco"@en , "피스코"@ko ;
+  rdfs:comment """
+    Pisco is a colorless or yellowish-to-amber colored grape brandy produced
+    in winemaking regions of Peru and Chile.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Pisco> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Gin a owl:Class ;
+  rdfs:subClassOf bevon:DistilledBeverage , pto:Gin ;
+  skos:prefLabel "Gin"@en , "진"@ko ;
+  rdfs:comment """
+    Gin is a spirit which derives its predominant flavour from juniper berries (Juniperus communis).
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Gin> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Rum a owl:Class ;
+  rdfs:subClassOf bevon:DistilledBeverage , pto:Rum ;
+  skos:prefLabel "Rum"@en , "Ron"@es , "럼"@ko ;
+  rdfs:comment """
+    Rum is a distilled alcoholic beverage made from sugarcane byproducts, such as molasses,
+    or directly from sugarcane juice, by a process of fermentation and distillation.
+    The distillate, a clear liquid, is then usually aged in oak barrels.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Rum> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Soju a owl:Class ;
+  rdfs:subClassOf bevon:DistilledBeverage , pto:Soju ;
+  skos:prefLabel "Soju"@en , "소주"@ko ;
+  rdfs:comment """
+    Soju is a distilled beverage native to Korea. Its taste is comparable to vodka,
+    though often slightly sweeter due to sugars added in the manufacturing process.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Soju> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Tequila a owl:Class ;
+  rdfs:subClassOf bevon:DistilledBeverage , pto:Tequila ;
+  skos:prefLabel "Tequila"@en , "테킬라"@ko ;
+  rdfs:comment """
+    Tequila is a distilled beverage made from the blue agave plant, primarily in the area
+    surrounding the city of Tequila, 65 kilometres (40 mi) northwest of Guadalajara,
+    and in the highlands (Los Altos) of the western Mexican state of Jalisco.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Tequila> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Vodka a owl:Class ;
+  rdfs:subClassOf bevon:DistilledBeverage , pto:Vodka ;
+  skos:prefLabel "Vodka"@en , "водка"@ru , "Wódka"@pl , "보드카"@ko ;
+  rdfs:comment """
+    Vodka is a distilled beverage composed primarily of water and ethanol, sometimes
+    with traces of impurities and flavorings. Vodka is made by the distillation of
+    fermented substances such as grains, potatoes, or sometimes fruits or sugar.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Vodka> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Whisky a owl:Class ;
+  rdfs:sameAs whisky:Whiskey ;
+  rdfs:subClassOf bevon:DistilledBeverage , pto:Whisky ;
+  skos:prefLabel "Whisky"@en , "위스키"@en ;
+  skos:altLabel "Whiskey"@en ;
+  rdfs:comment """
+    Whisky or whiskey is a type of distilled alcoholic beverage made from fermented grain mash.
+    Different grains are used for different varieties, including barley, malted barley, rye,
+    malted rye, wheat, and corn. Whisky is typically aged in wooden casks, made generally of
+    charred white oak.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Whisky> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:AmericanWhisky a owl:Class ;
+  rdfs:subClassOf bevon:Whisky , pto:American_whiskey ;
+  skos:prefLabel "American Whisky"@en , "아메리칸 위스키"@ko ;
+  skos:altLabel "American Whiskey"@en ;
+  rdfs:comment """
+    American whisky is a distilled beverage produced in the United States from a fermented mash
+    of cereal grain. The production and labeling of American whisky are governed by Title 27 of
+    the U.S. Code of Federal Regulations.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/American_whiskey> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:BourbonWhisky a owl:Class ;
+  rdfs:subClassOf bevon:AmericanWhisky , pto:Bourbon_whiskey ;
+  skos:prefLabel "Bourbon Whisky"@en , "버번 위스키"@ko ;
+  skos:altLabel "Bourbon Whiskey"@en ;
+  rdfs:comment """
+    Bourbon whisky is a type of American whisky – a barrel-aged distilled spirit made primarily
+    from corn. The name of the spirit derives from its historical association with an area known as
+    Old Bourbon, around what is now Bourbon County, Kentucky (which, in turn, was named after
+    the French House of Bourbon royal family). It has been produced since the 18th century.
+    While it may be made anywhere in the United States, it is strongly associated with the American
+    South in general, and Kentucky in particular.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Bourbon_whiskey> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:CanadianWhisky a owl:Class ;
+  rdfs:subClassOf bevon:Whisky , pto:Canadian_whisky ;
+  skos:prefLabel "Canadian Whisky"@en , "캐내디언 위스키"@ko ;
+  skos:altLabel "Canadian Whiskey"@en ;
+  rdfs:comment """
+    Canadian whisky is a type of whisky produced in Canada. Most Canadian whiskies are blended
+    multi-grain liquors containing a large percentage of corn spirits, and are typically lighter
+    and smoother than other whisky styles.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Canadian_whisky> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:IrishWhisky a owl:Class ;
+  rdfs:subClassOf bevon:Whisky , pto:Irish_whiskey ;
+  skos:prefLabel "Irish Whisky"@en , "Fuisce"@ga , "아이리쉬 위스키"@ko ;
+  skos:altLabel "Irish Whiskey"@en ;
+  rdfs:comment """
+    Irish whisky is whiskey made in Ireland. Key regulations defining Irish whiskey and its
+    production are established by the Irish Whiskey Act of 1980.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Irish_whiskey> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:JapaneseWhisky a owl:Class ;
+  rdfs:subClassOf bevon:Whisky , pto:Japanese_whisky ;
+  skos:prefLabel "Japanese Whisky"@en , "재패니즈 위스키"@ko ;
+  skos:altLabel "Japanese Whiskey"@en ;
+  rdfs:comment """
+    Whisky production in Japan began around 1870, but the first commercial production was
+    in 1924 upon the opening of the country's first distillery, Yamazaki. Broadly speaking
+    the style of Japanese whisky is more similar to that of Scotch whisky than Irish, American,
+    or Canadian styles of whiskey, and thus the spelling typically follows the Scottish
+    convention (omitting the letter "e").
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Japanese_whisky> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:ScotchWhisky a owl:Class ;
+  rdfs:subClassOf bevon:Whisky , pto:Scotch_whisky ;
+  skos:prefLabel "Scotch Whisky"@en , "스카치 위스키"@ko ;
+  skos:altLabel "Scotch Whiskey"@en ;
+  rdfs:comment """
+    Scotch whisky (often referred to simply as "Scotch") is malt whisky or grain whisky
+    made in Scotland. All Scotch whisky was originally made from malt barley. Commercial
+    distilleries began introducing whisky made from wheat and rye in the late eighteenth century.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Scotch_whisky> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Liqueur a owl:Class ;
+  rdfs:subClassOf bevon:DistilledBeverage , pto:Liqueur ;
+  skos:prefLabel "Liqueur"@en , "리큐어"@ko ;
+  skos:altLabel "Cordials"@en , "Schnapps"@en ;
+  rdfs:comment """
+    A liqueur is an alcoholic beverage made from a distilled spirit that has been flavored
+    with fruit, cream, herbs, spices, flowers or nuts and bottled with added sugar or other
+    sweetener (such as high-fructose corn syrup). Liqueurs are typically quite sweet;
+    they are usually not aged for long after the ingredients are mixed, but may have
+    resting periods during their production to allow flavors to marry.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Liqueur> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Highball a owl:Class ;
+  rdfs:subClassOf bevon:Cocktail , pto:Highball ;
+  skos:prefLabel "Highball"@en , "하이볼"@ko ;
+  rdfs:comment """
+    Highball is the name for a family of mixed drinks that are composed of an alcoholic base
+    spirit and a larger proportion of a non-alcoholic mixer.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Highball> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:BeerCocktail a owl:Class ;
+  rdfs:subClassOf bevon:Cocktail , pto:Beer_cocktail ;
+  skos:prefLabel "Beer Cocktail"@en , "맥주 칵테일"@ko ;
+  rdfs:comment """
+    A beer cocktail is a cocktail that is made by mixing beer with a distilled beverage.
+    In this type of cocktail, the primary ingredient is beer.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Beer_cocktail> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Shandy a owl:Class ;
+  rdfs:subClassOf bevon:Cocktail , pto:Shandy ;
+  skos:prefLabel "Shandy"@en , "섄디"@ko ;
+  rdfs:comment """
+    A shandy, or shandygaff, is beer mixed with a soft drink, carbonated lemonade, ginger beer,
+    ginger ale, or apple juice. The proportions of the two ingredients are adjusted to taste,
+    usually half-and-half.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Shandy> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 # Properties ##################################################################
 
 bevon:abv a owl:DatatypeProperty ;
@@ -169,3 +461,7 @@ bevon:non_alcoholic_version a owl:ObjectProperty ;
     """@en ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
+
+# Mappings ####################################################################
+
+whisky:abv rdfs:subPropertyOf bevon:abv .
