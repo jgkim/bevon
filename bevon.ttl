@@ -210,6 +210,7 @@ bevon:IrishRedAle a owl:Class ;
 bevon:Porter a owl:Class ;
   rdfs:subClassOf bevon:Ale , pto:English_porter ;
   skos:prefLabel "Porter"@en , "포터"@ko ;
+  skos:altLabel "English Porter"@en ;
   rdfs:comment """
     Porter is a dark style of beer originating in London in the 18th century,
     descended from brown beer, a well hopped beer made from brown malt.
@@ -222,6 +223,7 @@ bevon:Porter a owl:Class ;
 bevon:Stout a owl:Class ;
   rdfs:subClassOf bevon:Porter , pto:Stout ;
   skos:prefLabel "Stout"@en , "스타우트"@ko ;
+  skos:altLabel "Strong Porter"@en ;
   rdfs:comment """
     Stout is a dark beer made using roasted malt or roasted barley, hops, water and yeast.
     Stouts were traditionally the generic term for the strongest or stoutest porters,
@@ -620,7 +622,31 @@ bevon:container a owl:ObjectProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:variant a owl:TransitiveProperty ;
+  owl:inverseOf bevon:base ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range bevon:Beverage ;
+  rdfs:prefLabel "variant"@en , "변형"@ko ;
+  rdfs:comment """
+    This property states that a beverage has a variant.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:base a owl:TransitiveProperty ;
+  owl:inverseOf bevon:variant ;
+  rdfs:subPropertyOf gr:isVariantOf ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range bevon:Beverage ;
+  rdfs:prefLabel "base"@en , "바탕"@ko ;
+  rdfs:comment """
+    This property states that a beverage is a variant of another.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:non_alcoholic_version a owl:ObjectProperty ;
+  rdfs:subPropertyOf bevon:variant ;
   rdfs:domain bevon:AlcoholicBeverage ;
   rdfs:range bevon:NonAlcoholicBeverage ;
   skos:prefLabel "non-alcoholic version"@en , "비알콜 버전"@ko ;
@@ -638,7 +664,7 @@ whisky:abv rdfs:subPropertyOf bevon:abv .
 # Indivuduals #################################################################
 
 bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
-  owl:sameAs <http://en.wikipedia.org/wiki/Guinness> ;
+  owl:sameAs <http://dbpedia.org/resource/Guinness> ;
   bevon:name "Guinness"@en , "기네스"@ko ;
   bevon:description """
     Guinness is a popular Irish dry stout that originated in the brewery of
@@ -648,20 +674,23 @@ bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
   bevon:origin <http://dbpedia.org/resource/Dublin> ;
   bevon:launch "1759"^^xsd:gYear ;
   bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
+  bevon:variant bevon:GuinnessDraught ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Guinness> .
 
 bevon:GuinnessDraught a bevon:DryStout , gr:ProductOrServiceModel ;
-  gr:isVariantOf bevon:Guinness ;
+  bevon:base bevon:Guinness ;
   bevon:name "Guinness Draught"@en , "기네스 드래프트"@ko ;
   bevon:abv "4.2"^^xsd:decimal ;
-  bevon:ibu "40"^^xsd:nonNegativeInteger .
+  bevon:ibu "40"^^xsd:nonNegativeInteger ;
+  bevon:variant bevon:GuinnessDraughtKeg .
 
 bevon:GuinnessDraughtKeg a bevon:DryStout , gr:ProductOrServiceModel ;
-  gr:isVariantOf bevon:GuinnessDraught ;
+  bevon:base bevon:GuinnessDraught ;
   bevon:name "Guinness Draught Keg"@en , "기네스 드래프트 케그"@ko ;
   bevon:container <http://dbpedia.org/resource/Keg> .
 
 bevon:Kilkenny a bevon:IrishRedAle , gr:ProductOrServiceModel ;
+  owl:sameAs <http://dbpedia.org/resource/Kilkenny_(beer)> ;
   bevon:name "Kilkenny Irish Cream Ale"@en , "킬케니 아이리쉬 크림 에일"@ko ;
   bevon:description """
     Kilkenny is a nitrogenated Irish cream ale from the makers of Guinness,
@@ -674,10 +703,11 @@ bevon:Kilkenny a bevon:IrishRedAle , gr:ProductOrServiceModel ;
   bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
   bevon:abv "4.3"^^xsd:decimal ;
   bevon:ibu "29"^^xsd:nonNegativeInteger ;
+  bevon:variant bevon:Kilkenny440mlCan ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Kilkenny_(beer)> .
 
 bevon:Kilkenny440mlCan a bevon:IrishRedAle , gr:ProductOrServiceModel ;
-  gr:isVariantOf bevon:Kilkenny ;
+  bevon:base bevon:Kilkenny ;
   bevon:name "Kilkenny Irish Cream Ale 440ml Can"@en , "킬케니 아이리쉬 크림 에일 440ml 캔"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
