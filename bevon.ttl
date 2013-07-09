@@ -528,6 +528,17 @@ bevon:launch a owl:DatatypeProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:manufacturer a owl:ObjectProperty ;
+  rdfs:subPropertyOf gr:hasManufacturer ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range foaf:Agent ;
+  skos:prefLabel "manufacturer"@en , "제조사"@ko ;
+  rdfs:comment """
+    This property specifies the manufacturer of the beverage.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:abv a owl:DatatypeProperty ;
   rdfs:domain bevon:Beverage ;
   rdfs:range xsd:decimal ;
@@ -602,6 +613,7 @@ bevon:Kilkenny a bevon:IrishRedAle , gr:ProductOrServiceModel;
     """@en ;
   bevon:origin <http://dbpedia.org/resource/Kilkenny> ;
   bevon:launch "1710"^^xsd:gYear ;
+  bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
   bevon:abv "4.3"^^xsd:decimal ;
   bevon:ibu "29"^^xsd:nonNegativeInteger ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Kilkenny_(beer)> .
@@ -616,6 +628,7 @@ bevon:Kilkenny440mlCan a bevon:IrishRedAle , gr:ProductOrServiceModel ;
     """@en ;
   bevon:origin <http://dbpedia.org/resource/Kilkenny> ;
   bevon:launch "1710"^^xsd:gYear ;
+  bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
   bevon:abv "4.3"^^xsd:decimal ;
   bevon:ibu "29"^^xsd:nonNegativeInteger ;
   bevon:volume [
