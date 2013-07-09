@@ -24,6 +24,8 @@
 @prefix food: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#> .
 @prefix gr: <http://purl.org/goodrelations/v1#> .
 @prefix pto: <http://www.productontology.org/id/> .
+@prefix dbpedia: <http://dbpedia.org/ontology/> .
+@prefix yago: <http://dbpedia.org/class/yago/> .
 @prefix wine: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#> .
 @prefix whisky: <http://purl.org/vocab/whisky/terms/> .
 @prefix vocab: <http://vocab.jayg.org/> .
@@ -51,7 +53,7 @@ vocab:bevon a owl:Ontology , adms:SemanticAsset ;
   dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
   dcterms:created "2013-07-04+09:00"^^xsd:date ;
   dcterms:modified "2013-07-09+09:00"^^xsd:date ;
-  owl:versionInfo “0.1” .
+  owl:versionInfo "0.3" .
 
 # Classes #####################################################################
 
@@ -63,6 +65,16 @@ bevon:Beverage a owl:Class ;
     for human consumption.
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Beverage> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Container a owl:Class ;
+  rdfs:subClassOf yago:Containers ;
+  skos:prefLabel "Container"@en , "용기"@ko ;
+  rdfs:comment """
+    A container is a item used to contain, store, and transport a beverage.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Container> ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
@@ -162,6 +174,39 @@ bevon:Beer a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:Ale a owl:Class ;
+  rdfs:subClassOf bevon:Beer , pto:Ale ;
+  skos:prefLabel "Ale"@en , "에일"@ko ;
+  rdfs:comment """
+    Ale is a type of beer brewed from malted barley using a warm-fermentation
+    with a strain of brewers' yeast. The yeast will ferment the beer quickly, giving it a sweet,
+    full bodied and fruity taste.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Ale> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:PaleAle a owl:Class ;
+  rdfs:subClassOf bevon:Ale , pto:Pale_ale ;
+  skos:prefLabel "Pale Ale"@en , "페일 에일"@ko ;
+  rdfs:comment """
+    Pale ale is a beer made by warm fermentation using predominantly pale malt.
+    It is one of the world's major beer styles.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Pale_ale> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:IrishRedAle a owl:Class ;
+  rdfs:subClassOf bevon:PaleAle ;
+  skos:prefLabel "Irish Red Ale"@en , "아이리쉬 레드 에일"@ko ;
+  rdfs:comment """
+    Irish red ale, red ale, or Irish ale is a name used by brewers in Ireland.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Irish_red_ale> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:NonAlcoholicBeer a owl:Class ;
   rdfs:subClassOf bevon:NonAlcoholicBeverage , pto:Low-alcohol_beer ;
   owl:disjointWith bevon:Beer ;
@@ -178,7 +223,7 @@ bevon:NonAlcoholicBeer a owl:Class ;
 
 bevon:Sake a owl:Class ;
   rdfs:subClassOf bevon:FermentedBeverages , pto:Sake ;
-  skos:prefLabel "Sake"@en, "Saké"@fr, "사케"@ko ;
+  skos:prefLabel "Sake"@en , "Saké"@fr , "사케"@ko ;
   skos:altLabel "Rice Wine"@en ;
   rdfs:comment """
     Sake or saké is an alcoholic beverage of Japanese origin that is made from fermented rice.
@@ -214,7 +259,7 @@ bevon:Brandy a owl:Class ;
   vs:term_status "unstable"@en .
 
 bevon:Cognac a owl:Class ;
-  subClassOf bevon:Brandy , pto:Cognac ;
+  rdfs:subClassOf bevon:Brandy , pto:Cognac ;
   skos:prefLabel "Cognac"@en , "코냑"@ko ;
   rdfs:comment """
     Cognac, named after the town of Cognac in France, is a variety of brandy.
@@ -441,12 +486,90 @@ bevon:Shandy a owl:Class ;
 
 # Properties ##################################################################
 
+bevon:name a owl:DatatypeProperty ;
+  rdfs:subPropertyOf dcterms:title , foaf:name , gr:name ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "name"@en , "이름"@ko ;
+  rdfs:comment """
+    This property indicates the name of the beverage.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:description a owl:DatatypeProperty ;
+  rdfs:subPropertyOf dcterms:description , gr:description ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range xsd:string ;
+  skos:prefLabel "description"@en , "설명"@ko ;
+  rdfs:comment """
+    This property specifies the short text description of the beverage.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:origin a owl:ObjectProperty ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range dbpedia:Place ;
+  skos:prefLabel "origin"@en , "원산지"@ko ;
+  rdfs:comment """
+    This property indicates the place where the beverage was first invented.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:launch a owl:DatatypeProperty ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range xsd:gYear ;
+  skos:prefLabel "launch"@en , "출시년도"@en ;
+  rdfs:comment """
+    This property specifies the year when the beverage was first introduced to the market.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:abv a owl:DatatypeProperty ;
   rdfs:domain bevon:Beverage ;
   rdfs:range xsd:decimal ;
-  skos:prefLabel "alcohol by volume"@en , "알콜 도수"@ko ;
+  skos:prefLabel "ABV"@en , "알콜 도수"@ko ;
+  skos:altLabel "alcohol by volume"@en ;
   rdfs:comment """
     ABV (Alcohol by Volume) is a standard measure of how much alcohol is contained in the drink.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Alcohol_by_volume> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:ibu a owl:DatatypeProperty ;
+  rdfs:domain bevon:Beer ;
+  rdfs:range xsd:nonNegativeInteger ;
+  skos:prefLabel "IBU scale"@en , "IBU 척도"@ko ;
+  skos:altLabel "International Bitterness Unit scale"@en ;
+  rdfs:comment """
+    The International Bittering Units scale, or simply IBU scale, provides a measure of the
+    bitterness of beer, which is provided by the hops used during brewing.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/International_Bitterness_Units_scale> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:volume a owl:DatatypeProperty ;
+  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range gr:QuantitativeValue ;
+  skos:prefLabel "volume"@en , "용량"@ko ;
+  rdfs:comment """
+    This property specifies the volume of the beverage.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:container a owl:ObjectProperty ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range bevon:Container ;
+  skos:prefLabel "container"@en , "용기"@ko ;
+  rdfs:comment """
+    This property can be used to indicate the type of beverage container.
     """@en ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
@@ -465,3 +588,41 @@ bevon:non_alcoholic_version a owl:ObjectProperty ;
 # Mappings ####################################################################
 
 whisky:abv rdfs:subPropertyOf bevon:abv .
+
+# Indivuduals #################################################################
+
+bevon:Kilkenny a bevon:IrishRedAle , gr:ProductOrServiceModel;
+  owl:sameAs <http://dbpedia.org/resource/Kilkenny_(beer)> ;
+  bevon:name "Kilkenny Irish Cream Ale"@en , "킬케니 아이리쉬 크림 에일"@ko ;
+  bevon:description """
+    Kilkenny is a nitrogenated Irish cream ale from the makers of Guinness,
+    which originated in Kilkenny, Ireland. The brand is managed and produced
+    by Diageo. It is available in draught and cans. It is brewed in Ireland
+    and its heritage dates back to the 14th century.
+    """@en ;
+  bevon:origin <http://dbpedia.org/resource/Kilkenny> ;
+  bevon:launch "1710"^^xsd:gYear ;
+  bevon:abv "4.3"^^xsd:decimal ;
+  bevon:ibu "29"^^xsd:nonNegativeInteger ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Kilkenny_(beer)> .
+
+bevon:Kilkenny440mlCan a bevon:IrishRedAle , gr:ProductOrServiceModel ;
+  bevon:name "Kilkenny Irish Cream Ale 440ml Can"@en , "킬케니 아이리쉬 크림 에일 440ml 캔"@ko ;
+  bevon:description """
+    Kilkenny is a nitrogenated Irish cream ale from the makers of Guinness,
+    which originated in Kilkenny, Ireland. The brand is managed and produced
+    by Diageo. It is available in draught and cans. It is brewed in Ireland
+    and its heritage dates back to the 14th century.
+    """@en ;
+  bevon:origin <http://dbpedia.org/resource/Kilkenny> ;
+  bevon:launch "1710"^^xsd:gYear ;
+  bevon:abv "4.3"^^xsd:decimal ;
+  bevon:ibu "29"^^xsd:nonNegativeInteger ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "440"^^xsd:int
+  ] ;
+  bevon:container <http://dbpedia.org/resource/Beverage_can> ;
+  gr:isVariantOf bevon:Kilkenny ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Kilkenny_(beer)> .
