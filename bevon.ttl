@@ -207,6 +207,41 @@ bevon:IrishRedAle a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:Porter a owl:Class ;
+  rdfs:subClassOf bevon:Ale , pto:English_porter ;
+  skos:prefLabel "Porter"@en , "포터"@ko ;
+  rdfs:comment """
+    Porter is a dark style of beer originating in London in the 18th century,
+    descended from brown beer, a well hopped beer made from brown malt.
+    The name came about as a result of its popularity with street and river porters.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/English_porter> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Stout a owl:Class ;
+  rdfs:subClassOf bevon:Porter , pto:Stout ;
+  skos:prefLabel "Stout"@en , "스타우트"@ko ;
+  rdfs:comment """
+    Stout is a dark beer made using roasted malt or roasted barley, hops, water and yeast.
+    Stouts were traditionally the generic term for the strongest or stoutest porters,
+    typically 7% or 8%, produced by a brewery.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Stout> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:DryStout a owl:Class ;
+  rdfs:subClassOf bevon:Stout ;
+  skos:prefLabel "Dry Stout"@en , "드라이 스타우트"@ko ;
+  skos:altLabel "Irish Stout"@en ;
+  rdfs:comment """
+    Irish stout or dry stout is very dark or rich in colour and it often has a "roasted"
+    or coffee-like taste.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:NonAlcoholicBeer a owl:Class ;
   rdfs:subClassOf bevon:NonAlcoholicBeverage , pto:Low-alcohol_beer ;
   owl:disjointWith bevon:Beer ;
@@ -602,8 +637,31 @@ whisky:abv rdfs:subPropertyOf bevon:abv .
 
 # Indivuduals #################################################################
 
-bevon:Kilkenny a bevon:IrishRedAle , gr:ProductOrServiceModel;
-  owl:sameAs <http://dbpedia.org/resource/Kilkenny_(beer)> ;
+bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
+  owl:sameAs <http://en.wikipedia.org/wiki/Guinness> ;
+  bevon:name "Guinness"@en , "기네스"@ko ;
+  bevon:description """
+    Guinness is a popular Irish dry stout that originated in the brewery of
+    Arthur Guinness (1725–1803) at St. James's Gate, Dublin. Guinness is one
+    of the most successful beer brands worldwide.
+    """@en ;
+  bevon:origin <http://dbpedia.org/resource/Dublin> ;
+  bevon:launch "1759"^^xsd:gYear ;
+  bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Guinness> .
+
+bevon:GuinnessDraught a bevon:DryStout , gr:ProductOrServiceModel ;
+  gr:isVariantOf bevon:Guinness ;
+  bevon:name "Guinness Draught"@en , "기네스 드래프트"@ko ;
+  bevon:abv "4.2"^^xsd:decimal ;
+  bevon:ibu "40"^^xsd:nonNegativeInteger .
+
+bevon:GuinnessDraughtKeg a bevon:DryStout , gr:ProductOrServiceModel ;
+  gr:isVariantOf bevon:GuinnessDraught ;
+  bevon:name "Guinness Draught Keg"@en , "기네스 드래프트 케그"@ko ;
+  bevon:container <http://dbpedia.org/resource/Keg> .
+
+bevon:Kilkenny a bevon:IrishRedAle , gr:ProductOrServiceModel ;
   bevon:name "Kilkenny Irish Cream Ale"@en , "킬케니 아이리쉬 크림 에일"@ko ;
   bevon:description """
     Kilkenny is a nitrogenated Irish cream ale from the makers of Guinness,
@@ -619,23 +677,11 @@ bevon:Kilkenny a bevon:IrishRedAle , gr:ProductOrServiceModel;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Kilkenny_(beer)> .
 
 bevon:Kilkenny440mlCan a bevon:IrishRedAle , gr:ProductOrServiceModel ;
+  gr:isVariantOf bevon:Kilkenny ;
   bevon:name "Kilkenny Irish Cream Ale 440ml Can"@en , "킬케니 아이리쉬 크림 에일 440ml 캔"@ko ;
-  bevon:description """
-    Kilkenny is a nitrogenated Irish cream ale from the makers of Guinness,
-    which originated in Kilkenny, Ireland. The brand is managed and produced
-    by Diageo. It is available in draught and cans. It is brewed in Ireland
-    and its heritage dates back to the 14th century.
-    """@en ;
-  bevon:origin <http://dbpedia.org/resource/Kilkenny> ;
-  bevon:launch "1710"^^xsd:gYear ;
-  bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
-  bevon:abv "4.3"^^xsd:decimal ;
-  bevon:ibu "29"^^xsd:nonNegativeInteger ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "440"^^xsd:int
   ] ;
-  bevon:container <http://dbpedia.org/resource/Beverage_can> ;
-  gr:isVariantOf bevon:Kilkenny ;
-  rdfs:seeAlso <http://en.wikipedia.org/wiki/Kilkenny_(beer)> .
+  bevon:container <http://dbpedia.org/resource/Beverage_can> .
