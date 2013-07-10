@@ -26,6 +26,7 @@
 @prefix pto: <http://www.productontology.org/id/> .
 @prefix dbpedia: <http://dbpedia.org/ontology/> .
 @prefix yago: <http://dbpedia.org/class/yago/> .
+@prefix time: <http://www.w3.org/2006/time#> .
 @prefix wine: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#> .
 @prefix whisky: <http://purl.org/vocab/whisky/terms/> .
 @prefix vocab: <http://rdfs.co/> .
@@ -66,7 +67,7 @@ bevon:Beverage a owl:Class ;
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Beverage> ;
   rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
+  vs:term_status "testing"@en .
 
 bevon:AlcoholicBeverage a owl:Class ;
   rdfs:subClassOf bevon:Beverage , pto:Alcoholic_beverage ;
@@ -78,7 +79,7 @@ bevon:AlcoholicBeverage a owl:Class ;
      """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Alcoholic_beverage> ;
   rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
+  vs:term_status "testing"@en .
 
 bevon:NonAlcoholicBeverage a owl:Class ;
   rdfs:subClassOf bevon:Beverage , pto:Non-alcoholic_beverage ;
@@ -90,7 +91,7 @@ bevon:NonAlcoholicBeverage a owl:Class ;
      """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Non-alcoholic_beverage> ;
   rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
+  vs:term_status "testing"@en .
 
 bevon:FermentedBeverages a owl:Class ;
   rdfs:subClassOf bevon:AlcoholicBeverage ;
@@ -100,7 +101,7 @@ bevon:FermentedBeverages a owl:Class ;
     A fermented beverage is a drink produced by fermenting grain, fruit, or vegetables.
     """@en ;
   rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
+  vs:term_status "testing"@en .
 
 bevon:DistilledBeverage a owl:Class ;
   rdfs:subClassOf bevon:AlcoholicBeverage , pto:Distilled_beverage ;
@@ -114,7 +115,7 @@ bevon:DistilledBeverage a owl:Class ;
      """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Distilled_beverage> ;
   rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
+  vs:term_status "testing"@en .
 
 bevon:MixedDrink a owl:Class ;
   rdfs:subClassOf bevon:Beverage , pto:Mixed_drink ;
@@ -162,7 +163,7 @@ bevon:Beer a owl:Class ;
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Beer> ;
   rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
+  vs:term_status "testing"@en .
 
 bevon:Ale a owl:Class ;
   rdfs:subClassOf bevon:Beer , pto:Ale ;
@@ -519,6 +520,15 @@ bevon:FermentationBase a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:Aging a owl:Class ;
+  skos:prefLabel "Aging"@en , "숙성"@ko ;
+  rdfs:comment """
+    Aging is the process of storing beverages in casks for a specific period of time
+    to remove harsh flavors and add distinct characteristics found in the cask's wood.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:Container a owl:Class ;
   rdfs:subClassOf yago:Containers ;
   skos:prefLabel "Container"@en , "용기"@ko ;
@@ -551,7 +561,7 @@ bevon:name a owl:DatatypeProperty ;
     This property indicates the name of the beverage.
     """@en ;
   rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
+  vs:term_status "testing"@en .
 
 bevon:description a owl:DatatypeProperty ;
   rdfs:subPropertyOf dcterms:description , gr:description ;
@@ -562,7 +572,7 @@ bevon:description a owl:DatatypeProperty ;
     This property specifies the short text description of the beverage.
     """@en ;
   rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
+  vs:term_status "testing"@en .
 
 bevon:origin a owl:ObjectProperty ;
   rdfs:domain bevon:Beverage ;
@@ -615,7 +625,7 @@ bevon:abv a owl:DatatypeProperty ;
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Alcohol_by_volume> ;
   rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
+  vs:term_status "testing"@en .
 
 bevon:container a owl:ObjectProperty ;
   rdfs:domain bevon:Beverage ;
@@ -682,6 +692,16 @@ bevon:fermentation_base a owl:ObjectProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:aging a owl:ObjectProperty ;
+  rdfs:domain bevon:AlcoholicBeverage ;
+  rdfs:range bevon:Aging ;
+  skos:prefLabel "aging"@en , "숙성"@ko ;
+  rdfs:comment """
+    This property specifies how the beverage has been aged.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:non_alcoholic_version a owl:ObjectProperty ;
   rdfs:subPropertyOf bevon:related ;
   rdfs:domain bevon:AlcoholicBeverage ;
@@ -715,6 +735,36 @@ bevon:ibu a owl:DatatypeProperty ;
     bitterness of beer, which is provided by the hops used during brewing.
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/International_Bitterness_Units_scale> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:material a owl:ObjectProperty ;
+  rdfs:domain bevon:Aging ;
+  skos:prefLabel "material"@en , "소재"@ko ;
+  rdfs:comment """
+    This property specifies what the aging cask was made of.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:previous_content a owl:ObjectProperty ;
+  rdfs:domain bevon:Aging ;
+  rdfs:range food:PotableLiquid ;
+  skos:prefLabel "previous content"@en , "이전 내용물"@ko ;
+  rdfs:comment """
+    This property specifies what as in the cask before the aging.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:duration a owl:ObjectProperty ;
+  rdfs:subPropertyOf time:hasDurationDescription ;
+  rdfs:domain bevon:Aging ;
+  rdfs:range time:DurationDescription ;
+  skos:prefLabel "duration"@en , "기간"@ko ;
+  rdfs:comment """
+    This property describes how long the beverage was aged in the cask.
+    """@en ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
