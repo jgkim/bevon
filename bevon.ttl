@@ -463,6 +463,51 @@ bevon:ScotchWhisky a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:MaltWhisky a owl:Class ;
+  rdfs:subClassOf bevon:Whisky , pto:Malt_whisky ;
+  skos:prefLabel "Malt Whisky"@en , "몰트 위스키"@ko ;
+  rdfs:comment """
+    Malt whisky is whisky that is made from a fermented mash produced primarily from a malted grain.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Malt_whisky> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:SingleMaltWhisky a owl:Class ;
+  rdfs:subClassOf bevon:MaltWhisky , pto:Single_malt_whisky ;
+  skos:prefLabel "Single Malt Whisky"@en , "싱글 몰트 위스키"@ko ;
+  rdfs:comment """
+    Single malt whisky is a whisky made at one particular distillery from a mash
+    that uses only malted grain, ordinarily barley.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Single_malt_whisky> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:SingleMaltScotch a owl:Class ;
+  rdfs:subClassOf bevon:SingleMaltWhisky , bevon:ScotchWhisky , pto:Single_malt_Scotch ;
+  skos:prefLabel "Single Malt Scotch"@en , "싱글 몰트 스카치"@ko ;
+  rdfs:comment """
+    Single Malt Scotch is single malt whisky made in Scotland using a pot still distillation process
+    at a single distillery, with malted barley as the only grain ingredient. As with any Scotch whisky,
+    a single malt Scotch must be distilled in Scotland and matured in oak casks in Scotland for at least
+    three years (most single malts are matured longer).
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Single_malt_Scotch> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:SpeysideSingleMalt a owl:Class ;
+  rdfs:subClassOf bevon:SingleMaltScotch , pto:Speyside_single_malts ;
+  skos:prefLabel "Speyside Single Malt"@en , "스페이사이드 싱글 몰트"@ko ;
+  rdfs:comment """
+    Speyside single malts are single malt Scotch whiskies, distilled in Strathspey,
+    the area around the River Spey in Moray and Badenoch and Strathspey, in northeastern Scotland.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Speyside_single_malts> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:Liqueur a owl:Class ;
   rdfs:subClassOf bevon:DistilledBeverage , pto:Liqueur ;
   skos:prefLabel "Liqueur"@en , "리큐어"@ko ;
@@ -823,6 +868,15 @@ bevon:440mlBeverageCan a bevon:Container ;
   ] ;
   dbpedia:variantOf <http://dbpedia.org/resource/Beverage_can> .
 
+bevon:700mlGlassBottle a bevon:Container ;
+  skos:prefLabel "700ml Glass Bottle"@en , "700ml 유리병"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "700"^^xsd:int
+  ] ;
+  dbpedia:variantOf <http://dbpedia.org/resource/Glass_bottle> .
+
 bevon:330mlLongneck a bevon:Container ;
   owl:sameAs <http://dbpedia.org/resource/Long-necked_bottle> ;
   skos:prefLabel "330ml Longneck Bottle"@en , "330ml 긴목 맥주병"@ko ;
@@ -876,6 +930,50 @@ bevon:50lBeerKeg a bevon:Container ;
   dbpedia:variantOf bevon:BeerKeg .
 
 # Beverage Individuals ########################################################
+
+bevon:Glenfiddich12YearOld a bevon:SpeysideSingleMalt , gr:ProductOrServiceModel ;
+  bevon:name "Glenfiddich 12 Year Old"@en , "글렌피딕 12년"@ko ;
+  bevon:description """
+    Carefully matured in the finest American bourbon and Spanish sherry oak casks
+    for at least 12 years. Married and mellowed in oak marrying tuns for complete
+    harmony of aroma and flavour.
+
+    A single malt Scotch whisky with distinctive fresh pear, creamy
+    with subtle oak flavours and a long smooth and mellow finish.
+    """@en ;
+  bevon:origin <http://dbpedia.org/resource/Strathspey,_Scotland> ;
+  bevon:launch "1887"^^xsd:gYear ;
+  bevon:distillery [
+    a bevon:Distillery ;
+    owl:sameAs <<http://dbpedia.org/resource/Glenfiddich_distillery> ;
+    whisky:region <http://dbpedia.org/resource/Strathspey,_Scotland> ;
+    whisky:owner <http://dbpedia.org/resource/William_Grant_%26_Sons> ;
+    whisky:waterSource [
+      a whisky:WaterSource ;
+      dcterms:title "Robbie Dhu Springs"@en , "로비 듀 수원지"@ko
+    ]
+  ] ;
+  bevon:manufacturer <http://dbpedia.org/resource/William_Grant_%26_Sons> ;
+  bevon:fermentation_base <http://dbpedia.org/resource/Barley> ;
+  bevon:aging [
+    a bevon:Aging ;
+    bevon:material <http://dbpedia.org/resource/Oak> ;
+    bevon:previous_content
+      <http://dbpedia.org/resource/Bourbon_whiskey> ,
+      <http://dbpedia.org/resource/Sherry> ;
+    bevon:duration [
+      a time:DurationDescription ;
+      time:years "12"^^xsd:decimal
+    ]
+  ] ;
+  bevon:color [
+    a dbpedia:Colour ;
+    owl:sameAs <http://dbpedia.org/resource/Gold_(color)> ;
+    owl:sameAs <http://purl.org/colors/rgb/FFD700> ;
+    dcterms:title "Golden"@en
+  ] ;
+  bevon:abv "40"^^xsd:decimal ;
+  bevon:container bevon:700mlGlassBottle .
 
 bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
   owl:sameAs <http://dbpedia.org/resource/Guinness> ;
