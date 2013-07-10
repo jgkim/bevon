@@ -701,7 +701,7 @@ bevon:related a owl:ObjectProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
-bevon:variant a owl:TransitiveProperty ;
+bevon:variant a owl:ObjectProperty ;
   rdfs:subPropertyOf bevon:related ;
   owl:inverseOf bevon:variantOf ;
   rdfs:domain bevon:Beverage ;
@@ -713,7 +713,7 @@ bevon:variant a owl:TransitiveProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
-bevon:variantOf a owl:TransitiveProperty ;
+bevon:variantOf a owl:ObjectProperty ;
   rdfs:subPropertyOf bevon:related , dbpedia:variantOf , gr:isVariantOf ;
   owl:inverseOf bevon:variant ;
   rdfs:domain bevon:Beverage ;
