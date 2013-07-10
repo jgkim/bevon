@@ -539,6 +539,15 @@ bevon:Container a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:Distillery a owl:Class ;
+  skos:prefLabel "Distillery"@en , "증류소"@ko ;
+  rdfs:comment """
+    A distillery is a premise where distillation takes place, especially distillation of alcohol.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Distillation> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:Brewery a owl:Class ;
   skos:prefLabel "Brewery"@en , "양조장"@ko ;
   rdfs:comment """
@@ -714,6 +723,17 @@ bevon:non_alcoholic_version a owl:ObjectProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:distillery a owl:ObjectProperty ;
+  rdfs:domain bevon:DistilledBeverage ;
+  rdfs:range bevon:Distillery ;
+  skos:prefLabel "Distillery"@en , "증류소"@ko ;
+  rdfs:comment """
+    This property relates a distilled beverage to its distillery.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Distillation> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:brewery a owl:ObjectProperty ;
   rdfs:domain bevon:Beer ;
   rdfs:range bevon:Brewery ;
@@ -781,6 +801,7 @@ bevon:volume a owl:DatatypeProperty ;
 # Mappings ####################################################################
 
 whisky:abv rdfs:subPropertyOf bevon:abv .
+whisky:distillery rdfs:subPropertyOf bevon:distillery .
 
 # Container Individuals #######################################################
 
