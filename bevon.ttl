@@ -28,8 +28,8 @@
 @prefix yago: <http://dbpedia.org/class/yago/> .
 @prefix wine: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#> .
 @prefix whisky: <http://purl.org/vocab/whisky/terms/> .
-@prefix vocab: <http://vocab.jayg.org/> .
-@prefix bevon: <http://vocab.jayg.org/bevon#> .
+@prefix vocab: <http://rdfs.co/> .
+@prefix bevon: <http://rdfs.co/bevon/> .
 
 # Ontology #####################################################################
 
@@ -46,7 +46,7 @@ vocab:bevon a owl:Ontology , adms:SemanticAsset ;
     foaf:mbox_sha1sum "a637717b7e34b83694018e8fdd3ff334fffcd4f3" ;
     foaf:homepage <http://jayg.org/>
   ] ;
-  vann:preferredNamespaceUri "http://vocab.jayg.org/bevon#" ;
+  vann:preferredNamespaceUri "http://rdfs.co/bevon/" ;
   vann:preferredNamespacePrefix "bevon" ;
   dcterms:type <http://purl.org/adms/assettype/Ontology> ;
   adms:status <http://purl.org/adms/status/UnderDevelopment> ;
@@ -65,16 +65,6 @@ bevon:Beverage a owl:Class ;
     for human consumption.
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Beverage> ;
-  rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
-
-bevon:Container a owl:Class ;
-  rdfs:subClassOf yago:Containers ;
-  skos:prefLabel "Container"@en , "용기"@ko ;
-  rdfs:comment """
-    A container is a item used to contain, store, and transport a beverage.
-    """@en ;
-  rdfs:seeAlso <http://en.wikipedia.org/wiki/Container> ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
@@ -521,6 +511,16 @@ bevon:Shandy a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:Container a owl:Class ;
+  rdfs:subClassOf yago:Containers ;
+  skos:prefLabel "Container"@en , "용기"@ko ;
+  rdfs:comment """
+    A container is a item used to contain, store, and transport a beverage.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Container> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 # Properties ##################################################################
 
 bevon:name a owl:DatatypeProperty ;
@@ -576,6 +576,16 @@ bevon:manufacturer a owl:ObjectProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:color a owl:DatatypeProperty ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range dbpedia:Colour ;
+  skos:prefLabel "color"@en , "색상"@ko ;
+  rdfs:comment """
+    This property specifies the color of the beverage.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:abv a owl:DatatypeProperty ;
   rdfs:domain bevon:Beverage ;
   rdfs:range xsd:decimal ;
@@ -601,29 +611,29 @@ bevon:ibu a owl:DatatypeProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
-bevon:volume a owl:DatatypeProperty ;
-  rdfs:subPropertyOf gr:quantitativeProductOrServiceProperty ;
-  rdfs:domain bevon:Beverage ;
-  rdfs:range gr:QuantitativeValue ;
-  skos:prefLabel "volume"@en , "용량"@ko ;
-  rdfs:comment """
-    This property specifies the volume of the beverage.
-    """@en ;
-  rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
-
 bevon:container a owl:ObjectProperty ;
   rdfs:domain bevon:Beverage ;
   rdfs:range bevon:Container ;
   skos:prefLabel "container"@en , "용기"@ko ;
   rdfs:comment """
-    This property can be used to indicate the type of beverage container.
+    This property can be used to indicate that the beverage is available in a type of container.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:related a owl:ObjectProperty ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range bevon:Beverage ;
+  rdfs:prefLabel "related"@en , "연관"@ko ;
+  rdfs:comment """
+    This property states that a beverage is related to another beverage.
     """@en ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
 bevon:variant a owl:TransitiveProperty ;
-  owl:inverseOf bevon:base ;
+  rdfs:subPropertyOf bevon:related ;
+  owl:inverseOf bevon:variantOf ;
   rdfs:domain bevon:Beverage ;
   rdfs:range bevon:Beverage ;
   rdfs:prefLabel "variant"@en , "변형"@ko ;
@@ -633,20 +643,31 @@ bevon:variant a owl:TransitiveProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
-bevon:base a owl:TransitiveProperty ;
+bevon:variantOf a owl:TransitiveProperty ;
+  rdfs:subPropertyOf bevon:related , dbpedia:variantOf , gr:isVariantOf ;
   owl:inverseOf bevon:variant ;
-  rdfs:subPropertyOf gr:isVariantOf ;
   rdfs:domain bevon:Beverage ;
   rdfs:range bevon:Beverage ;
-  rdfs:prefLabel "base"@en , "바탕"@ko ;
+  rdfs:prefLabel "variant of"@en , "바탕"@ko ;
   rdfs:comment """
-    This property states that a beverage is a variant of another.
+    This property states that a beverage is a variant of another beverage.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:similar a owl:SymmetricProperty ;
+  rdfs:subPropertyOf bevon:related , gr:isSimilarTo ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range bevon:Beverage ;
+  rdfs:prefLabel "similar"@en , "유사"@ko ;
+  rdfs:comment """
+    This property states that a beverage is similar to another beverage.
     """@en ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
 bevon:non_alcoholic_version a owl:ObjectProperty ;
-  rdfs:subPropertyOf bevon:variant ;
+  rdfs:subPropertyOf bevon:related ;
   rdfs:domain bevon:AlcoholicBeverage ;
   rdfs:range bevon:NonAlcoholicBeverage ;
   skos:prefLabel "non-alcoholic version"@en , "비알콜 버전"@ko ;
@@ -657,15 +678,95 @@ bevon:non_alcoholic_version a owl:ObjectProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:volume a owl:DatatypeProperty ;
+  rdfs:domain bevon:Container ;
+  rdfs:range gr:QuantitativeValue ;
+  skos:prefLabel "volume"@en , "용량"@ko ;
+  rdfs:comment """
+    This property specifies the volume of the container.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 # Mappings ####################################################################
 
 whisky:abv rdfs:subPropertyOf bevon:abv .
 
 # Indivuduals #################################################################
 
+bevon:330mlBeverageCan a bevon:Container ;
+  skos:prefLabel "330ml Beverage Can"@en , "330ml 음료 캔"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "330"^^xsd:int
+  ] ;
+  dbpedia:variantOf <http://dbpedia.org/resource/Beverage_can> .
+
+bevon:440mlBeverageCan a bevon:Container ;
+  skos:prefLabel "440ml Beverage Can"@en , "440ml 음료 캔"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "440"^^xsd:int
+  ] ;
+  dbpedia:variantOf <http://dbpedia.org/resource/Beverage_can> .
+
+bevon:330mlLongneck a bevon:Container ;
+  owl:sameAs <http://dbpedia.org/resource/Long-necked_bottle> ;
+  skos:prefLabel "330ml Longneck Bottle"@en , "330ml 긴목 맥주병"@ko ;
+  skos:altLabel ""
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "330"^^xsd:int
+  ] ;
+  dbpedia:variantOf <http://dbpedia.org/resource/Beer_bottle> .
+
+bevon:BeerKeg a bevon:Container ;
+  owl:sameAs <http://dbpedia.org/resource/Beer_keg> ;
+  skos:prefLabel "Beer Keg"@en , "맥주 케그"@ko ;
+  dbpedia:variantOf <http://dbpedia.org/resource/Keg> .
+
+bevon:15lBeerKeg a bevon:Container ;
+  skos:prefLabel "15l Beer Keg"@en , "15l 맥주 케그"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
+    gr:hasValue "15"^^xsd:int
+  ] ;
+  dbpedia:variantOf bevon:BeerKeg .
+
+bevon:25lBeerKeg a bevon:Container ;
+  skos:prefLabel "25l Beer Keg"@en , "25l 맥주 케그"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
+    gr:hasValue "25"^^xsd:int
+  ] ;
+  dbpedia:variantOf bevon:BeerKeg .
+
+bevon:30lBeerKeg a bevon:Container ;
+  skos:prefLabel "30l Beer Keg"@en , "30l 맥주 케그"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
+    gr:hasValue "30"^^xsd:int
+  ] ;
+  dbpedia:variantOf bevon:BeerKeg .
+
+bevon:50lBeerKeg a bevon:Container ;
+  skos:prefLabel "50l Beer Keg"@en , "50l 맥주 케그"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
+    gr:hasValue "50"^^xsd:int
+  ] ;
+  dbpedia:variantOf bevon:BeerKeg .
+
 bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
   owl:sameAs <http://dbpedia.org/resource/Guinness> ;
-  bevon:name "Guinness"@en , "기네스"@ko ;
+  bevon:name "Guinness Draught"@en , "기네스 드래프트"@ko ;
   bevon:description """
     Guinness is a popular Irish dry stout that originated in the brewery of
     Arthur Guinness (1725–1803) at St. James's Gate, Dublin. Guinness is one
@@ -674,20 +775,14 @@ bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
   bevon:origin <http://dbpedia.org/resource/Dublin> ;
   bevon:launch "1759"^^xsd:gYear ;
   bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
-  bevon:variant bevon:GuinnessDraught ;
-  rdfs:seeAlso <http://en.wikipedia.org/wiki/Guinness> .
-
-bevon:GuinnessDraught a bevon:DryStout , gr:ProductOrServiceModel ;
-  bevon:base bevon:Guinness ;
-  bevon:name "Guinness Draught"@en , "기네스 드래프트"@ko ;
   bevon:abv "4.2"^^xsd:decimal ;
   bevon:ibu "40"^^xsd:nonNegativeInteger ;
-  bevon:variant bevon:GuinnessDraughtKeg .
-
-bevon:GuinnessDraughtKeg a bevon:DryStout , gr:ProductOrServiceModel ;
-  bevon:base bevon:GuinnessDraught ;
-  bevon:name "Guinness Draught Keg"@en , "기네스 드래프트 케그"@ko ;
-  bevon:container <http://dbpedia.org/resource/Keg> .
+  bevon:container
+    bevon:15lBeerKeg ,
+    bevon:30lBeerKeg ,
+    bevon:330mlBeverageCan ,
+    bevon:330mlLongneck ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Guinness> .
 
 bevon:Kilkenny a bevon:IrishRedAle , gr:ProductOrServiceModel ;
   owl:sameAs <http://dbpedia.org/resource/Kilkenny_(beer)> ;
@@ -703,15 +798,33 @@ bevon:Kilkenny a bevon:IrishRedAle , gr:ProductOrServiceModel ;
   bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
   bevon:abv "4.3"^^xsd:decimal ;
   bevon:ibu "29"^^xsd:nonNegativeInteger ;
-  bevon:variant bevon:Kilkenny440mlCan ;
+  bevon:container
+    bevon:30lBeerKeg ,
+    bevon:440mlBeverageCan ;
+  bevon:similar bevon:Smithwicks ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Kilkenny_(beer)> .
 
-bevon:Kilkenny440mlCan a bevon:IrishRedAle , gr:ProductOrServiceModel ;
-  bevon:base bevon:Kilkenny ;
-  bevon:name "Kilkenny Irish Cream Ale 440ml Can"@en , "킬케니 아이리쉬 크림 에일 440ml 캔"@ko ;
-  bevon:volume [
-    a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
-    gr:hasValue "440"^^xsd:int
+bevon:Smithwicks a bevon:IrishRedAle , gr:ProductOrServiceModel ;
+  owl:sameAs <http://dbpedia.org/resource/Smithwick%27s> ;
+  bevon:name "Smithwick's Superior Irish Ale"@en , "스미딕스 슈페리어 아이리쉬 에일"@ko ;
+  bevon:description """
+    Smithwick's is an Irish red ale style beer from Kilkenny, Ireland. It is a clear beer
+    with a rich ruby colour and creamy head.
+    """@en ;
+  bevon:origin <http://dbpedia.org/resource/Kilkenny> ;
+  bevon:launch "1710"^^xsd:gYear ;
+  bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
+  bevon:color [
+    a dbpedia:Colour ;
+    owl:sameAs <http://dbpedia.org/resource/Ruby_(color)__Ruby_Red__1> ;
+    owl:sameAs <http://purl.org/colors/rgb/9B111E> ;
+    dcterms:title "Ruby Red"@en
   ] ;
-  bevon:container <http://dbpedia.org/resource/Beverage_can> .
+  bevon:abv "3.8"^^xsd:decimal ;
+  bevon:ibu "20"&&xsd:nonNegativeInteger ;
+  bevon:container
+    bevon:30lBeerKeg ,
+    bevon:440mlBeverageCan ,
+    bevon:330mlLongneck ;
+  bevon:similar bevon:Kilkenny ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Smithwick%27s> .
