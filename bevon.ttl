@@ -511,6 +511,14 @@ bevon:Shandy a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:FermentationBase a owl:Class ;
+  skos:prefLabel "Fermentation Base"@en , "발효 주재료"@ko ;
+  rdfs:comment """
+    A fruit or grain which provides the sugar for fermentation from which a alcoholic beverage is made.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:Container a owl:Class ;
   rdfs:subClassOf yago:Containers ;
   skos:prefLabel "Container"@en , "용기"@ko ;
@@ -518,6 +526,17 @@ bevon:Container a owl:Class ;
     A container is a item used to contain, store, and transport a beverage.
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Container> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Brewery a owl:Class ;
+  skos:prefLabel "Brewery"@en , "양조장"@ko ;
+  rdfs:comment """
+    A brewery is a dedicated building for the making of beer, though beer can be made at home,
+    and has been for much of beer's history. A company that makes beer is called either
+    a brewery or a brewing company.
+    """@en ;
+  rdfs:seeAlso <http://dbpedia.org/resource/Brewery> ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
@@ -598,19 +617,6 @@ bevon:abv a owl:DatatypeProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
-bevon:ibu a owl:DatatypeProperty ;
-  rdfs:domain bevon:Beer ;
-  rdfs:range xsd:nonNegativeInteger ;
-  skos:prefLabel "IBU scale"@en , "IBU 척도"@ko ;
-  skos:altLabel "International Bitterness Unit scale"@en ;
-  rdfs:comment """
-    The International Bittering Units scale, or simply IBU scale, provides a measure of the
-    bitterness of beer, which is provided by the hops used during brewing.
-    """@en ;
-  rdfs:seeAlso <http://en.wikipedia.org/wiki/International_Bitterness_Units_scale> ;
-  rdfs:isDefinedBy vocab:bevon ;
-  vs:term_status "unstable"@en .
-
 bevon:container a owl:ObjectProperty ;
   rdfs:domain bevon:Beverage ;
   rdfs:range bevon:Container ;
@@ -666,6 +672,16 @@ bevon:similar a owl:SymmetricProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:fermentation_base a owl:ObjectProperty ;
+  rdfs:domain bevon:AlcoholicBeverage ;
+  rdfs:range bevon:FermentationBase ;
+  skos:prefLabel "fermentation base"@en , "발효 주재료"@ko ;
+  rdfs:comment """
+    This property indicates which fermentation base is used to make the alcoholic beverage.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:non_alcoholic_version a owl:ObjectProperty ;
   rdfs:subPropertyOf bevon:related ;
   rdfs:domain bevon:AlcoholicBeverage ;
@@ -675,6 +691,30 @@ bevon:non_alcoholic_version a owl:ObjectProperty ;
     Some alcoholic beverages have non-alcoholic versions,
     such as non-alcoholic beer ("near beer") and cocktails ("mocktails").
     """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:brewery a owl:ObjectProperty ;
+  rdfs:domain bevon:Beer ;
+  rdfs:range bevon:Brewery ;
+  skos:prefLabel "Brewery"@en , "양조장"@ko ;
+  rdfs:comment """
+    This property relates a beer to its brewery.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Brewery> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:ibu a owl:DatatypeProperty ;
+  rdfs:domain bevon:Beer ;
+  rdfs:range xsd:nonNegativeInteger ;
+  skos:prefLabel "IBU scale"@en , "IBU 척도"@ko ;
+  skos:altLabel "International Bitterness Unit scale"@en ;
+  rdfs:comment """
+    The International Bittering Units scale, or simply IBU scale, provides a measure of the
+    bitterness of beer, which is provided by the hops used during brewing.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/International_Bitterness_Units_scale> ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
@@ -692,7 +732,7 @@ bevon:volume a owl:DatatypeProperty ;
 
 whisky:abv rdfs:subPropertyOf bevon:abv .
 
-# Indivuduals #################################################################
+# Container Individuals #######################################################
 
 bevon:330mlBeverageCan a bevon:Container ;
   skos:prefLabel "330ml Beverage Can"@en , "330ml 음료 캔"@ko ;
@@ -764,6 +804,8 @@ bevon:50lBeerKeg a bevon:Container ;
   ] ;
   dbpedia:variantOf bevon:BeerKeg .
 
+# Beverage Individuals ########################################################
+
 bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
   owl:sameAs <http://dbpedia.org/resource/Guinness> ;
   bevon:name "Guinness Draught"@en , "기네스 드래프트"@ko ;
@@ -775,6 +817,7 @@ bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
   bevon:origin <http://dbpedia.org/resource/Dublin> ;
   bevon:launch "1759"^^xsd:gYear ;
   bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
+  bevon:fermentation_base <http://dbpedia.org/resource/Barley> ;
   bevon:abv "4.2"^^xsd:decimal ;
   bevon:ibu "40"^^xsd:nonNegativeInteger ;
   bevon:container
@@ -796,6 +839,7 @@ bevon:Kilkenny a bevon:IrishRedAle , gr:ProductOrServiceModel ;
   bevon:origin <http://dbpedia.org/resource/Kilkenny> ;
   bevon:launch "1710"^^xsd:gYear ;
   bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
+  bevon:fermentation_base <http://dbpedia.org/resource/Barley> ;
   bevon:abv "4.3"^^xsd:decimal ;
   bevon:ibu "29"^^xsd:nonNegativeInteger ;
   bevon:container
@@ -814,6 +858,7 @@ bevon:Smithwicks a bevon:IrishRedAle , gr:ProductOrServiceModel ;
   bevon:origin <http://dbpedia.org/resource/Kilkenny> ;
   bevon:launch "1710"^^xsd:gYear ;
   bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
+  bevon:fermentation_base <http://dbpedia.org/resource/Barley> ;
   bevon:color [
     a dbpedia:Colour ;
     owl:sameAs <http://dbpedia.org/resource/Ruby_(color)__Ruby_Red__1> ;
