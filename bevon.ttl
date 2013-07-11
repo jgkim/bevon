@@ -354,6 +354,18 @@ bevon:Tequila a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:TequilaBlanco a owl:Class ;
+  rdfs:subClassOf bevon:Tequila ;
+  skos:prefLabel "Tequila Blanco"@en , "테킬라 블랑코"@ko ;
+  skos:altLabel "Tequila Plata"@en ;
+  rdfs:comment """
+    Tequila Blanco ("white") or Plata ("silver") is a white spirit, un-aged and bottled
+    or stored immediately after distillation, or aged less than two months in stainless steel
+    or neutral oak barrels.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:Vodka a owl:Class ;
   rdfs:subClassOf bevon:DistilledBeverage , pto:Vodka ;
   skos:prefLabel "Vodka"@en , "водка"@ru , "Wódka"@pl , "보드카"@ko ;
@@ -681,6 +693,21 @@ bevon:abv a owl:DatatypeProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "testing"@en .
 
+bevon:proof a owl:DatatypeProperty ;
+  rdfs:domain bevon:Beverage ;
+  rdfs:range xsd:decimal ;
+  skos:prefLabel "proof"@en , "알콜 함량"@ko ;
+  skos:altLabel "alcohol proof"@en ;
+  rdfs:comment """
+    Alcohol proof is a measure of how much alcohol (ethanol) is contained in an alcoholic beverage.
+    The term was originally used in the United Kingdom and was defined as 7/4 times the alcohol
+    by volume (ABV). The UK now uses the ABV standard instead of alcohol proof. In the United States,
+    alcoholic proof is defined as twice the percentage of ABV.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Alcohol_proof> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:container a owl:ObjectProperty ;
   rdfs:domain bevon:Beverage ;
   rdfs:range bevon:Container ;
@@ -870,10 +897,21 @@ bevon:440mlBeverageCan a bevon:Container ;
 
 bevon:700mlGlassBottle a bevon:Container ;
   skos:prefLabel "700ml Glass Bottle"@en , "700ml 유리병"@ko ;
+  skos:altLabel "70cl Glass Bottle"@en ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "700"^^xsd:int
+  ] ;
+  dbpedia:variantOf <http://dbpedia.org/resource/Glass_bottle> .
+
+bevon:750mlGlassBottle a bevon:Container ;
+  skos:prefLabel "750ml Glass Bottle"@en , "750ml 유리병"@ko ;
+  skos:altLabel "75cl Glass Bottle"@en ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "750"^^xsd:int
   ] ;
   dbpedia:variantOf <http://dbpedia.org/resource/Glass_bottle> .
 
@@ -974,6 +1012,28 @@ bevon:Glenfiddich12YearOld a bevon:SpeysideSingleMalt , gr:ProductOrServiceModel
   ] ;
   bevon:abv "40"^^xsd:decimal ;
   bevon:container bevon:700mlGlassBottle .
+
+bevon:DonJulioBlanco a bevon:TequilaBlanco , gr:ProductOrServiceModel ;
+  bevon:name "Don Julio Blanco"@en , "돈 훌리오 블랑코"@ko ;
+  bevon:description """
+    Tequila Don Julio Blanco is the base from which all of our other variants are derived.
+    Commonly referred to as "silver" tequila, its crisp agave flavor and hints of citrus
+    make it an essential component to a variety of innovative drinks including margaritas.
+    It can also be enjoyed neat or on the rocks.
+    """@en ;
+  bevon:origin <http://dbpedia.org/resource/Mexico> ;
+  bevon:launch "1942"^^xsd:gYear ;
+  bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
+  bevon:fermentation_base <http://dbpedia.org/resource/Agave> ;
+  bevon:color [
+    a dbpedia:Colour ;
+    owl:sameAs <http://dbpedia.org/resource/Clear_(color)> ;
+    dcterms:title "Clear"@en
+  ] ;
+  bevon:proof "80"^^xsd:decimal ;
+  bevon:abv "40"^^xsd:decimal ;
+  bevon:container bevon:750mlGlassBottle ;
+  rdfs:seeAlso <http://www.donjulio.com/blanco.aspx> .
 
 bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
   owl:sameAs <http://dbpedia.org/resource/Guinness> ;
