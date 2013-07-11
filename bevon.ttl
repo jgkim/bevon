@@ -235,6 +235,39 @@ bevon:DryStout a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:Lager a owl:Class ;
+  rdfs:subClassOf bevon:Beer , pto:Lager ;
+  skos:prefLabel "Lager"@en , "라거"@ko ;
+  rdfs:comment """
+    Lager is a type of beer that is fermented and conditioned at low temperatures.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Lager> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:PaleLager a owl:Class ;
+  rdfs:subClassOf bevon:Lager , pto:Pale_lager ;
+  skos:prefLabel "Pale Lager"@en , "페일 라거"@ko ;
+  rdfs:comment """
+    Pale lager is a very pale to golden-coloured beer with a well attenuated body and
+    a varying degree of noble hop bitterness.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Pale_lager> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Pilsner a owl:Class ;
+  rdfs:subClassOf bevon:PaleLager , pto:Pilsner ;
+  skos:prefLabel "Pilsner"@en , "필스너"@ko ;
+  skos:altLabel "Pilsener"@en , "Pils"@en ;
+  rdfs:comment """
+    Pilsner (also pilsener or simply pils) is a type of pale lager. It took its name from
+    the city of Pilsen (Plzeň, Bohemia, Czech Republic, where it was first produced in 1842).
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Pilsner> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:NonAlcoholicBeer a owl:Class ;
   rdfs:subClassOf bevon:NonAlcoholicBeverage , pto:Low-alcohol_beer ;
   owl:disjointWith bevon:Beer ;
@@ -886,12 +919,30 @@ bevon:330mlBeverageCan a bevon:Container ;
   ] ;
   dbpedia:variantOf <http://dbpedia.org/resource/Beverage_can> .
 
+bevon:355mlBeverageCan a bevon:Container ;
+  skos:prefLabel "355ml Beverage Can"@en , "355ml 음료 캔"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "355"^^xsd:int
+  ] ;
+  dbpedia:variantOf <http://dbpedia.org/resource/Beverage_can> .
+
 bevon:440mlBeverageCan a bevon:Container ;
   skos:prefLabel "440ml Beverage Can"@en , "440ml 음료 캔"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "440"^^xsd:int
+  ] ;
+  dbpedia:variantOf <http://dbpedia.org/resource/Beverage_can> .
+
+bevon:500mlBeverageCan a bevon:Container ;
+  skos:prefLabel "500ml Beverage Can"@en , "500ml 음료 캔"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "500"^^xsd:int
   ] ;
   dbpedia:variantOf <http://dbpedia.org/resource/Beverage_can> .
 
@@ -923,6 +974,17 @@ bevon:330mlLongneck a bevon:Container ;
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "330"^^xsd:int
+  ] ;
+  dbpedia:variantOf <http://dbpedia.org/resource/Beer_bottle> .
+
+bevon:640mlLongneck a bevon:Container ;
+  owl:sameAs <http://dbpedia.org/resource/Long-necked_bottle> ;
+  skos:prefLabel "640ml Longneck Bottle"@en , "640ml 긴목 맥주병"@ko ;
+  skos:altLabel ""
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "640"^^xsd:int
   ] ;
   dbpedia:variantOf <http://dbpedia.org/resource/Beer_bottle> .
 
@@ -1034,6 +1096,24 @@ bevon:DonJulioBlanco a bevon:TequilaBlanco , gr:ProductOrServiceModel ;
   bevon:abv "40"^^xsd:decimal ;
   bevon:container bevon:750mlGlassBottle ;
   rdfs:seeAlso <http://www.donjulio.com/blanco.aspx> .
+
+bevon:Tsingtao a bevon:Pilsner , gr:ProductOrServiceModel ;
+  bevon:name "Tsingtao Lager"@en , "칭타오 라거"@ko ;
+  bevon:description """
+    Tsingtao Lager, a well-hopped standard pilsner of 4.7% alcohol, is the flagship brew,
+    accounting for most of the brewery's production.
+    """@en ;
+  bevon:origin <http://dbpedia.org/resource/Qingdao> ;
+  bevon:launch "1904"^^xsd:gYear ;
+  bevon:manufacturer <http://dbpedia.org/resource/Tsingtao_Brewery> ;
+  bevon:brewery <http://dbpedia.org/resource/Tsingtao_Brewery> ;
+  bevon:fermentation_base <http://dbpedia.org/resource/Barley> ;
+  bevon:abv "4.7"^^xsd:decimal ;
+  bevon:container
+    bevon:355mlBeverageCan ,
+    bevon:500mlBeverageCan ,
+    bevon:330mlLongneck ,
+    bevon:640mlLongneck .
 
 bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
   owl:sameAs <http://dbpedia.org/resource/Guinness> ;
