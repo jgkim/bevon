@@ -252,6 +252,19 @@ bevon:Lager a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:Dunkel a owl:Class ;
+  rdfs:subClassOf bevon:Lager , pto:Dunkel ;
+  skos:prefLabel "Dunkel"@en , "둔켈"@ko ;
+  skos:altLabel "Dunkles"@en ;
+  rdfs:comment """
+    Dunkel, or Dunkles, is a word used for several types of dark German lager. Dunkel is
+    the German word meaning dark, and dunkel beers typically range in colour from amber
+    to dark reddish brown. They are characterized by their smooth malty flavour.
+    """@en ;
+  rdfs:seeAlso <https://en.wikipedia.org/wiki/Dunkel> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:PaleLager a owl:Class ;
   rdfs:subClassOf bevon:Lager , pto:Pale_lager ;
   skos:prefLabel "Pale Lager"@en , "페일 라거"@ko ;
@@ -997,6 +1010,17 @@ bevon:330mlLongneck a bevon:Container ;
   ] ;
   dbpedia:variantOf <http://dbpedia.org/resource/Beer_bottle> .
 
+bevon:500mlLongneck a bevon:Container ;
+  owl:sameAs <http://dbpedia.org/resource/Long-necked_bottle> ;
+  skos:prefLabel "500ml Longneck Bottle"@en , "500ml 긴목 맥주병"@ko ;
+  skos:altLabel ""
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "500"^^xsd:int
+  ] ;
+  dbpedia:variantOf <http://dbpedia.org/resource/Beer_bottle> .
+
 bevon:640mlLongneck a bevon:Container ;
   owl:sameAs <http://dbpedia.org/resource/Long-necked_bottle> ;
   skos:prefLabel "640ml Longneck Bottle"@en , "640ml 긴목 맥주병"@ko ;
@@ -1156,6 +1180,21 @@ bevon:Tsingtao a bevon:Pilsner , gr:ProductOrServiceModel ;
     bevon:500mlBeverageCan ,
     bevon:330mlLongneck ,
     bevon:640mlLongneck .
+
+bevon:KozelDark a bevon:Dunkel , gr:ProductOrServiceModel ;
+  bevon:name "Velkopopovický Kozel Dark"@en, "Velkopopovický Kozel Černý"@cs, "코젤 다크"@ko ;
+  bevon:description """
+    Velkopopovický Kozel Dark beer is brewed to the original recipe using a special mix
+    of dark malts, clean water from our own well close to the brewery, and a selection of
+    the best hops. The caramelized malt gives this beer a unique ruby color and sweet flavor,
+    thanks to which it is appreciated and respected all over the world.
+    """@en ;
+  bevon:origin <http://dbpedia.org/resource/Velké_Popovice> ;
+  bevon:launch "1874"^^xsd:gYear ;
+  bevon:manufacturer <http://dbpedia.org/resource/SABMiller> ;
+  bevon:fermentation_base <http://dbpedia.org/resource/Barley> ;
+  bevon:abv "3.8"^^xsd:decimal ;
+  bevon:container bevon:500mlLongneck .
 
 bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
   owl:sameAs <http://dbpedia.org/resource/Guinness> ;
