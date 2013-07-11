@@ -1,5 +1,5 @@
 #
-#  Copyright © 2013 James G. Kim All Rights Reserved.
+#  Copyright © 2013 James G. Kim Some Rights Reserved.
 #
 #  This work is licensed under the Creative Commons Attribution 3.0 Unported License.
 #  To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/
@@ -10,6 +10,13 @@
 #  documentation in RDF or Turtle; it does not apply to data formats, ontology terms,
 #  or technology. Regarding underlying technology, Beverage Ontology relies heavily on
 #  W3C's RDF technology, an open Web standard that can be freely used by anyone.
+#
+#  This ontology was first initiated at the 2nd Linked Data Party, which was held at
+#  the National Library of Korea on July 5th, 2013. For more information about the
+#  event, visit http://dakchigo.kr/events/part2/.
+#
+#  Most of the descriptions given here are from Wikipedia or from the websites of the
+#  related products.
 #
 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -863,6 +870,19 @@ bevon:ibu a owl:DatatypeProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:srm a owl:DatatypeProperty ;
+  rdfs:domain bevon:Beer ;
+  rdfs:range xsd:nonNegativeInteger ;
+  skos:prefLabel "SRM"@en ;
+  skos:altLabel "Standard Reference Method"@en ;
+  rdfs:comment """
+    The Standard Reference Method or SRM is one of several systems modern brewers use
+    to specify beer color.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Standard_Reference_Method> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:material a owl:ObjectProperty ;
   rdfs:domain bevon:Aging ;
   skos:prefLabel "material"@en , "소재"@ko ;
@@ -1097,6 +1117,26 @@ bevon:DonJulioBlanco a bevon:TequilaBlanco , gr:ProductOrServiceModel ;
   bevon:container bevon:750mlGlassBottle ;
   rdfs:seeAlso <http://www.donjulio.com/blanco.aspx> .
 
+bevon:Budweiser a bevon:PaleLager , gr:ProductOrServiceModel ;
+  bevon:name "Budweiser"@en , "버드와이저"@ko ;
+  bevon:description """
+    Budweiser is a pale lager produced by Anheuser–Busch InBev. Introduced in 1876
+    by Adolphus Busch it has grown to become one of the highest selling beers in the
+    United States, and is available in over 80 markets worldwide.
+    """@en ;
+  bevon:origin <http://dbpedia.org/resource/United_States> ;
+  bevon:launch "1876"^^xsd:gYear ;
+  bevon:manufacturer <http://dbpedia.org/resource/Anheuser–Busch_InBev> ;
+  bevon:fermentation_base <http://dbpedia.org/resource/Barley> ;
+  bevon:abv "5"^^xsd:decimal ;
+  bevon:ibu "12"^^xsd:nonNegativeInteger ;
+  bevon:srm "3"^^xsd:nonNegativeInteger ;
+  bevon:container
+    bevon:355mlBeverageCan ,
+    bevon:500mlBeverageCan ,
+    bevon:330mlLongneck ;
+  rdfs:seeAlso <https://en.wikipedia.org/wiki/Budweiser_(Anheuser-Busch)> .
+
 bevon:Tsingtao a bevon:Pilsner , gr:ProductOrServiceModel ;
   bevon:name "Tsingtao Lager"@en , "칭타오 라거"@ko ;
   bevon:description """
@@ -1109,6 +1149,8 @@ bevon:Tsingtao a bevon:Pilsner , gr:ProductOrServiceModel ;
   bevon:brewery <http://dbpedia.org/resource/Tsingtao_Brewery> ;
   bevon:fermentation_base <http://dbpedia.org/resource/Barley> ;
   bevon:abv "4.7"^^xsd:decimal ;
+  bevon:ibu "20"^^xsd:nonNegativeInteger ;
+  bevon:srm "4"^^xsd:nonNegativeInteger ;
   bevon:container
     bevon:355mlBeverageCan ,
     bevon:500mlBeverageCan ,
@@ -1128,7 +1170,8 @@ bevon:Guinness a bevon:DryStout , gr:ProductOrServiceModel ;
   bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
   bevon:fermentation_base <http://dbpedia.org/resource/Barley> ;
   bevon:abv "4.2"^^xsd:decimal ;
-  bevon:ibu "40"^^xsd:nonNegativeInteger ;
+  bevon:ibu "37"^^xsd:nonNegativeInteger ;
+  bevon:srm "32"^^xsd:nonNegativeInteger ;
   bevon:container
     bevon:15lBeerKeg ,
     bevon:30lBeerKeg ,
@@ -1150,7 +1193,8 @@ bevon:Kilkenny a bevon:IrishRedAle , gr:ProductOrServiceModel ;
   bevon:manufacturer <http://dbpedia.org/resource/Diageo> ;
   bevon:fermentation_base <http://dbpedia.org/resource/Barley> ;
   bevon:abv "4.3"^^xsd:decimal ;
-  bevon:ibu "29"^^xsd:nonNegativeInteger ;
+  bevon:ibu "23"^^xsd:nonNegativeInteger ;
+  bevon:srm "14"^^xsd:nonNegativeInteger ;
   bevon:container
     bevon:30lBeerKeg ,
     bevon:440mlBeverageCan ;
@@ -1175,7 +1219,8 @@ bevon:Smithwicks a bevon:IrishRedAle , gr:ProductOrServiceModel ;
     dcterms:title "Ruby Red"@en
   ] ;
   bevon:abv "3.8"^^xsd:decimal ;
-  bevon:ibu "20"&&xsd:nonNegativeInteger ;
+  bevon:ibu "20"^^xsd:nonNegativeInteger ;
+  bevon:srm "14"^^xsd:nonNegativeInteger
   bevon:container
     bevon:30lBeerKeg ,
     bevon:440mlBeverageCan ,
