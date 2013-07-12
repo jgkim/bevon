@@ -60,7 +60,7 @@ vocab:bevon a owl:Ontology , adms:SemanticAsset ;
   adms:status <http://purl.org/adms/status/UnderDevelopment> ;
   dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
   dcterms:created "2013-07-04+09:00"^^xsd:date ;
-  dcterms:modified "2013-07-11+09:00"^^xsd:date ;
+  dcterms:modified "2013-07-12+09:00"^^xsd:date ;
   owl:versionInfo "0.4" .
 
 # Classes #####################################################################
@@ -649,6 +649,75 @@ bevon:Container a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:BeverageCan a owl:Class ;
+  rdfs:subClassOf bevon:Container ;
+  skos:prefLabel "Beverage Can"@en , "음료 캔"@ko ;
+  rdfs:comment """
+    A beverage can is a metal container designed to hold a fixed portion of liquid
+    such as a carbonated soft drinks, alcoholic beverages, fruit juices, teas, tisanes,
+    energy drinks, etc. Beverage cans are made of aluminium (75% of worldwide production)
+    or tin-plated steel (25% worldwide production).
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Beverage_can> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:GlassBottle a owl:Class ;
+  rdfs:subClassOf bevon:Container ;
+  skos:prefLabel "Glass Bottle"@en , "유리병"@ko ;
+  rdfs:comment """
+    A glass bottle is a bottle created from glass. Glass bottles can vary in size considerably,
+    but are most commonly found in sizes ranging between about 10ml and 5 litres.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Glass_bottle> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:BeerBottle a owl:Class ;
+  rdfs:subClassOf bevon:GlassBottle ;
+  skos:prefLabel "Beer Bottle"@en , "맥주병"@ko ;
+  rdfs:comment """
+    A beer bottle is a bottle made to contain beer, usually made of glass and come in various sizes,
+    shapes and colours. Dark amber or brown glass greatly reduces UV light from spoiling the beer.
+    However, lighter colored bottles are often used for marketing reasons.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Beer_bottle> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Longneck a owl:Class ;
+  rdfs:subClassOf bevon:BeerBottle ;
+  skos:prefLabel "Longneck"@en , "긴목 맥주병"@ko ;
+  skos:altLabel "Industry Standard Bottle"@en , "North American Longneck"@en ;
+  rdfs:comment """
+    A longneck is a type of beer bottle with a long neck. It is known as the standard longneck bottle
+    or industry standard bottle (ISB). The ISB longnecks have a uniform capacity, height, weight and
+    diameter and can be reused on average 16 times. The long neck offers a long cushion of air to absorb
+    the pressure of carbonation to reduce the risk of exploding. The longneck also provides a handle for
+    drinking directly from the bottle without transferring body heat to the beer from one's hand.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:Keg a owl:Class ;
+  rdfs:subClassOf bevon:Container ;
+  skos:prefLabel "Keg"@en , "케그"@ko ;
+  rdfs:comment """
+    A keg is a small barrel.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Keg> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:BeerKeg a owl:Class ;
+  rdfs:subClassOf bevon:Keg ;
+  skos:prefLabel "Beer Keg"@en , "맥주 케그"@ko ;
+  rdfs:comment """
+    Beer kegs are made of stainless steel, or less commonly, of aluminium.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:Distillery a owl:Class ;
   skos:prefLabel "Distillery"@en , "증류소"@ko ;
   rdfs:comment """
@@ -943,135 +1012,114 @@ whisky:distillery rdfs:subPropertyOf bevon:distillery .
 
 # Container Individuals #######################################################
 
-bevon:330mlBeverageCan a bevon:Container ;
+bevon:330mlBeverageCan a bevon:BeverageCan ;
   skos:prefLabel "330ml Beverage Can"@en , "330ml 음료 캔"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "330"^^xsd:int
-  ] ;
-  dbpedia:variantOf <http://dbpedia.org/resource/Beverage_can> .
+  ] .
 
-bevon:355mlBeverageCan a bevon:Container ;
+bevon:355mlBeverageCan a bevon:BeverageCan ;
   skos:prefLabel "355ml Beverage Can"@en , "355ml 음료 캔"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "355"^^xsd:int
-  ] ;
-  dbpedia:variantOf <http://dbpedia.org/resource/Beverage_can> .
+  ] .
 
-bevon:440mlBeverageCan a bevon:Container ;
+bevon:440mlBeverageCan a bevon:BeverageCan ;
   skos:prefLabel "440ml Beverage Can"@en , "440ml 음료 캔"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "440"^^xsd:int
-  ] ;
-  dbpedia:variantOf <http://dbpedia.org/resource/Beverage_can> .
+  ] .
 
-bevon:500mlBeverageCan a bevon:Container ;
+bevon:500mlBeverageCan a bevon:BeverageCan ;
   skos:prefLabel "500ml Beverage Can"@en , "500ml 음료 캔"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "500"^^xsd:int
-  ] ;
-  dbpedia:variantOf <http://dbpedia.org/resource/Beverage_can> .
+  ] .
 
-bevon:700mlGlassBottle a bevon:Container ;
+bevon:700mlGlassBottle a bevon:GlassBottle ;
   skos:prefLabel "700ml Glass Bottle"@en , "700ml 유리병"@ko ;
   skos:altLabel "70cl Glass Bottle"@en ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "700"^^xsd:int
-  ] ;
-  dbpedia:variantOf <http://dbpedia.org/resource/Glass_bottle> .
+  ] .
 
-bevon:750mlGlassBottle a bevon:Container ;
+bevon:750mlGlassBottle a bevon:GlassBottle ;
   skos:prefLabel "750ml Glass Bottle"@en , "750ml 유리병"@ko ;
   skos:altLabel "75cl Glass Bottle"@en ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "750"^^xsd:int
-  ] ;
-  dbpedia:variantOf <http://dbpedia.org/resource/Glass_bottle> .
+  ] .
 
-bevon:330mlLongneck a bevon:Container ;
-  owl:sameAs <http://dbpedia.org/resource/Long-necked_bottle> ;
+bevon:330mlLongneck a bevon:Longneck ;
   skos:prefLabel "330ml Longneck Bottle"@en , "330ml 긴목 맥주병"@ko ;
   skos:altLabel ""
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "330"^^xsd:int
-  ] ;
-  dbpedia:variantOf <http://dbpedia.org/resource/Beer_bottle> .
+  ] .
 
-bevon:500mlLongneck a bevon:Container ;
-  owl:sameAs <http://dbpedia.org/resource/Long-necked_bottle> ;
+bevon:500mlLongneck a bevon:Longneck ;
   skos:prefLabel "500ml Longneck Bottle"@en , "500ml 긴목 맥주병"@ko ;
   skos:altLabel ""
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "500"^^xsd:int
-  ] ;
-  dbpedia:variantOf <http://dbpedia.org/resource/Beer_bottle> .
+  ] .
 
-bevon:640mlLongneck a bevon:Container ;
-  owl:sameAs <http://dbpedia.org/resource/Long-necked_bottle> ;
+bevon:640mlLongneck a bevon:Longneck ;
   skos:prefLabel "640ml Longneck Bottle"@en , "640ml 긴목 맥주병"@ko ;
   skos:altLabel ""
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "640"^^xsd:int
-  ] ;
-  dbpedia:variantOf <http://dbpedia.org/resource/Beer_bottle> .
+  ] .
 
-bevon:BeerKeg a bevon:Container ;
-  owl:sameAs <http://dbpedia.org/resource/Beer_keg> ;
-  skos:prefLabel "Beer Keg"@en , "맥주 케그"@ko ;
-  dbpedia:variantOf <http://dbpedia.org/resource/Keg> .
-
-bevon:15lBeerKeg a bevon:Container ;
+bevon:15lBeerKeg a bevon:BeerKeg ;
   skos:prefLabel "15l Beer Keg"@en , "15l 맥주 케그"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
     gr:hasValue "15"^^xsd:int
-  ] ;
-  dbpedia:variantOf bevon:BeerKeg .
+  ] .
 
-bevon:25lBeerKeg a bevon:Container ;
+bevon:25lBeerKeg a bevon:BeerKeg ;
   skos:prefLabel "25l Beer Keg"@en , "25l 맥주 케그"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
     gr:hasValue "25"^^xsd:int
-  ] ;
-  dbpedia:variantOf bevon:BeerKeg .
+  ] .
 
-bevon:30lBeerKeg a bevon:Container ;
+bevon:30lBeerKeg a bevon:BeerKeg ;
   skos:prefLabel "30l Beer Keg"@en , "30l 맥주 케그"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
     gr:hasValue "30"^^xsd:int
-  ] ;
-  dbpedia:variantOf bevon:BeerKeg .
+  ] .
 
-bevon:50lBeerKeg a bevon:Container ;
+bevon:50lBeerKeg a bevon:BeerKeg ;
   skos:prefLabel "50l Beer Keg"@en , "50l 맥주 케그"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
     gr:hasValue "50"^^xsd:int
-  ] ;
-  dbpedia:variantOf bevon:BeerKeg .
+  ] .
 
 # Beverage Individuals ########################################################
 
