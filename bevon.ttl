@@ -395,6 +395,28 @@ bevon:Soju a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:DilutedSoju a owl:Class ;
+  rdfs:subClassOf bevon:Soju ;
+  owl:disjointWith bevon:DistilledSoju ;
+  skos:prefLabel "Diluted Soju"@en , "희석식 소주"@ko ;
+  rdfs:comment """
+    Diluted Soju is made by mixing pure ethanol distilled from various grains,
+    such as potatoes, wheat, barley, sweet potatoes, or tapioca, with water and
+    flavouring.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:DistilledSoju a owl:Class ;
+  rdfs:subClassOf bevon:Soju ;
+  owl:disjointWith bevon:DilutedSoju ;
+  skos:prefLabel "Distilled Soju"@en , "증류식 소주"@ko ;
+  rdfs:comment """
+    Distilled Soju is manufactured traditionally by distillation from grains, mainly rice.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:Tequila a owl:Class ;
   rdfs:subClassOf bevon:DistilledBeverage , pto:Tequila ;
   skos:prefLabel "Tequila"@en , "테킬라"@ko ;
@@ -696,6 +718,17 @@ bevon:Longneck a owl:Class ;
     the pressure of carbonation to reduce the risk of exploding. The longneck also provides a handle for
     drinking directly from the bottle without transferring body heat to the beer from one's hand.
     """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:PlasticBottle a owl:Class ;
+  rdfs:subClassOf bevon:Container ;
+  skos:prefLabel "Plastic Bottle"@en , "플라스틱 병"@ko ;
+  rdfs:comment """
+    A plastic bottle is a bottle constructed of plastic. Plastic bottles are typically used to store
+    liquids such as water, soft drinks, motor oil, cooking oil, medicine, shampoo, milk, and ink.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Plastic_bottle> ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
@@ -1044,6 +1077,14 @@ bevon:500mlBeverageCan a bevon:BeverageCan ;
     gr:hasValue "500"^^xsd:int
   ] .
 
+bevon:360mlGlassBottle a bevon:GlassBottle ;
+  skos:prefLabel "360ml Glass Bottle"@en , "360ml 유리병"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "360"^^xsd:int
+  ] .
+
 bevon:700mlGlassBottle a bevon:GlassBottle ;
   skos:prefLabel "700ml Glass Bottle"@en , "700ml 유리병"@ko ;
   skos:altLabel "70cl Glass Bottle"@en ;
@@ -1064,7 +1105,6 @@ bevon:750mlGlassBottle a bevon:GlassBottle ;
 
 bevon:330mlLongneck a bevon:Longneck ;
   skos:prefLabel "330ml Longneck Bottle"@en , "330ml 긴목 맥주병"@ko ;
-  skos:altLabel ""
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
@@ -1073,7 +1113,6 @@ bevon:330mlLongneck a bevon:Longneck ;
 
 bevon:500mlLongneck a bevon:Longneck ;
   skos:prefLabel "500ml Longneck Bottle"@en , "500ml 긴목 맥주병"@ko ;
-  skos:altLabel ""
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
@@ -1082,11 +1121,42 @@ bevon:500mlLongneck a bevon:Longneck ;
 
 bevon:640mlLongneck a bevon:Longneck ;
   skos:prefLabel "640ml Longneck Bottle"@en , "640ml 긴목 맥주병"@ko ;
-  skos:altLabel ""
   bevon:volume [
     a gr:QuantitativeValueInteger ;
     gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
     gr:hasValue "640"^^xsd:int
+  ] .
+
+bevon:200mlPlasticBottle a bevon:PlasticBottle ;
+  skos:prefLabel "200ml Plastic Bottle"@en , "200ml 플라스틱 병"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "200"^^xsd:int
+  ] .
+
+bevon:360mlPlasticBottle a bevon:PlasticBottle ;
+  skos:prefLabel "360ml Plastic Bottle"@en , "360ml 플라스틱 병"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "360"^^xsd:int
+  ] .
+
+bevon:640mlPlasticBottle a bevon:PlasticBottle ;
+  skos:prefLabel "640ml Plastic Bottle"@en , "640ml 플라스틱 병"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasValue "640"^^xsd:int
+  ] .
+
+bevon:1_8lPlasticBottle a bevon:PlasticBottle ;
+  skos:prefLabel "1.8l Plastic Bottle"@en , "1.8l 플라스틱 병"@ko ;
+  bevon:volume [
+    a gr:QuantitativeValueFloat ;
+    gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
+    gr:hasValue "1.8"^^xsd:float
   ] .
 
 bevon:15lBeerKeg a bevon:BeerKeg ;
@@ -1137,7 +1207,7 @@ bevon:Glenfiddich12YearOld a bevon:SpeysideSingleMalt , gr:ProductOrServiceModel
   bevon:launch "1887"^^xsd:gYear ;
   bevon:distillery [
     a bevon:Distillery ;
-    owl:sameAs <<http://dbpedia.org/resource/Glenfiddich_distillery> ;
+    owl:sameAs <http://dbpedia.org/resource/Glenfiddich_distillery> ;
     whisky:region <http://dbpedia.org/resource/Strathspey,_Scotland> ;
     whisky:owner <http://dbpedia.org/resource/William_Grant_%26_Sons> ;
     whisky:waterSource [
@@ -1307,10 +1377,59 @@ bevon:Smithwicks a bevon:IrishRedAle , gr:ProductOrServiceModel ;
   ] ;
   bevon:abv "3.8"^^xsd:decimal ;
   bevon:ibu "20"^^xsd:nonNegativeInteger ;
-  bevon:srm "14"^^xsd:nonNegativeInteger
+  bevon:srm "14"^^xsd:nonNegativeInteger ;
   bevon:container
     bevon:30lBeerKeg ,
     bevon:440mlBeverageCan ,
     bevon:330mlLongneck ;
   bevon:similar bevon:Kilkenny ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Smithwick%27s> .
+
+bevon:Chamisul a bevon:DilutedSoju , gr:ProductOrServiceModel ;
+  bevon:name "Chamisul"@en , "참이슬"@ko ;
+  bevon:description """
+    Chamisul is the diluted soju produced by HITEJiro.
+    """@en ;
+  bevon:origin <http://dbpedia.org/resource/South_Korea> ;
+  bevon:launch "1998"^^xsd:gYear ;
+  bevon:manufacturer <http://dbpedia.org/resource/Jinro> ;
+  bevon:color [
+    a dbpedia:Colour ;
+    owl:sameAs <http://dbpedia.org/resource/Clear_(color)> ;
+    dcterms:title "Clear"@en
+  ] ;
+  bevon:abv "19"^^xsd:decimal ;
+  bevon:container
+    bevon:200mlPlasticBottle ,
+    bevon:360mlGlassBottle ,
+    bevon:640mlPlasticBottle ,
+    bevon:1_8lPlasticBottle ;
+  rdfs:seeAlso <http://ko.wikipedia.org/wiki/참이슬> .
+
+bevon:Chum-Churum a bevon:DilutedSoju , gr:ProductOrServiceModel ;
+  owl:sameAs <http://dbpedia.org/resource/Chum-Churum> ;
+  bevon:name "Chum-Churum"@en , "처음처럼"@ko ;
+  bevon:description """
+    Chum-Churum is the diluted soju produced by Lotte Liquor.
+    """@en ;
+  bevon:origin <http://dbpedia.org/resource/South_Korea> ;
+  bevon:launch "2006"^^xsd:gYear ;
+  bevon:manufacturer [
+    a food:Organization ;
+    foaf:name "Lotte Liquor"@en , "롯데주류"@ko ;
+    foaf:homepage <http://www.lotteliquor.com> ;
+    rdfs:seeAlso <http://ko.wikipedia.org/wiki/롯데칠성음료>
+  ] ;
+  bevon:color [
+    a dbpedia:Colour ;
+    owl:sameAs <http://dbpedia.org/resource/Clear_(color)> ;
+    dcterms:title "Clear"@en
+  ] ;
+  bevon:abv "19.5"^^xsd:decimal ;
+  bevon:container
+    bevon:200mlPlasticBottle ,
+    bevon:360mlPlasticBottle ,
+    bevon:360mlGlassBottle ,
+    bevon:640mlPlasticBottle ,
+    bevon:1_8lPlasticBottle ;
+  rdfs:seeAlso <http://ko.wikipedia.org/wiki/처음처럼_(주류)> .
