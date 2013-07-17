@@ -28,7 +28,8 @@
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix food: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#> .
+@prefix fowl: <http://www.w3.org/TR/2003/PR-owl-guide-20031209/food#> .
+@prefix food: <http://data.lirmm.fr/ontologies/food#> .
 @prefix gr: <http://purl.org/goodrelations/v1#> .
 @prefix pto: <http://www.productontology.org/id/> .
 @prefix dbpedia: <http://dbpedia.org/ontology/> .
@@ -66,7 +67,7 @@ vocab:bevon a owl:Ontology , adms:SemanticAsset ;
 # Classes #####################################################################
 
 bevon:Beverage a owl:Class ;
-  rdfs:subClassOf food:PotableLiquid , pto:Drink ;
+  rdfs:subClassOf food:Food , fowl:PotableLiquid , pto:Drink ;
   skos:prefLabel "Beverage"@en , "음료"@ko ;
   rdfs:comment """
     A beverage, or drink, is a kind of liquid which is specifically prepared
@@ -153,6 +154,7 @@ bevon:Cocktail a owl:Class ;
 bevon:Mocktail a owl:Class ;
   rdfs:subClassOf bevon:MixedDrink , bevon:NonAlcoholicBeverage ;
   owl:disjointWith bevon:Cocktail ;
+  skos:prefLabel "Mocktail"@en , "목테일"@ko ;
   rdfs:comment """
     Mocktails are mock cocktails, or those that do not contain any alcohol.
     """@en ;
@@ -644,6 +646,45 @@ bevon:Shandy a owl:Class ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
+bevon:Water a owl:Class ;
+  rdfs:subClassOf bevon:NonAlcoholicBeverage , pto:Water ;
+  skos:prefLabel "Water"@en , "물"@ko ;
+  rdfs:comment """
+    In the Beverage Ontology, Water means a drinking water.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Water> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:MineralWater a owl:Class ;
+  rdfs:subClassOf bevon:Water , pto:Mineral_water ;
+  skos:prefLabel "Mineral Water"@en , "광천수"@ko ;
+  rdfs:comment """
+    Mineral water is water from a mineral spring containing various minerals such as salts and
+    sulfur compounds. Mineral water may be sparkling due to contained gases.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Mineral_water> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:CarbonatedWater a owl:Class ;
+  rdfs:subClassOf bevon:Water , pto:Carbonated_water ;
+  skos:prefLabel "Carbonated Water"@en , "탄산수"@ko ;
+  skos:altLabel
+    "Club Soda"@en ,
+    "Soda Water"@en ,
+    "Sparkling Water"@en ,
+    "Seltzer Water"@en ,
+    "Fizzy Water"@en ,
+    "클럽소다"@ko ,
+    "소다수"@ko ;
+  rdfs:comment """
+    Carbonated water is water into which carbon dioxide gas under pressure has been dissolved.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Carbonated_water> ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
 bevon:FermentationBase a owl:Class ;
   skos:prefLabel "Fermentation Base"@en , "발효 주재료"@ko ;
   rdfs:comment """
@@ -1009,7 +1050,7 @@ bevon:material a owl:ObjectProperty ;
 
 bevon:previous_content a owl:ObjectProperty ;
   rdfs:domain bevon:Aging ;
-  rdfs:range food:PotableLiquid ;
+  rdfs:range fowl:PotableLiquid ;
   skos:prefLabel "previous content"@en , "이전 내용물"@ko ;
   rdfs:comment """
     This property specifies what as in the cask before the aging.
@@ -1028,12 +1069,45 @@ bevon:duration a owl:ObjectProperty ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
 
-bevon:volume a owl:DatatypeProperty ;
+bevon:volume a owl:ObjectProperty ;
   rdfs:domain bevon:Container ;
   rdfs:range gr:QuantitativeValue ;
   skos:prefLabel "volume"@en , "용량"@ko ;
   rdfs:comment """
     This property specifies the volume of the container.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:ingredient a owl:ObjectProperty ;
+  rdfs:subPropertyOf food:containsIngredient ;
+  rdfs:domain bevon:MixedDrink ;
+  rdfs:range food:Ingredient ;
+  skos:prefLabel "ingredient"@en , "재료"@ko ;
+  rdfs:comment """
+    This property specifies an ingredient of the mixed drink.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:food a owl:ObjectProperty ;
+  rdfs:subPropertyOf food:food ;
+  rdfs:domain food:Ingredient ;
+  rdfs:range food:Food ;
+  skos:prefLabel "food"@en , "음식"@ko ;
+  rdfs:comment """
+    This property describes food that is an ingredient of a mixed drink.
+    """@en ;
+  rdfs:isDefinedBy vocab:bevon ;
+  vs:term_status "unstable"@en .
+
+bevon:quantity a owl:ObjectProperty ;
+  rdfs:domain food:Ingredient ;
+  rdfs:range gr:QuantitativeValue ;
+  skos:prefLabel "quantity"@en , "양"@ko ;
+  rdfs:comment """
+    This property specifies the quantity of the ingredient with a type
+    in the UN/CEFACT Common Code.
     """@en ;
   rdfs:isDefinedBy vocab:bevon ;
   vs:term_status "unstable"@en .
@@ -1049,7 +1123,7 @@ bevon:330mlBeverageCan a bevon:BeverageCan ;
   skos:prefLabel "330ml Beverage Can"@en , "330ml 음료 캔"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "330"^^xsd:int
   ] .
 
@@ -1057,7 +1131,7 @@ bevon:355mlBeverageCan a bevon:BeverageCan ;
   skos:prefLabel "355ml Beverage Can"@en , "355ml 음료 캔"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "355"^^xsd:int
   ] .
 
@@ -1065,7 +1139,7 @@ bevon:440mlBeverageCan a bevon:BeverageCan ;
   skos:prefLabel "440ml Beverage Can"@en , "440ml 음료 캔"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "440"^^xsd:int
   ] .
 
@@ -1073,7 +1147,7 @@ bevon:500mlBeverageCan a bevon:BeverageCan ;
   skos:prefLabel "500ml Beverage Can"@en , "500ml 음료 캔"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "500"^^xsd:int
   ] .
 
@@ -1081,7 +1155,7 @@ bevon:360mlGlassBottle a bevon:GlassBottle ;
   skos:prefLabel "360ml Glass Bottle"@en , "360ml 유리병"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "360"^^xsd:int
   ] .
 
@@ -1090,7 +1164,7 @@ bevon:700mlGlassBottle a bevon:GlassBottle ;
   skos:altLabel "70cl Glass Bottle"@en ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "700"^^xsd:int
   ] .
 
@@ -1099,7 +1173,7 @@ bevon:750mlGlassBottle a bevon:GlassBottle ;
   skos:altLabel "75cl Glass Bottle"@en ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "750"^^xsd:int
   ] .
 
@@ -1107,7 +1181,7 @@ bevon:330mlLongneck a bevon:Longneck ;
   skos:prefLabel "330ml Longneck Bottle"@en , "330ml 긴목 맥주병"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "330"^^xsd:int
   ] .
 
@@ -1115,7 +1189,7 @@ bevon:500mlLongneck a bevon:Longneck ;
   skos:prefLabel "500ml Longneck Bottle"@en , "500ml 긴목 맥주병"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "500"^^xsd:int
   ] .
 
@@ -1123,7 +1197,7 @@ bevon:640mlLongneck a bevon:Longneck ;
   skos:prefLabel "640ml Longneck Bottle"@en , "640ml 긴목 맥주병"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "640"^^xsd:int
   ] .
 
@@ -1131,7 +1205,7 @@ bevon:200mlPlasticBottle a bevon:PlasticBottle ;
   skos:prefLabel "200ml Plastic Bottle"@en , "200ml 플라스틱 병"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "200"^^xsd:int
   ] .
 
@@ -1139,7 +1213,7 @@ bevon:360mlPlasticBottle a bevon:PlasticBottle ;
   skos:prefLabel "360ml Plastic Bottle"@en , "360ml 플라스틱 병"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "360"^^xsd:int
   ] .
 
@@ -1147,7 +1221,7 @@ bevon:640mlPlasticBottle a bevon:PlasticBottle ;
   skos:prefLabel "640ml Plastic Bottle"@en , "640ml 플라스틱 병"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "MLT"^^xsd:string ;
+    gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "640"^^xsd:int
   ] .
 
@@ -1155,7 +1229,7 @@ bevon:1_8lPlasticBottle a bevon:PlasticBottle ;
   skos:prefLabel "1.8l Plastic Bottle"@en , "1.8l 플라스틱 병"@ko ;
   bevon:volume [
     a gr:QuantitativeValueFloat ;
-    gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
+    gr:hasUnitOfMeasurement "LTR" ;
     gr:hasValue "1.8"^^xsd:float
   ] .
 
@@ -1163,7 +1237,7 @@ bevon:15lBeerKeg a bevon:BeerKeg ;
   skos:prefLabel "15l Beer Keg"@en , "15l 맥주 케그"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
+    gr:hasUnitOfMeasurement "LTR" ;
     gr:hasValue "15"^^xsd:int
   ] .
 
@@ -1171,7 +1245,7 @@ bevon:25lBeerKeg a bevon:BeerKeg ;
   skos:prefLabel "25l Beer Keg"@en , "25l 맥주 케그"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
+    gr:hasUnitOfMeasurement "LTR" ;
     gr:hasValue "25"^^xsd:int
   ] .
 
@@ -1179,7 +1253,7 @@ bevon:30lBeerKeg a bevon:BeerKeg ;
   skos:prefLabel "30l Beer Keg"@en , "30l 맥주 케그"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
+    gr:hasUnitOfMeasurement "LTR" ;
     gr:hasValue "30"^^xsd:int
   ] .
 
@@ -1187,7 +1261,7 @@ bevon:50lBeerKeg a bevon:BeerKeg ;
   skos:prefLabel "50l Beer Keg"@en , "50l 맥주 케그"@ko ;
   bevon:volume [
     a gr:QuantitativeValueInteger ;
-    gr:hasUnitOfMeasurement "LTR"^^xsd:string ;
+    gr:hasUnitOfMeasurement "LTR" ;
     gr:hasValue "50"^^xsd:int
   ] .
 
@@ -1415,7 +1489,7 @@ bevon:Chum-Churum a bevon:DilutedSoju , gr:ProductOrServiceModel ;
   bevon:origin <http://dbpedia.org/resource/South_Korea> ;
   bevon:launch "2006"^^xsd:gYear ;
   bevon:manufacturer [
-    a food:Organization ;
+    a foaf:Organization ;
     foaf:name "Lotte Liquor"@en , "롯데주류"@ko ;
     foaf:homepage <http://www.lotteliquor.com> ;
     rdfs:seeAlso <http://ko.wikipedia.org/wiki/롯데칠성음료>
@@ -1433,3 +1507,29 @@ bevon:Chum-Churum a bevon:DilutedSoju , gr:ProductOrServiceModel ;
     bevon:640mlPlasticBottle ,
     bevon:1_8lPlasticBottle ;
   rdfs:seeAlso <http://ko.wikipedia.org/wiki/처음처럼_(주류)> .
+
+bevon:WhiskyAndSoda a bevon:Highball , gr:ProductOrServiceModel ;
+  bevon:name "Whisky & Soda"@en , "위스키 소다"@ko ;
+  bevon:description """
+    Whisky & Soda is a kind of mixed drinks that are composed of whisky and carbonated water.
+    """@en ;
+  bevon:ingredient [
+    a food:Ingredient ;
+    bevon:food [
+      a bevon:Whisky ;
+      owl:sameAs <http://dbpedia.org/resource/Whisky> ;
+      dcterms:title "Whisky"@en
+    ] ;
+    bevon:quantity [
+      a gr:QuantitativeValueInteger ;
+      gr:hasUnitOfMeasurement "OZA" ;
+      gr:hasValue "2"^^xsd:int
+    ]
+  ] , [
+    a food:Ingredient ;
+    bevon:food [
+      a bevon:CarbonatedWater ;
+      owl:sameAs <http://dbpedia.org/resource/Carbonated_water> ;
+      dcterms:title "Carbonated Water"@en
+    ]
+  ] .
