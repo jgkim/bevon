@@ -61,8 +61,8 @@ vocab:bevon a owl:Ontology , adms:SemanticAsset ;
   adms:status <http://purl.org/adms/status/UnderDevelopment> ;
   dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
   dcterms:created "2013-07-04+09:00"^^xsd:date ;
-  dcterms:modified "2013-07-12+09:00"^^xsd:date ;
-  owl:versionInfo "0.4" .
+  dcterms:modified "2013-07-17+09:00"^^xsd:date ;
+  owl:versionInfo "0.5" .
 
 # Classes #####################################################################
 
