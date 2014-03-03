@@ -53,6 +53,13 @@
     Beverage Ontology is a Web vocabulary for describing beverages, mainly
     alcoholic.
     """@en ;
+  rdfs:comment """
+    <div>
+      The master version of this vocabulary is maintained in <a
+      href="https://github.com/jgkim/bevon">the GitHub repository</a> so others
+      can contribute edits and improvements.
+    </div>
+    """^^rdf:XMLLiteral ;
   rdfs:seeAlso <https://github.com/jgkim/bevon> ;
   dcterms:creator <http://jayg.me/> ;
   vann:preferredNamespaceUri "http://rdfs.co/bevon/" ;
@@ -60,7 +67,7 @@
   dcterms:type <http://purl.org/adms/assettype/Ontology> ;
   adms:status <http://purl.org/adms/status/UnderDevelopment> ;
   dcterms:issued "2013-07-04+09:00"^^xsd:date ;
-  dcterms:modified "2014-03-01+09:00"^^xsd:date ;
+  dcterms:modified "2014-03-03+09:00"^^xsd:date ;
   dcterms:identifier "http://rdfs.co/bevon/0.6" ;
   dcterms:isVersionOf <http://rdfs.co/bevon/> ;
   owl:versionInfo "0.6" ;
@@ -68,7 +75,11 @@
     rdf:value "Minor revisions for documentation" ;
     dcterms:date "2014-03-01+09:00"^^xsd:date ;
     dcterms:creator <http://jayg.me/>
-  ] ;
+  ] , [
+    rdf:value "Added a link to the GitHub repository" ;
+    dcterms:date "2014-03-03+09:00"^^xsd:date ;
+    dcterms:creator <http://jayg.me/>
+  ];
   dcterms:hasFormat
     <http://rdfs.co/bevon/0.6/html> ,
     <http://rdfs.co/bevon/0.6/ttl> ,

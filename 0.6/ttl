@@ -53,19 +53,30 @@ whisky:distillery
     dcterms:identifier "http://rdfs.co/bevon/0.6" ;
     dcterms:isVersionOf <http://rdfs.co/bevon/> ;
     dcterms:issued "2013-07-04+09:00"^^xsd:date ;
-    dcterms:modified "2014-03-01+09:00"^^xsd:date ;
+    dcterms:modified "2014-03-03+09:00"^^xsd:date ;
     dcterms:rights "Copyright © 2013-2014 James G. Kim Some Rights Reserved." ;
     dcterms:title "BEVON: Beverage Ontology"@en ;
     dcterms:type <http://purl.org/adms/assettype/Ontology> ;
     vann:preferredNamespacePrefix "bevon" ;
     vann:preferredNamespaceUri "http://rdfs.co/bevon/" ;
     a cc:Work, owl:Ontology, adms:SemanticAsset ;
+    rdfs:comment """
+    <div>
+      The master version of this vocabulary is maintained in <a
+      href=\"https://github.com/jgkim/bevon\">the GitHub repository</a> so others
+      can contribute edits and improvements.
+    </div>
+    """^^rdf:XMLLiteral ;
     rdfs:seeAlso <https://github.com/jgkim/bevon> ;
     owl:versionInfo "0.6" ;
     skos:changeNote [
         dcterms:creator <http://jayg.me/> ;
         dcterms:date "2014-03-01+09:00"^^xsd:date ;
         rdf:value "Minor revisions for documentation"
+    ], [
+        dcterms:creator <http://jayg.me/> ;
+        dcterms:date "2014-03-03+09:00"^^xsd:date ;
+        rdf:value "Added a link to the GitHub repository"
     ] ;
     adms:status <http://purl.org/adms/status/UnderDevelopment> .
 

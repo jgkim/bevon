@@ -96,12 +96,21 @@
               Author</dt><dd><a href="http://jayg.org/">James G. Kim</a></dd></dl><p class="rights">Copyright © 2013-2014 James G. Kim Some Rights Reserved.</p><p class="license">This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons License</a>.</p><h2 id="toc">Table of Contents</h2><ul class="toc"><li><a href="#sec-introduction">Introduction</a></li><li><a href="#sec-changes">Changes From Previous Version</a></li><li><a href="#sec-namespace">Namespace</a></li><li><a href="#sec-terms">Summary of Terms</a></li><li><a href="#sec-classes">Vocabulary Classes</a></li><li><a href="#sec-properties">Vocabulary Properties</a></li><li><a href="#sec-license">License</a></li></ul><h2 id="sec-introduction">Introduction</h2><p class="description">
     Beverage Ontology is a Web vocabulary for describing beverages, mainly
     alcoholic.
+    </p><p class="comment">
+    <div>
+      The master version of this vocabulary is maintained in <a
+      href="https://github.com/jgkim/bevon">the GitHub repository</a> so others
+      can contribute edits and improvements.
+    </div>
     </p><h2 id="sec-changes">Changes From Previous Version</h2><ul><li><span class="date">2013-07-04</span>
             - first issued
           </li><li class="changeNote">2014-03-01
         - editorial change by
         <a href="http://jayg.org/">James G. Kim</a>:
-      Minor revisions for documentation</li></ul><h2 id="sec-namespace">Namespace</h2><p>The URI for this vocabulary is </p><pre><code>http://rdfs.co/bevon/</code></pre><p>
+      Minor revisions for documentation</li><li class="changeNote">2014-03-03
+        - editorial change by
+        <a href="http://jayg.org/">James G. Kim</a>:
+      Added a link to the GitHub repository</li></ul><h2 id="sec-namespace">Namespace</h2><p>The URI for this vocabulary is </p><pre><code>http://rdfs.co/bevon/</code></pre><p>
           When used in XML documents the suggested prefix is
           <code>bevon</code>.
         </p><p>Each class or property in the vocabulary has a URI constructed by appending a term name to the vocabulary URI. For example:</p><pre><code>http://rdfs.co/bevon/abv

@@ -57,7 +57,7 @@
     <dcterms:identifier>http://rdfs.co/bevon/0.6</dcterms:identifier>
     <dcterms:isVersionOf rdf:resource="http://rdfs.co/bevon/"/>
     <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-07-04+09:00</dcterms:issued>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-01+09:00</dcterms:modified>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-03+09:00</dcterms:modified>
     <dcterms:rights>Copyright © 2013-2014 James G. Kim Some Rights Reserved.</dcterms:rights>
     <dcterms:title xml:lang="en">BEVON: Beverage Ontology</dcterms:title>
     <dcterms:type rdf:resource="http://purl.org/adms/assettype/Ontology"/>
@@ -65,6 +65,13 @@
     <vann:preferredNamespaceUri>http://rdfs.co/bevon/</vann:preferredNamespaceUri>
     <rdf:type rdf:resource="http://creativecommons.org/ns#Work"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/adms#SemanticAsset"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
+    &lt;div&gt;
+      The master version of this vocabulary is maintained in &lt;a
+      href="https://github.com/jgkim/bevon"&gt;the GitHub repository&lt;/a&gt; so others
+      can contribute edits and improvements.
+    &lt;/div&gt;
+    </rdfs:comment>
     <rdfs:seeAlso rdf:resource="https://github.com/jgkim/bevon"/>
     <owl:versionInfo>0.6</owl:versionInfo>
     <skos:changeNote>
@@ -72,6 +79,13 @@
         <dcterms:creator rdf:resource="http://jayg.me/"/>
         <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-01+09:00</dcterms:date>
         <rdf:value>Minor revisions for documentation</rdf:value>
+      </rdf:Description>
+    </skos:changeNote>
+    <skos:changeNote>
+      <rdf:Description>
+        <dcterms:creator rdf:resource="http://jayg.me/"/>
+        <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-03+09:00</dcterms:date>
+        <rdf:value>Added a link to the GitHub repository</rdf:value>
       </rdf:Description>
     </skos:changeNote>
     <adms:status rdf:resource="http://purl.org/adms/status/UnderDevelopment"/>
