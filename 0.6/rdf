@@ -72,6 +72,10 @@
       can contribute edits and improvements.
     &lt;/div&gt;
     </rdfs:comment>
+    <rdfs:comment xml:lang="en">
+    Most of the descriptions given here are from Wikipedia or from the websites
+    of the related products.
+    </rdfs:comment>
     <rdfs:seeAlso rdf:resource="https://github.com/jgkim/bevon"/>
     <owl:versionInfo>0.6</owl:versionInfo>
     <skos:changeNote>
@@ -268,8 +272,8 @@
     <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-07-04+09:00</dcterms:issued>
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-01+09:00</dcterms:modified>
     <rdfs:comment xml:lang="en">
-    Beverage cans are made of aluminium (75% of worldwide production) or tin-
-    plated steel (25% worldwide production).
+    Beverage cans are made of aluminium (75% of worldwide production) or
+    tin-plated steel (25% worldwide production).
     </rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://rdfs.co/bevon/"/>
     <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Beverage_can"/>
@@ -416,8 +420,8 @@
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-01+09:00</dcterms:modified>
     <rdfs:comment xml:lang="en">
     It is produced in the wine-growing region surrounding the town from which
-    it takes its name, in the French Departements of Charente and Charente-
-    Maritime.
+    it takes its name, in the French Departements of Charente and
+    Charente-Maritime.
     </rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://rdfs.co/bevon/"/>
     <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Cognac"/>

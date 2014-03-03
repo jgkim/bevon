@@ -102,6 +102,9 @@
       href="https://github.com/jgkim/bevon">the GitHub repository</a> so others
       can contribute edits and improvements.
     </div>
+    </p><p class="comment">
+    Most of the descriptions given here are from Wikipedia or from the websites
+    of the related products.
     </p><h2 id="sec-changes">Changes From Previous Version</h2><ul><li><span class="date">2013-07-04</span>
             - first issued
           </li><li class="changeNote">2014-03-01
@@ -430,8 +433,8 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-terms">Summary of Terms</h2><
     liquid such as a carbonated soft drinks, alcoholic beverages, fruit juices,
     teas, tisanes, energy drinks, etc.
     </p><p class="comment">
-    Beverage cans are made of aluminium (75% of worldwide production) or tin-
-    plated steel (25% worldwide production).
+    Beverage cans are made of aluminium (75% of worldwide production) or
+    tin-plated steel (25% worldwide production).
     </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/BeverageCan</td></tr><tr><th>Preferred Label:</th><td>Beverage Can<span class="lang">@en</span> and 음료 캔<span class="lang">@ko</span></td></tr><tr><th>Subclass of:</th><td><a href="#term-Container" title="http://rdfs.co/bevon/Container">bevon:Container</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/Beverage_can">http://en.wikipedia.org/wiki/Beverage_can</a></td></tr><tr><th>Status:</th><td>Unstable</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>
               - first issued
             </li></ul></div></div><div class="class"><h3 id="term-BourbonWhiskey">Class: BourbonWhiskey</h3><div class="description"><p class="definition"><strong>Definition:</strong>
@@ -492,8 +495,8 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-terms">Summary of Terms</h2><
     Cognac, named after the town of Cognac in France, is a variety of brandy.
     </p><p class="comment">
     It is produced in the wine-growing region surrounding the town from which
-    it takes its name, in the French Departements of Charente and Charente-
-    Maritime.
+    it takes its name, in the French Departements of Charente and
+    Charente-Maritime.
     </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/Cognac</td></tr><tr><th>Preferred Label:</th><td>Cognac<span class="lang">@en</span> and 코냑<span class="lang">@ko</span></td></tr><tr><th>Subclass of:</th><td><a href="#term-Brandy" title="http://rdfs.co/bevon/Brandy">bevon:Brandy</a> and <a href="http://www.productontology.org/id/Cognac">pto:Cognac</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/Cognac">http://en.wikipedia.org/wiki/Cognac</a></td></tr><tr><th>Status:</th><td>Testing</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>
               - first issued
             </li></ul></div></div><div class="class"><h3 id="term-Container">Class: Container</h3><div class="description"><p class="definition"><strong>Definition:</strong>

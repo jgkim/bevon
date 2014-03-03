@@ -60,6 +60,10 @@
       can contribute edits and improvements.
     </div>
     """^^rdf:XMLLiteral ;
+  rdfs:comment """
+    Most of the descriptions given here are from Wikipedia or from the websites
+    of the related products.
+    """@en ;
   rdfs:seeAlso <https://github.com/jgkim/bevon> ;
   dcterms:creator <http://jayg.me/> ;
   vann:preferredNamespaceUri "http://rdfs.co/bevon/" ;
@@ -485,8 +489,8 @@ bevon:Cognac a owl:Class ;
     """@en ;
   rdfs:comment """
     It is produced in the wine-growing region surrounding the town from which
-    it takes its name, in the French Departements of Charente and Charente-
-    Maritime.
+    it takes its name, in the French Departements of Charente and
+    Charente-Maritime.
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Cognac> ;
   rdfs:isDefinedBy <http://rdfs.co/bevon/> ;
@@ -982,8 +986,8 @@ bevon:BeverageCan a owl:Class ;
     teas, tisanes, energy drinks, etc.
     """@en ;
   rdfs:comment """
-    Beverage cans are made of aluminium (75% of worldwide production) or tin-
-    plated steel (25% worldwide production).
+    Beverage cans are made of aluminium (75% of worldwide production) or
+    tin-plated steel (25% worldwide production).
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Beverage_can> ;
   rdfs:isDefinedBy <http://rdfs.co/bevon/> ;
