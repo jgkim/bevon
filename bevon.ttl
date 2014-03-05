@@ -969,7 +969,7 @@ bevon:Container a owl:Class ;
   rdfs:subClassOf yago:Containers ;
   skos:prefLabel "Container"@en , "용기"@ko ;
   skos:definition """
-    A container is a item used to contain, store, and transport a beverage.
+    A container is an item used to contain, store, and transport a beverage.
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Container> ;
   rdfs:isDefinedBy <http://rdfs.co/bevon/> ;
