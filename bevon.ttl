@@ -47,7 +47,7 @@
 
 # Ontology ####################################################################
 
-<http://rdfs.co/bevon/0.6> a owl:Ontology , adms:SemanticAsset , cc:Work ;
+<http://rdfs.co/bevon/0.7> a owl:Ontology , adms:SemanticAsset , cc:Work ;
   dcterms:title "BEVON: Beverage Ontology"@en ;
   dcterms:description """
     Beverage Ontology is a Web vocabulary for describing beverages, mainly
@@ -64,6 +64,13 @@
     Most of the descriptions given here are from Wikipedia or from the websites
     of the related products.
     """@en ;
+  vann:termGroup
+    bevon:CoreGroup ,
+    bevon:RelationGroup ,
+    bevon:ContainerGroup ,
+    bevon:BeerGroup ,
+    bevon:WhiskyGroup ,
+    bevon:CocktailGroup ;
   rdfs:seeAlso <https://github.com/jgkim/bevon> ;
   dcterms:creator <http://jayg.me/> ;
   vann:preferredNamespaceUri "http://rdfs.co/bevon/" ;
@@ -71,39 +78,59 @@
   dcterms:type <http://purl.org/adms/assettype/Ontology> ;
   adms:status <http://purl.org/adms/status/UnderDevelopment> ;
   dcterms:issued "2013-07-04+09:00"^^xsd:date ;
-  dcterms:modified "2014-03-03+09:00"^^xsd:date ;
-  dcterms:identifier "http://rdfs.co/bevon/0.6" ;
+  dcterms:modified "2014-03-06+09:00"^^xsd:date ;
+  dcterms:identifier "http://rdfs.co/bevon/0.7" ;
   dcterms:isVersionOf <http://rdfs.co/bevon/> ;
-  owl:versionInfo "0.6" ;
+  dcterms:replaces <http://rdfs.co/bevon/0.6> ;
+  owl:versionInfo "0.7" ;
   skos:changeNote [
-    rdf:value "Minor revisions for documentation" ;
+    rdf:value """
+      Minor revisions for documentation
+      """@en ;
     dcterms:date "2014-03-01+09:00"^^xsd:date ;
     dcterms:creator <http://jayg.me/>
   ] , [
-    rdf:value "Added a link to the GitHub repository" ;
+    rdf:value """
+      Added a link to the GitHub repository
+      """@en ;
     dcterms:date "2014-03-03+09:00"^^xsd:date ;
     dcterms:creator <http://jayg.me/>
-  ];
+  ] , [
+    rdf:value """
+      Added term groups for core, relation, container, beer, whisky and cocktail
+      terms
+      """@en ;
+    dcterms:date "2014-03-06+09:00"^^xsd:date ;
+    dcterms:creator <http://jayg.me/>
+  ] ;
+  skos:historyNote [
+    rdf:value """
+      Changed bevon:FermentedBeverages to bevon:FermentedBeverage for the
+      consistency
+      """@en ;
+    dcterms:date "2014-03-06+09:00"^^xsd:date ;
+    dcterms:creator <http://jayg.me/>
+  ] ;
   dcterms:hasFormat
-    <http://rdfs.co/bevon/0.6/html> ,
-    <http://rdfs.co/bevon/0.6/ttl> ,
-    <http://rdfs.co/bevon/0.6/rdf> ;
+    <http://rdfs.co/bevon/0.7/html> ,
+    <http://rdfs.co/bevon/0.7/ttl> ,
+    <http://rdfs.co/bevon/0.7/rdf> ;
   dcterms:rights "Copyright © 2013-2014 James G. Kim Some Rights Reserved." ;
   cc:license <http://creativecommons.org/licenses/by/4.0/> .
 
-<http://rdfs.co/bevon/0.6/html> dcterms:format [
+<http://rdfs.co/bevon/0.7/html> dcterms:format [
   a dcterms:IMT ;
   rdf:value "text/html" ;
   rdfs:label "HTML"@en
 ] .
 
-<http://rdfs.co/bevon/0.6/ttl> dcterms:format [
+<http://rdfs.co/bevon/0.7/ttl> dcterms:format [
   a dcterms:IMT ;
   rdf:value "text/turtle" ;
   rdfs:label "Turtle"@en
 ] .
 
-<http://rdfs.co/bevon/0.6/rdf> dcterms:format [
+<http://rdfs.co/bevon/0.7/rdf> dcterms:format [
   a dcterms:IMT ;
   rdf:value "application/rdf+xml" ;
   rdfs:label "RDF/XML"@en
@@ -114,10 +141,115 @@
   foaf:mbox_sha1sum "a637717b7e34b83694018e8fdd3ff334fffcd4f3" ;
   foaf:homepage <http://jayg.org/> .
 
-# TODO: Delete
-<http://creativecommons.org/licenses/by/3.0/> a cc:License ;
-  cc:permits cc:DerivativeWorks , cc:Distribution , cc:Reproduction ;
-  cc:requires cc:Attribution , cc:Notice .
+# Term Groups #################################################################
+
+bevon:CoreGroup a rdf:Bag ;
+  rdfs:label "Core Terms"@en ;
+  rdfs:comment """
+    These classes and properties form the core of BEVON. They describe
+    characteristics of beverages in relatively broad terms.
+    """@en ;
+  rdf:_1 bevon:Beverage ;
+  rdf:_2 bevon:AlcoholicBeverage ;
+  rdf:_3 bevon:FermentedBeverage ;
+  rdf:_4 bevon:DistilledBeverage ;
+  rdf:_5 bevon:NonAlcoholicBeverage ;
+  rdf:_6 bevon:MixedDrink ;
+  rdf:_7 bevon:Container ;
+  rdf:_8 bevon:Aging ;
+  rdf:_9 bevon:FermentationBase ;
+  rdf:_10 bevon:Distillery ;
+  rdf:_11 bevon:name ;
+  rdf:_12 bevon:description ;
+  rdf:_13 bevon:origin ;
+  rdf:_14 bevon:manufacturer ;
+  rdf:_15 bevon:color ;
+  rdf:_16 bevon:launch ;
+  rdf:_17 bevon:abv ;
+  rdf:_18 bevon:proof ;
+  rdf:_19 bevon:container ;
+  rdf:_20 bevon:aging ;
+  rdf:_21 bevon:fermentation_base ;
+  rdf:_22 bevon:distillery ;
+  rdf:_23 bevon:ingredient .
+
+bevon:RelationGroup a rdf:Bag ;
+  rdfs:label "Relation Terms"@en ;
+  rdfs:comment """
+    These properties are used for describing relations between beverages.
+    """@en ;
+  rdf:_1 bevon:related ;
+  rdf:_2 bevon:similar ;
+  rdf:_3 bevon:variant ;
+  rdf:_4 bevon:variantOf ;
+  rdf:_5 bevon:non_alcoholic_version .
+
+bevon:ContainerGroup a rdf:Bag ;
+  rdfs:label "Container Terms"@en ;
+  rdfs:comment """
+    These classes and properties are used to describe beverage containers.
+    """@en ;
+  rdf:_1 bevon:Container ;
+  rdf:_2 bevon:BeverageCan ;
+  rdf:_3 bevon:GlassBottle ;
+  rdf:_4 bevon:PlasticBottle ;
+  rdf:_5 bevon:Keg ;
+  rdf:_6 bevon:volume .
+
+bevon:BeerGroup a rdf:Bag ;
+  rdfs:label "Beer Terms"@en ;
+  rdfs:comment """
+    In addition to the BEVON core terms, there are a number of terms for use
+    when describing beverages categorized under Beer.
+    """@en ;
+  rdf:_1 bevon:Beer ;
+  rdf:_2 bevon:Ale ;
+  rdf:_3 bevon:PaleAle ;
+  rdf:_4 bevon:IrishRedAle ;
+  rdf:_5 bevon:Porter ;
+  rdf:_6 bevon:Stout ;
+  rdf:_7 bevon:DryStout ;
+  rdf:_8 bevon:Lager ;
+  rdf:_9 bevon:Dunkel ;
+  rdf:_10 bevon:PaleLager ;
+  rdf:_11 bevon:Pilsner ;
+  rdf:_12 bevon:NonAlcoholicBeer ;
+  rdf:_13 bevon:Brewery ;
+  rdf:_14 bevon:BeerBottle ;
+  rdf:_15 bevon:Longneck ;
+  rdf:_16 bevon:BeerKeg ;
+  rdf:_17 bevon:ibu ;
+  rdf:_18 bevon:srm ;
+  rdf:_19 bevon:brewery .
+
+bevon:WhiskyGroup a rdf:Bag ;
+  rdfs:label "Whisky Terms"@en ;
+  rdfs:comment """
+    These classes describe types of whiskies.
+    """@en ;
+  rdf:_1 bevon:Whisky ;
+  rdf:_2 bevon:AmericanWhiskey ;
+  rdf:_3 bevon:BourbonWhiskey ;
+  rdf:_4 bevon:CanadianWhisky ;
+  rdf:_5 bevon:IrishWhiskey ;
+  rdf:_6 bevon:JapaneseWhisky ;
+  rdf:_7 bevon:ScotchWhisky ;
+  rdf:_8 bevon:MaltWhisky ;
+  rdf:_9 bevon:SingleMaltWhisky ;
+  rdf:_10 bevon:SingleMaltScotch ;
+  rdf:_11 bevon:SpeysideSingleMalt .
+
+bevon:CocktailGroup a rdf:Bag ;
+  rdfs:label "Cocktail Terms"@en ;
+  rdfs:comment """
+    These classes and properties are for describing beverages categorized under
+    Mixed Drink.
+    """@en ;
+  rdf:_1 bevon:Cocktail ;
+  rdf:_2 bevon:Highball ;
+  rdf:_3 bevon:BeerCocktail ;
+  rdf:_4 bevon:Shandy ;
+  rdf:_5 bevon:Mocktail .
 
 # Classes #####################################################################
 
@@ -163,7 +295,7 @@ bevon:NonAlcoholicBeverage a owl:Class ;
   dcterms:modified "2014-03-01+09:00"^^xsd:date ;
   status:term_status "testing"@en .
 
-bevon:FermentedBeverages a owl:Class ;
+bevon:FermentedBeverage a owl:Class ;
   rdfs:subClassOf bevon:AlcoholicBeverage ;
   skos:prefLabel "Fermented Beverage"@en , "양조주"@ko ;
   skos:altLabel "발효주"@ko ;
@@ -246,7 +378,7 @@ bevon:Mocktail a owl:Class ;
   status:term_status "unstable"@en .
 
 bevon:Beer a owl:Class ;
-  rdfs:subClassOf bevon:FermentedBeverages , pto:Beer ;
+  rdfs:subClassOf bevon:FermentedBeverage , pto:Beer ;
   owl:disjointWith bevon:NonAlcoholicBeer ;
   skos:prefLabel "Beer"@en , "맥주"@ko ;
   skos:definition """
@@ -435,7 +567,7 @@ bevon:NonAlcoholicBeer a owl:Class ;
   status:term_status "unstable"@en .
 
 bevon:Sake a owl:Class ;
-  rdfs:subClassOf bevon:FermentedBeverages , pto:Sake ;
+  rdfs:subClassOf bevon:FermentedBeverage , pto:Sake ;
   skos:prefLabel "Sake"@en , "Saké"@fr , "사케"@ko ;
   skos:altLabel "Rice Wine"@en ;
   skos:definition """
@@ -450,7 +582,7 @@ bevon:Sake a owl:Class ;
 
 bevon:Wine a owl:Class ;
   owl:sameAs wine:Wine ;
-  rdfs:subClassOf bevon:FermentedBeverages , pto:Wine ;
+  rdfs:subClassOf bevon:FermentedBeverage , pto:Wine ;
   skos:prefLabel "Wine"@en , "Vin"@fr, "와인"@ko ;
   skos:definition """
     Wine is an alcoholic beverage made from fermented grapes or other fruits.
