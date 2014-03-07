@@ -132,6 +132,16 @@
       
       Changed bevon:FermentedBeverages to bevon:FermentedBeverage for the
       consistency
+      </li><li class="historyNote">2014-03-07
+        - semantic change by
+        <a href="http://jayg.org/">James G. Kim</a>:
+      
+      Changed the semantics of bevon:Wine to be a superclass of wine:Wine
+      </li><li class="historyNote">2014-03-07
+        - semantic change by
+        <a href="http://jayg.org/">James G. Kim</a>:
+      
+      Added bevon:RedWine, bevon:WhiteWine and bevon:FruitWine
       </li></ul><h2 id="sec-namespace">Namespace</h2><p>The URI for this vocabulary is </p><pre><code>http://rdfs.co/bevon/</code></pre><p>
           When used in XML documents the suggested prefix is
           <code>bevon</code>.
@@ -140,26 +150,29 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-groups">Terms Grouped by Them
               </strong>
     In addition to the BEVON core terms, there are a number of terms for use
     when describing beverages categorized under Beer.
-    </p><p><a href="#term-Beer" title="http://rdfs.co/bevon/Beer">bevon:Beer</a>, <a href="#term-PaleLager" title="http://rdfs.co/bevon/PaleLager">bevon:PaleLager</a>, <a href="#term-Pilsner" title="http://rdfs.co/bevon/Pilsner">bevon:Pilsner</a>, <a href="#term-NonAlcoholicBeer" title="http://rdfs.co/bevon/NonAlcoholicBeer">bevon:NonAlcoholicBeer</a>, <a href="#term-Brewery" title="http://rdfs.co/bevon/Brewery">bevon:Brewery</a>, <a href="#term-BeerBottle" title="http://rdfs.co/bevon/BeerBottle">bevon:BeerBottle</a>, <a href="#term-Longneck" title="http://rdfs.co/bevon/Longneck">bevon:Longneck</a>, <a href="#term-BeerKeg" title="http://rdfs.co/bevon/BeerKeg">bevon:BeerKeg</a>, <a href="#term-ibu" title="http://rdfs.co/bevon/ibu">bevon:ibu</a>, <a href="#term-srm" title="http://rdfs.co/bevon/srm">bevon:srm</a>, <a href="#term-brewery" title="http://rdfs.co/bevon/brewery">bevon:brewery</a>, <a href="#term-Ale" title="http://rdfs.co/bevon/Ale">bevon:Ale</a>, <a href="#term-PaleAle" title="http://rdfs.co/bevon/PaleAle">bevon:PaleAle</a>, <a href="#term-IrishRedAle" title="http://rdfs.co/bevon/IrishRedAle">bevon:IrishRedAle</a>, <a href="#term-Porter" title="http://rdfs.co/bevon/Porter">bevon:Porter</a>, <a href="#term-Stout" title="http://rdfs.co/bevon/Stout">bevon:Stout</a>, <a href="#term-DryStout" title="http://rdfs.co/bevon/DryStout">bevon:DryStout</a>, <a href="#term-Lager" title="http://rdfs.co/bevon/Lager">bevon:Lager</a> and <a href="#term-Dunkel" title="http://rdfs.co/bevon/Dunkel">bevon:Dunkel</a></p></li><li><p class="definition"><strong>Cocktail Terms:
+    </p><p><a href="#term-Beer" title="">Beer</a>, <a href="#term-PaleLager" title="">PaleLager</a>, <a href="#term-Pilsner" title="">Pilsner</a>, <a href="#term-NonAlcoholicBeer" title="">NonAlcoholicBeer</a>, <a href="#term-Brewery" title="">Brewery</a>, <a href="#term-BeerBottle" title="">BeerBottle</a>, <a href="#term-Longneck" title="">Longneck</a>, <a href="#term-BeerKeg" title="">BeerKeg</a>, <a href="#term-ibu" title="">ibu</a>, <a href="#term-srm" title="">srm</a>, <a href="#term-brewery" title="">brewery</a>, <a href="#term-Ale" title="">Ale</a>, <a href="#term-PaleAle" title="">PaleAle</a>, <a href="#term-IrishRedAle" title="">IrishRedAle</a>, <a href="#term-Porter" title="">Porter</a>, <a href="#term-Stout" title="">Stout</a>, <a href="#term-DryStout" title="">DryStout</a>, <a href="#term-Lager" title="">Lager</a> and <a href="#term-Dunkel" title="">Dunkel</a></p></li><li><p class="definition"><strong>Cocktail Terms:
               </strong>
     These classes and properties are for describing beverages categorized under
     Mixed Drink.
-    </p><p><a href="#term-Cocktail" title="http://rdfs.co/bevon/Cocktail">bevon:Cocktail</a>, <a href="#term-Highball" title="http://rdfs.co/bevon/Highball">bevon:Highball</a>, <a href="#term-BeerCocktail" title="http://rdfs.co/bevon/BeerCocktail">bevon:BeerCocktail</a>, <a href="#term-Shandy" title="http://rdfs.co/bevon/Shandy">bevon:Shandy</a> and <a href="#term-Mocktail" title="http://rdfs.co/bevon/Mocktail">bevon:Mocktail</a></p></li><li><p class="definition"><strong>Container Terms:
+    </p><p><a href="#term-Cocktail" title="">Cocktail</a>, <a href="#term-Highball" title="">Highball</a>, <a href="#term-BeerCocktail" title="">BeerCocktail</a>, <a href="#term-Shandy" title="">Shandy</a> and <a href="#term-Mocktail" title="">Mocktail</a></p></li><li><p class="definition"><strong>Container Terms:
               </strong>
     These classes and properties are used to describe beverage containers.
-    </p><p><a href="#term-Container" title="http://rdfs.co/bevon/Container">bevon:Container</a>, <a href="#term-BeverageCan" title="http://rdfs.co/bevon/BeverageCan">bevon:BeverageCan</a>, <a href="#term-GlassBottle" title="http://rdfs.co/bevon/GlassBottle">bevon:GlassBottle</a>, <a href="#term-PlasticBottle" title="http://rdfs.co/bevon/PlasticBottle">bevon:PlasticBottle</a>, <a href="#term-Keg" title="http://rdfs.co/bevon/Keg">bevon:Keg</a> and <a href="#term-volume" title="http://rdfs.co/bevon/volume">bevon:volume</a></p></li><li><p class="definition"><strong>Core Terms:
+    </p><p><a href="#term-Container" title="">Container</a>, <a href="#term-BeverageCan" title="">BeverageCan</a>, <a href="#term-GlassBottle" title="">GlassBottle</a>, <a href="#term-PlasticBottle" title="">PlasticBottle</a>, <a href="#term-Keg" title="">Keg</a> and <a href="#term-volume" title="">volume</a></p></li><li><p class="definition"><strong>Core Terms:
               </strong>
     These classes and properties form the core of BEVON. They describe
     characteristics of beverages in relatively broad terms.
-    </p><p><a href="#term-Beverage" title="http://rdfs.co/bevon/Beverage">bevon:Beverage</a>, <a href="#term-Distillery" title="http://rdfs.co/bevon/Distillery">bevon:Distillery</a>, <a href="#term-name" title="http://rdfs.co/bevon/name">bevon:name</a>, <a href="#term-description" title="http://rdfs.co/bevon/description">bevon:description</a>, <a href="#term-origin" title="http://rdfs.co/bevon/origin">bevon:origin</a>, <a href="#term-manufacturer" title="http://rdfs.co/bevon/manufacturer">bevon:manufacturer</a>, <a href="#term-color" title="http://rdfs.co/bevon/color">bevon:color</a>, <a href="#term-launch" title="http://rdfs.co/bevon/launch">bevon:launch</a>, <a href="#term-abv" title="http://rdfs.co/bevon/abv">bevon:abv</a>, <a href="#term-proof" title="http://rdfs.co/bevon/proof">bevon:proof</a>, <a href="#term-container" title="http://rdfs.co/bevon/container">bevon:container</a>, <a href="#term-AlcoholicBeverage" title="http://rdfs.co/bevon/AlcoholicBeverage">bevon:AlcoholicBeverage</a>, <a href="#term-aging" title="http://rdfs.co/bevon/aging">bevon:aging</a>, <a href="#term-fermentation_base" title="http://rdfs.co/bevon/fermentation_base">bevon:fermentation_base</a>, <a href="#term-distillery" title="http://rdfs.co/bevon/distillery">bevon:distillery</a>, <a href="#term-ingredient" title="http://rdfs.co/bevon/ingredient">bevon:ingredient</a>, <a href="#term-FermentedBeverage" title="http://rdfs.co/bevon/FermentedBeverage">bevon:FermentedBeverage</a>, <a href="#term-DistilledBeverage" title="http://rdfs.co/bevon/DistilledBeverage">bevon:DistilledBeverage</a>, <a href="#term-NonAlcoholicBeverage" title="http://rdfs.co/bevon/NonAlcoholicBeverage">bevon:NonAlcoholicBeverage</a>, <a href="#term-MixedDrink" title="http://rdfs.co/bevon/MixedDrink">bevon:MixedDrink</a>, <a href="#term-Container" title="http://rdfs.co/bevon/Container">bevon:Container</a>, <a href="#term-Aging" title="http://rdfs.co/bevon/Aging">bevon:Aging</a> and <a href="#term-FermentationBase" title="http://rdfs.co/bevon/FermentationBase">bevon:FermentationBase</a></p></li><li><p class="definition"><strong>Relation Terms:
+    </p><p><a href="#term-Beverage" title="">Beverage</a>, <a href="#term-Distillery" title="">Distillery</a>, <a href="#term-name" title="">name</a>, <a href="#term-description" title="">description</a>, <a href="#term-origin" title="">origin</a>, <a href="#term-manufacturer" title="">manufacturer</a>, <a href="#term-color" title="">color</a>, <a href="#term-launch" title="">launch</a>, <a href="#term-abv" title="">abv</a>, <a href="#term-proof" title="">proof</a>, <a href="#term-container" title="">container</a>, <a href="#term-AlcoholicBeverage" title="">AlcoholicBeverage</a>, <a href="#term-aging" title="">aging</a>, <a href="#term-fermentation_base" title="">fermentation_base</a>, <a href="#term-distillery" title="">distillery</a>, <a href="#term-ingredient" title="">ingredient</a>, <a href="#term-FermentedBeverage" title="">FermentedBeverage</a>, <a href="#term-DistilledBeverage" title="">DistilledBeverage</a>, <a href="#term-NonAlcoholicBeverage" title="">NonAlcoholicBeverage</a>, <a href="#term-MixedDrink" title="">MixedDrink</a>, <a href="#term-Container" title="">Container</a>, <a href="#term-Aging" title="">Aging</a> and <a href="#term-FermentationBase" title="">FermentationBase</a></p></li><li><p class="definition"><strong>Relation Terms:
               </strong>
     These properties are used for describing relations between beverages.
-    </p><p><a href="#term-related" title="http://rdfs.co/bevon/related">bevon:related</a>, <a href="#term-similar" title="http://rdfs.co/bevon/similar">bevon:similar</a>, <a href="#term-variant" title="http://rdfs.co/bevon/variant">bevon:variant</a>, <a href="#term-variantOf" title="http://rdfs.co/bevon/variantOf">bevon:variantOf</a> and <a href="#term-non_alcoholic_version" title="http://rdfs.co/bevon/non_alcoholic_version">bevon:non_alcoholic_version</a></p></li><li><p class="definition"><strong>Whisky Terms:
+    </p><p><a href="#term-related" title="">related</a>, <a href="#term-similar" title="">similar</a>, <a href="#term-variant" title="">variant</a>, <a href="#term-variantOf" title="">variantOf</a> and <a href="#term-non_alcoholic_version" title="">non_alcoholic_version</a></p></li><li><p class="definition"><strong>Whisky Terms:
               </strong>
     These classes describe types of whiskies.
-    </p><p><a href="#term-Whisky" title="http://rdfs.co/bevon/Whisky">bevon:Whisky</a>, <a href="#term-SingleMaltScotch" title="http://rdfs.co/bevon/SingleMaltScotch">bevon:SingleMaltScotch</a>, <a href="#term-SpeysideSingleMalt" title="http://rdfs.co/bevon/SpeysideSingleMalt">bevon:SpeysideSingleMalt</a>, <a href="#term-AmericanWhiskey" title="http://rdfs.co/bevon/AmericanWhiskey">bevon:AmericanWhiskey</a>, <a href="#term-BourbonWhiskey" title="http://rdfs.co/bevon/BourbonWhiskey">bevon:BourbonWhiskey</a>, <a href="#term-CanadianWhisky" title="http://rdfs.co/bevon/CanadianWhisky">bevon:CanadianWhisky</a>, <a href="#term-IrishWhiskey" title="http://rdfs.co/bevon/IrishWhiskey">bevon:IrishWhiskey</a>, <a href="#term-JapaneseWhisky" title="http://rdfs.co/bevon/JapaneseWhisky">bevon:JapaneseWhisky</a>, <a href="#term-ScotchWhisky" title="http://rdfs.co/bevon/ScotchWhisky">bevon:ScotchWhisky</a>, <a href="#term-MaltWhisky" title="http://rdfs.co/bevon/MaltWhisky">bevon:MaltWhisky</a> and <a href="#term-SingleMaltWhisky" title="http://rdfs.co/bevon/SingleMaltWhisky">bevon:SingleMaltWhisky</a></p></li></ul><h2 id="sec-terms">Summary of Terms</h2><p>
+    </p><p><a href="#term-Whisky" title="">Whisky</a>, <a href="#term-SingleMaltScotch" title="">SingleMaltScotch</a>, <a href="#term-SpeysideSingleMalt" title="">SpeysideSingleMalt</a>, <a href="#term-AmericanWhiskey" title="">AmericanWhiskey</a>, <a href="#term-BourbonWhiskey" title="">BourbonWhiskey</a>, <a href="#term-CanadianWhisky" title="">CanadianWhisky</a>, <a href="#term-IrishWhiskey" title="">IrishWhiskey</a>, <a href="#term-JapaneseWhisky" title="">JapaneseWhisky</a>, <a href="#term-ScotchWhisky" title="">ScotchWhisky</a>, <a href="#term-MaltWhisky" title="">MaltWhisky</a> and <a href="#term-SingleMaltWhisky" title="">SingleMaltWhisky</a></p></li><li><p class="definition"><strong>Wine Terms:
+              </strong>
+    These classes describe types of wines.
+    </p><p><a href="#term-Wine" title="">Wine</a>, <a href="#term-RedWine" title="">RedWine</a>, <a href="#term-WhiteWine" title="">WhiteWine</a> and <a href="#term-FruitWine" title="">FruitWine</a></p></li></ul><h2 id="sec-terms">Summary of Terms</h2><p>
       This vocabulary defines
-      63 classes
+      66 classes
         
       and
       27 properties.
@@ -241,6 +254,10 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-groups">Terms Grouped by Them
     </td></tr><tr><td><a href="#term-FermentedBeverage" title="http://rdfs.co/bevon/FermentedBeverage">FermentedBeverage</a></td><td><em>class</em></td><td>
     A fermented beverage is a drink produced by fermenting grain, fruit, or
     vegetables.
+    </td></tr><tr><td><a href="#term-FruitWine" title="http://rdfs.co/bevon/FruitWine">FruitWine</a></td><td><em>class</em></td><td>
+    Fruit wines are fermented alcoholic beverages made from a variety of base
+    ingredients (other than grapes); they may also have additional flavors
+    taken from fruits, flowers, and herbs.
     </td></tr><tr><td><a href="#term-Gin" title="http://rdfs.co/bevon/Gin">Gin</a></td><td><em>class</em></td><td>
     Gin is a spirit which derives its predominant flavor from juniper berries
     (Juniperus communis).
@@ -299,6 +316,8 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-groups">Terms Grouped by Them
     </td></tr><tr><td><a href="#term-Porter" title="http://rdfs.co/bevon/Porter">Porter</a></td><td><em>class</em></td><td>
     Porter is a dark style of beer originating in London in the 18th century,
     descended from brown beer, a well hopped beer made from brown malt.
+    </td></tr><tr><td><a href="#term-RedWine" title="http://rdfs.co/bevon/RedWine">RedWine</a></td><td><em>class</em></td><td>
+    Red wine is a type of wine made from dark-coloured (black) grape varieties.
     </td></tr><tr><td><a href="#term-Rum" title="http://rdfs.co/bevon/Rum">Rum</a></td><td><em>class</em></td><td>
     Rum is a distilled alcoholic beverage made from sugarcane byproducts, such
     as molasses, or directly from sugarcane juice, by a process of fermentation
@@ -345,6 +364,9 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-groups">Terms Grouped by Them
     </td></tr><tr><td><a href="#term-Whisky" title="http://rdfs.co/bevon/Whisky">Whisky</a></td><td><em>class</em></td><td>
     Whisky or whiskey is a type of distilled alcoholic beverage made from
     fermented grain mash.
+    </td></tr><tr><td><a href="#term-WhiteWine" title="http://rdfs.co/bevon/WhiteWine">WhiteWine</a></td><td><em>class</em></td><td>
+    White wine is a wine whose colour can be straw-yellow, yellow-green, or
+    yellow-gold coloured.
     </td></tr><tr><td><a href="#term-Wine" title="http://rdfs.co/bevon/Wine">Wine</a></td><td><em>class</em></td><td>
     Wine is an alcoholic beverage made from fermented grapes or other fruits.
     </td></tr><tr><td><a href="#term-abv" title="http://rdfs.co/bevon/abv">abv</a></td><td><em>property</em></td><td>
@@ -592,6 +614,16 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-groups">Terms Grouped by Them
     vegetables.
     </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/FermentedBeverage</td></tr><tr><th>Preferred Label:</th><td>Fermented Beverage<span class="lang">@en</span> and 양조주<span class="lang">@ko</span></td></tr><tr><th>Alternate Label:</th><td>발효주<span class="lang">@ko</span></td></tr><tr><th>Subclass of:</th><td><a href="#term-AlcoholicBeverage" title="http://rdfs.co/bevon/AlcoholicBeverage">bevon:AlcoholicBeverage</a></td></tr><tr><th>Status:</th><td>Testing</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>
               - first issued
+            </li></ul></div></div><div class="class"><h3 id="term-FruitWine">Class: FruitWine</h3><div class="description"><p class="definition"><strong>Definition:</strong>
+    Fruit wines are fermented alcoholic beverages made from a variety of base
+    ingredients (other than grapes); they may also have additional flavors
+    taken from fruits, flowers, and herbs.
+    </p><p class="comment">
+    This definition is sometimes broadened to include any fermented alcoholic
+    beverage except beer. For historical reasons, mead, cider, and perry are
+    also excluded from the definition of fruit wine.
+    </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/FruitWine</td></tr><tr><th>Preferred Label:</th><td>Fruit Wine<span class="lang">@en</span>, Vin de Sureau<span class="lang">@fr</span> and 과실주<span class="lang">@ko</span></td></tr><tr><th>Subclass of:</th><td><a href="#term-Wine" title="http://rdfs.co/bevon/Wine">bevon:Wine</a> and <a href="http://www.productontology.org/id/Fruit_wine">pto:Fruit_wine</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/Fruit_wine">http://en.wikipedia.org/wiki/Fruit_wine</a></td></tr><tr><th>Status:</th><td>Testing</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2014-03-07</span>
+              - first issued
             </li></ul></div></div><div class="class"><h3 id="term-Gin">Class: Gin</h3><div class="description"><p class="definition"><strong>Definition:</strong>
     Gin is a spirit which derives its predominant flavor from juniper berries
     (Juniperus communis).
@@ -727,6 +759,14 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-groups">Terms Grouped by Them
     porters.
     </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/Porter</td></tr><tr><th>Preferred Label:</th><td>Porter<span class="lang">@en</span> and 포터<span class="lang">@ko</span></td></tr><tr><th>Alternate Label:</th><td>English Porter<span class="lang">@en</span></td></tr><tr><th>Subclass of:</th><td><a href="#term-Ale" title="http://rdfs.co/bevon/Ale">bevon:Ale</a> and <a href="http://www.productontology.org/id/English_porter">pto:English_porter</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/English_porter">http://en.wikipedia.org/wiki/English_porter</a></td></tr><tr><th>Status:</th><td>Unstable</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>
               - first issued
+            </li></ul></div></div><div class="class"><h3 id="term-RedWine">Class: RedWine</h3><div class="description"><p class="definition"><strong>Definition:</strong>
+    Red wine is a type of wine made from dark-coloured (black) grape varieties.
+    </p><p class="comment">
+    The actual colour of the wine can range from intense violet, typical of
+    young wines, through to brick red for mature wines and brown for older red
+    wines.
+    </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/RedWine</td></tr><tr><th>Preferred Label:</th><td>Red Wine<span class="lang">@en</span>, Vin Rouge<span class="lang">@fr</span> and 레드 와인<span class="lang">@ko</span></td></tr><tr><th>Subclass of:</th><td><a href="#term-Wine" title="http://rdfs.co/bevon/Wine">bevon:Wine</a> and <a href="http://www.productontology.org/id/Red_wine">pto:Red_wine</a></td></tr><tr><th>Same as:</th><td><a href="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#RedWine">http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#RedWine</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/Red_wine">http://en.wikipedia.org/wiki/Red_wine</a></td></tr><tr><th>Status:</th><td>Testing</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2014-03-07</span>
+              - first issued
             </li></ul></div></div><div class="class"><h3 id="term-Rum">Class: Rum</h3><div class="description"><p class="definition"><strong>Definition:</strong>
     Rum is a distilled alcoholic beverage made from sugarcane byproducts, such
     as molasses, or directly from sugarcane juice, by a process of fermentation
@@ -828,11 +868,25 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-groups">Terms Grouped by Them
     wooden casks, made generally of charred white oak.
     </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/Whisky</td></tr><tr><th>Preferred Label:</th><td>Whisky<span class="lang">@en</span> and 위스키<span class="lang">@en</span></td></tr><tr><th>Alternate Label:</th><td>Whiskey<span class="lang">@en</span></td></tr><tr><th>Subclass of:</th><td><a href="#term-DistilledBeverage" title="http://rdfs.co/bevon/DistilledBeverage">bevon:DistilledBeverage</a> and <a href="http://www.productontology.org/id/Whisky">pto:Whisky</a></td></tr><tr><th>Same as:</th><td><a href="http://purl.org/vocab/whisky/terms/Whiskey">http://purl.org/vocab/whisky/terms/Whiskey</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/Whisky">http://en.wikipedia.org/wiki/Whisky</a></td></tr><tr><th>Status:</th><td>Testing</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>
               - first issued
+            </li></ul></div></div><div class="class"><h3 id="term-WhiteWine">Class: WhiteWine</h3><div class="description"><p class="definition"><strong>Definition:</strong>
+    White wine is a wine whose colour can be straw-yellow, yellow-green, or
+    yellow-gold coloured.
+    </p><p class="comment">
+    It is produced by the alcoholic fermentation of the non-coloured pulp of
+    grapes which may have a white or black skin. It is treated so as to
+    maintain a yellow transparent colour in the final product.
+    </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/WhiteWine</td></tr><tr><th>Preferred Label:</th><td>Vin Blanc<span class="lang">@fr</span>, White Wine<span class="lang">@en</span> and 화이트 와인<span class="lang">@ko</span></td></tr><tr><th>Subclass of:</th><td><a href="#term-Wine" title="http://rdfs.co/bevon/Wine">bevon:Wine</a> and <a href="http://www.productontology.org/id/White_wine">pto:White_wine</a></td></tr><tr><th>Same as:</th><td><a href="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteWine">http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteWine</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/White_wine">http://en.wikipedia.org/wiki/White_wine</a></td></tr><tr><th>Status:</th><td>Testing</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2014-03-07</span>
+              - first issued
             </li></ul></div></div><div class="class"><h3 id="term-Wine">Class: Wine</h3><div class="description"><p class="definition"><strong>Definition:</strong>
     Wine is an alcoholic beverage made from fermented grapes or other fruits.
-    </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/Wine</td></tr><tr><th>Preferred Label:</th><td>Vin<span class="lang">@fr</span>, Wine<span class="lang">@en</span> and 와인<span class="lang">@ko</span></td></tr><tr><th>Subclass of:</th><td><a href="#term-FermentedBeverage" title="http://rdfs.co/bevon/FermentedBeverage">bevon:FermentedBeverage</a> and <a href="http://www.productontology.org/id/Wine">pto:Wine</a></td></tr><tr><th>Same as:</th><td><a href="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine">http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/Wine">http://en.wikipedia.org/wiki/Wine</a></td></tr><tr><th>Status:</th><td>Testing</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>
+    </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/Wine</td></tr><tr><th>Preferred Label:</th><td>Vin<span class="lang">@fr</span>, Wine<span class="lang">@en</span> and 와인<span class="lang">@ko</span></td></tr><tr><th>Subclass of:</th><td><a href="#term-FermentedBeverage" title="http://rdfs.co/bevon/FermentedBeverage">bevon:FermentedBeverage</a> and <a href="http://www.productontology.org/id/Wine">pto:Wine</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/Wine">http://en.wikipedia.org/wiki/Wine</a></td></tr><tr><th>Status:</th><td>Testing</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>
               - first issued
-            </li></ul></div></div><h2 id="sec-properties">Vocabulary Properties</h2><div class="property"><h3 id="term-abv">Property: abv</h3><div class="description"><p class="definition"><strong>Definition:</strong>
+            </li><li class="historyNote">2014-03-07
+        - semantic change by
+        <a href="http://jayg.org/">James G. Kim</a>:
+      
+      Changed the semantics of bevon:Wine not to be the same as wine:Wine
+      </li></ul></div></div><h2 id="sec-properties">Vocabulary Properties</h2><div class="property"><h3 id="term-abv">Property: abv</h3><div class="description"><p class="definition"><strong>Definition:</strong>
     ABV (Alcohol by Volume) is a standard measure of how much alcohol is
     contained in the drink.
     </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/abv</td></tr><tr><th>Preferred Label:</th><td>ABV<span class="lang">@en</span> and 알코올 도수<span class="lang">@ko</span></td></tr><tr><th>Alternate Label:</th><td>alcohol by volume<span class="lang">@en</span></td></tr><tr><th>Domain:</th><td><a href="#term-Beverage" title="http://rdfs.co/bevon/Beverage">bevon:Beverage</a></td></tr><tr><th>Range:</th><td><a href="http://www.w3.org/2001/XMLSchema#decimal">xsd:decimal</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/Alcohol_by_volume">http://en.wikipedia.org/wiki/Alcohol_by_volume</a></td></tr><tr><th>Status:</th><td>Testing</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>

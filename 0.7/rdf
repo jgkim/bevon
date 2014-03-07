@@ -63,6 +63,7 @@
     <vann:termGroup rdf:resource="http://rdfs.co/bevon/CoreGroup"/>
     <vann:termGroup rdf:resource="http://rdfs.co/bevon/RelationGroup"/>
     <vann:termGroup rdf:resource="http://rdfs.co/bevon/WhiskyGroup"/>
+    <vann:termGroup rdf:resource="http://rdfs.co/bevon/WineGroup"/>
     <rdf:type rdf:resource="http://creativecommons.org/ns#Work"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/adms#SemanticAsset"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
@@ -113,6 +114,24 @@
         <rdf:value xml:lang="en">
       Changed bevon:FermentedBeverages to bevon:FermentedBeverage for the
       consistency
+      </rdf:value>
+      </rdf:Description>
+    </skos:historyNote>
+    <skos:historyNote>
+      <rdf:Description>
+        <dcterms:creator rdf:resource="http://jayg.me/"/>
+        <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-07+09:00</dcterms:date>
+        <rdf:value xml:lang="en">
+      Changed the semantics of bevon:Wine to be a superclass of wine:Wine
+      </rdf:value>
+      </rdf:Description>
+    </skos:historyNote>
+    <skos:historyNote>
+      <rdf:Description>
+        <dcterms:creator rdf:resource="http://jayg.me/"/>
+        <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-07+09:00</dcterms:date>
+        <rdf:value xml:lang="en">
+      Added bevon:RedWine, bevon:WhiteWine and bevon:FruitWine
       </rdf:value>
       </rdf:Description>
     </skos:historyNote>
@@ -676,6 +695,28 @@
     <skos:prefLabel xml:lang="en">Fermented Beverage</skos:prefLabel>
     <skos:prefLabel xml:lang="ko">양조주</skos:prefLabel>
   </owl:Class>
+  <owl:Class rdf:about="http://rdfs.co/bevon/FruitWine">
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-07+09:00</dcterms:issued>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-07+09:00</dcterms:modified>
+    <rdfs:comment xml:lang="en">
+    This definition is sometimes broadened to include any fermented alcoholic
+    beverage except beer. For historical reasons, mead, cider, and perry are
+    also excluded from the definition of fruit wine.
+    </rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdfs.co/bevon/"/>
+    <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Fruit_wine"/>
+    <rdfs:subClassOf rdf:resource="http://rdfs.co/bevon/Wine"/>
+    <rdfs:subClassOf rdf:resource="http://www.productontology.org/id/Fruit_wine"/>
+    <status:term_status xml:lang="en">testing</status:term_status>
+    <skos:definition xml:lang="en">
+    Fruit wines are fermented alcoholic beverages made from a variety of base
+    ingredients (other than grapes); they may also have additional flavors
+    taken from fruits, flowers, and herbs.
+    </skos:definition>
+    <skos:prefLabel xml:lang="en">Fruit Wine</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Vin de Sureau</skos:prefLabel>
+    <skos:prefLabel xml:lang="ko">과실주</skos:prefLabel>
+  </owl:Class>
   <owl:Class rdf:about="http://rdfs.co/bevon/Gin">
     <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-07-04+09:00</dcterms:issued>
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-01+09:00</dcterms:modified>
@@ -1057,6 +1098,27 @@
     <skos:prefLabel xml:lang="en">Porter</skos:prefLabel>
     <skos:prefLabel xml:lang="ko">포터</skos:prefLabel>
   </owl:Class>
+  <owl:Class rdf:about="http://rdfs.co/bevon/RedWine">
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-07+09:00</dcterms:issued>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-07+09:00</dcterms:modified>
+    <rdfs:comment xml:lang="en">
+    The actual colour of the wine can range from intense violet, typical of
+    young wines, through to brick red for mature wines and brown for older red
+    wines.
+    </rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdfs.co/bevon/"/>
+    <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Red_wine"/>
+    <rdfs:subClassOf rdf:resource="http://rdfs.co/bevon/Wine"/>
+    <rdfs:subClassOf rdf:resource="http://www.productontology.org/id/Red_wine"/>
+    <owl:sameAs rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#RedWine"/>
+    <status:term_status xml:lang="en">testing</status:term_status>
+    <skos:definition xml:lang="en">
+    Red wine is a type of wine made from dark-coloured (black) grape varieties.
+    </skos:definition>
+    <skos:prefLabel xml:lang="en">Red Wine</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Vin Rouge</skos:prefLabel>
+    <skos:prefLabel xml:lang="ko">레드 와인</skos:prefLabel>
+  </owl:Class>
   <rdf:Bag rdf:about="http://rdfs.co/bevon/RelationGroup">
     <rdf:_1 rdf:resource="http://rdfs.co/bevon/related"/>
     <rdf:_2 rdf:resource="http://rdfs.co/bevon/similar"/>
@@ -1344,22 +1406,62 @@
     </rdfs:comment>
     <rdfs:label xml:lang="en">Whisky Terms</rdfs:label>
   </rdf:Bag>
+  <owl:Class rdf:about="http://rdfs.co/bevon/WhiteWine">
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-07+09:00</dcterms:issued>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-07+09:00</dcterms:modified>
+    <rdfs:comment xml:lang="en">
+    It is produced by the alcoholic fermentation of the non-coloured pulp of
+    grapes which may have a white or black skin. It is treated so as to
+    maintain a yellow transparent colour in the final product.
+    </rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://rdfs.co/bevon/"/>
+    <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/White_wine"/>
+    <rdfs:subClassOf rdf:resource="http://rdfs.co/bevon/Wine"/>
+    <rdfs:subClassOf rdf:resource="http://www.productontology.org/id/White_wine"/>
+    <owl:sameAs rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#WhiteWine"/>
+    <status:term_status xml:lang="en">testing</status:term_status>
+    <skos:definition xml:lang="en">
+    White wine is a wine whose colour can be straw-yellow, yellow-green, or
+    yellow-gold coloured.
+    </skos:definition>
+    <skos:prefLabel xml:lang="fr">Vin Blanc</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">White Wine</skos:prefLabel>
+    <skos:prefLabel xml:lang="ko">화이트 와인</skos:prefLabel>
+  </owl:Class>
   <owl:Class rdf:about="http://rdfs.co/bevon/Wine">
     <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-07-04+09:00</dcterms:issued>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-01+09:00</dcterms:modified>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-07+09:00</dcterms:modified>
     <rdfs:isDefinedBy rdf:resource="http://rdfs.co/bevon/"/>
     <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Wine"/>
     <rdfs:subClassOf rdf:resource="http://rdfs.co/bevon/FermentedBeverage"/>
     <rdfs:subClassOf rdf:resource="http://www.productontology.org/id/Wine"/>
-    <owl:sameAs rdf:resource="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine"/>
     <status:term_status xml:lang="en">testing</status:term_status>
     <skos:definition xml:lang="en">
     Wine is an alcoholic beverage made from fermented grapes or other fruits.
     </skos:definition>
+    <skos:historyNote>
+      <rdf:Description>
+        <dcterms:creator rdf:resource="http://jayg.me/"/>
+        <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-07+09:00</dcterms:date>
+        <rdf:value xml:lang="en">
+      Changed the semantics of bevon:Wine not to be the same as wine:Wine
+      </rdf:value>
+      </rdf:Description>
+    </skos:historyNote>
     <skos:prefLabel xml:lang="fr">Vin</skos:prefLabel>
     <skos:prefLabel xml:lang="en">Wine</skos:prefLabel>
     <skos:prefLabel xml:lang="ko">와인</skos:prefLabel>
   </owl:Class>
+  <rdf:Bag rdf:about="http://rdfs.co/bevon/WineGroup">
+    <rdf:_1 rdf:resource="http://rdfs.co/bevon/Wine"/>
+    <rdf:_2 rdf:resource="http://rdfs.co/bevon/RedWine"/>
+    <rdf:_3 rdf:resource="http://rdfs.co/bevon/WhiteWine"/>
+    <rdf:_4 rdf:resource="http://rdfs.co/bevon/FruitWine"/>
+    <rdfs:comment xml:lang="en">
+    These classes describe types of wines.
+    </rdfs:comment>
+    <rdfs:label xml:lang="en">Wine Terms</rdfs:label>
+  </rdf:Bag>
   <owl:DatatypeProperty rdf:about="http://rdfs.co/bevon/abv">
     <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-07-04+09:00</dcterms:issued>
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-01+09:00</dcterms:modified>
@@ -2267,4 +2369,7 @@
     <skos:prefLabel xml:lang="en">volume</skos:prefLabel>
     <skos:prefLabel xml:lang="ko">용량</skos:prefLabel>
   </owl:ObjectProperty>
+  <rdf:Description rdf:about="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#Wine">
+    <rdfs:subClassOf rdf:resource="http://rdfs.co/bevon/Wine"/>
+  </rdf:Description>
 </rdf:RDF>

@@ -70,7 +70,8 @@
     bevon:ContainerGroup ,
     bevon:BeerGroup ,
     bevon:WhiskyGroup ,
-    bevon:CocktailGroup ;
+    bevon:CocktailGroup ,
+    bevon:WineGroup;
   rdfs:seeAlso <https://github.com/jgkim/bevon> ;
   dcterms:creator <http://jayg.me/> ;
   vann:preferredNamespaceUri "http://rdfs.co/bevon/" ;
@@ -110,7 +111,19 @@
       """@en ;
     dcterms:date "2014-03-06+09:00"^^xsd:date ;
     dcterms:creator <http://jayg.me/>
-  ] ;
+  ] , [
+    rdf:value """
+      Changed the semantics of bevon:Wine to be a superclass of wine:Wine
+      """@en ;
+    dcterms:date "2014-03-07+09:00"^^xsd:date ;
+    dcterms:creator <http://jayg.me/>
+  ] , [
+    rdf:value """
+      Added bevon:RedWine, bevon:WhiteWine and bevon:FruitWine
+      """@en ;
+    dcterms:date "2014-03-07+09:00"^^xsd:date ;
+    dcterms:creator <http://jayg.me/>
+  ];
   dcterms:hasFormat
     <http://rdfs.co/bevon/0.7/html> ,
     <http://rdfs.co/bevon/0.7/ttl> ,
@@ -238,6 +251,16 @@ bevon:WhiskyGroup a rdf:Bag ;
   rdf:_9 bevon:SingleMaltWhisky ;
   rdf:_10 bevon:SingleMaltScotch ;
   rdf:_11 bevon:SpeysideSingleMalt .
+
+bevon:WineGroup a rdf:Bag ;
+  rdfs:label "Wine Terms"@en ;
+  rdfs:comment """
+    These classes describe types of wines.
+    """@en ;
+  rdf:_1 bevon:Wine ;
+  rdf:_2 bevon:RedWine ;
+  rdf:_3 bevon:WhiteWine ;
+  rdf:_4 bevon:FruitWine .
 
 bevon:CocktailGroup a rdf:Bag ;
   rdfs:label "Cocktail Terms"@en ;
@@ -581,7 +604,6 @@ bevon:Sake a owl:Class ;
   status:term_status "testing"@en .
 
 bevon:Wine a owl:Class ;
-  owl:sameAs wine:Wine ;
   rdfs:subClassOf bevon:FermentedBeverage , pto:Wine ;
   skos:prefLabel "Wine"@en , "Vin"@fr, "와인"@ko ;
   skos:definition """
@@ -590,7 +612,70 @@ bevon:Wine a owl:Class ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Wine> ;
   rdfs:isDefinedBy <http://rdfs.co/bevon/> ;
   dcterms:issued "2013-07-04+09:00"^^xsd:date ;
-  dcterms:modified "2014-03-01+09:00"^^xsd:date ;
+  dcterms:modified "2014-03-07+09:00"^^xsd:date ;
+  skos:historyNote [
+    rdf:value """
+      Changed the semantics of bevon:Wine not to be the same as wine:Wine
+      """@en ;
+    dcterms:date "2014-03-07+09:00"^^xsd:date ;
+    dcterms:creator <http://jayg.me/>
+  ] ;
+  status:term_status "testing"@en .
+
+bevon:RedWine a owl:Class ;
+  owl:sameAs wine:RedWine ;
+  rdfs:subClassOf bevon:Wine , pto:Red_wine ;
+  skos:prefLabel "Red Wine"@en , "Vin Rouge"@fr , "레드 와인"@ko ;
+  skos:definition """
+    Red wine is a type of wine made from dark-coloured (black) grape varieties.
+    """@en ;
+  rdfs:comment """
+    The actual colour of the wine can range from intense violet, typical of
+    young wines, through to brick red for mature wines and brown for older red
+    wines.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Red_wine> ;
+  rdfs:isDefinedBy <http://rdfs.co/bevon/> ;
+  dcterms:issued "2014-03-07+09:00"^^xsd:date ;
+  dcterms:modified "2014-03-07+09:00"^^xsd:date ;
+  status:term_status "testing"@en .
+
+bevon:WhiteWine a owl:Class ;
+  owl:sameAs wine:WhiteWine ;
+  rdfs:subClassOf bevon:Wine , pto:White_wine ;
+  skos:prefLabel "White Wine"@en , "Vin Blanc"@fr , "화이트 와인"@ko ;
+  skos:definition """
+    White wine is a wine whose colour can be straw-yellow, yellow-green, or
+    yellow-gold coloured.
+    """@en ;
+  rdfs:comment """
+    It is produced by the alcoholic fermentation of the non-coloured pulp of
+    grapes which may have a white or black skin. It is treated so as to
+    maintain a yellow transparent colour in the final product.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/White_wine> ;
+  rdfs:isDefinedBy <http://rdfs.co/bevon/> ;
+  dcterms:issued "2014-03-07+09:00"^^xsd:date ;
+  dcterms:modified "2014-03-07+09:00"^^xsd:date ;
+  status:term_status "testing"@en .
+
+bevon:FruitWine a owl:Class ;
+  rdfs:subClassOf bevon:Wine , pto:Fruit_wine ;
+  skos:prefLabel "Fruit Wine"@en , "Vin de Sureau"@fr , "과실주"@ko ;
+  skos:definition """
+    Fruit wines are fermented alcoholic beverages made from a variety of base
+    ingredients (other than grapes); they may also have additional flavors
+    taken from fruits, flowers, and herbs.
+    """@en ;
+  rdfs:comment """
+    This definition is sometimes broadened to include any fermented alcoholic
+    beverage except beer. For historical reasons, mead, cider, and perry are
+    also excluded from the definition of fruit wine.
+    """@en ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Fruit_wine> ;
+  rdfs:isDefinedBy <http://rdfs.co/bevon/> ;
+  dcterms:issued "2014-03-07+09:00"^^xsd:date ;
+  dcterms:modified "2014-03-07+09:00"^^xsd:date ;
   status:term_status "testing"@en .
 
 bevon:Brandy a owl:Class ;
@@ -1614,6 +1699,10 @@ bevon:quantity a owl:ObjectProperty ;
 whisky:Distillery rdfs:subClassOf bevon:Distillery .
 whisky:abv rdfs:subPropertyOf bevon:abv .
 whisky:distillery rdfs:subPropertyOf bevon:distillery .
+
+# Relations with Wine Vocabulary ##############################################
+
+wine:Wine rdfs:subClassOf bevon:Wine .
 
 # Container Individuals #######################################################
 
