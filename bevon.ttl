@@ -1895,7 +1895,7 @@ beverage:Glenfiddich12YearOld
     a dbpedia:Colour ;
     owl:sameAs <http://dbpedia.org/resource/Gold_(color)> ;
     owl:sameAs <http://purl.org/colors/rgb/FFD700> ;
-    dcterms:title "Golden"@en
+    dcterms:title "Gold"@en
   ] ;
   bevon:abv "40"^^xsd:decimal ;
   bevon:container container:700mlGlassBottle .
@@ -2183,7 +2183,7 @@ _:example1 rdfs:label "Glenfiddich 12 Year Old"@en ;
     a dbpedia:Colour ;
     owl:sameAs &lt;http://dbpedia.org/resource/Gold_(color)&gt; ;
     owl:sameAs &lt;http://purl.org/colors/rgb/FFD700&gt; ;
-    dcterms:title "Golden"@en
+    dcterms:title "Gold"@en
   ] ;
   bevon:abv "40"^^xsd:decimal ;
   bevon:container container:700mlGlassBottle .
@@ -2202,16 +2202,16 @@ _:example2 rdfs:label "Whisky & Soda"@en ;
   rdfs:comment '''
     <pre><code>beverage:WhiskyAndSoda
   a owl:NamedIndividual, bevon:Highball , gr:ProductOrServiceModel ;
-  bevon:name "Whisky & Soda"@en , "위스키 소다"@ko ;
+  bevon:name "Whisky &amp; Soda"@en , "위스키 소다"@ko ;
   bevon:description """
-    Whisky & Soda is a kind of mixed drinks that are composed of whisky and
+    Whisky &amp; Soda is a kind of mixed drinks that are composed of whisky and
     carbonated water.
     """@en ;
   bevon:ingredient [
     a food:Ingredient ;
     bevon:food [
       a bevon:Whisky ;
-      owl:sameAs <http://dbpedia.org/resource/Whisky> ;
+      owl:sameAs &lt;http://dbpedia.org/resource/Whisky&gt; ;
       dcterms:title "Whisky"@en
     ] ;
     bevon:quantity [
@@ -2223,7 +2223,7 @@ _:example2 rdfs:label "Whisky & Soda"@en ;
     a food:Ingredient ;
     bevon:food [
       a bevon:CarbonatedWater ;
-      owl:sameAs <http://dbpedia.org/resource/Carbonated_water> ;
+      owl:sameAs &lt;http://dbpedia.org/resource/Carbonated_water&gt; ;
       dcterms:title "Carbonated Water"@en
     ]
   ] .</code></pre>

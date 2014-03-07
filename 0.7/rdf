@@ -98,7 +98,7 @@
     a dbpedia:Colour ;
     owl:sameAs &amp;lt;http://dbpedia.org/resource/Gold_(color)&amp;gt; ;
     owl:sameAs &amp;lt;http://purl.org/colors/rgb/FFD700&amp;gt; ;
-    dcterms:title "Golden"@en
+    dcterms:title "Gold"@en
   ] ;
   bevon:abv "40"^^xsd:decimal ;
   bevon:container container:700mlGlassBottle .
@@ -120,16 +120,16 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
         <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
     &lt;pre&gt;&lt;code&gt;beverage:WhiskyAndSoda
   a owl:NamedIndividual, bevon:Highball , gr:ProductOrServiceModel ;
-  bevon:name "Whisky &amp; Soda"@en , "위스키 소다"@ko ;
+  bevon:name "Whisky &amp;amp; Soda"@en , "위스키 소다"@ko ;
   bevon:description """
-    Whisky &amp; Soda is a kind of mixed drinks that are composed of whisky and
+    Whisky &amp;amp; Soda is a kind of mixed drinks that are composed of whisky and
     carbonated water.
     """@en ;
   bevon:ingredient [
     a food:Ingredient ;
     bevon:food [
       a bevon:Whisky ;
-      owl:sameAs &lt;http://dbpedia.org/resource/Whisky&gt; ;
+      owl:sameAs &amp;lt;http://dbpedia.org/resource/Whisky&amp;gt; ;
       dcterms:title "Whisky"@en
     ] ;
     bevon:quantity [
@@ -141,7 +141,7 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
     a food:Ingredient ;
     bevon:food [
       a bevon:CarbonatedWater ;
-      owl:sameAs &lt;http://dbpedia.org/resource/Carbonated_water&gt; ;
+      owl:sameAs &amp;lt;http://dbpedia.org/resource/Carbonated_water&amp;gt; ;
       dcterms:title "Carbonated Water"@en
     ]
   ] .&lt;/code&gt;&lt;/pre&gt;
@@ -1707,7 +1707,7 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
     </bevon:aging>
     <bevon:color>
       <dbpedia:Colour>
-        <dcterms:title xml:lang="en">Golden</dcterms:title>
+        <dcterms:title xml:lang="en">Gold</dcterms:title>
         <owl:sameAs rdf:resource="http://dbpedia.org/resource/Gold_(color)"/>
         <owl:sameAs rdf:resource="http://purl.org/colors/rgb/FFD700"/>
       </dbpedia:Colour>
