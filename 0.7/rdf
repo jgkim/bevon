@@ -409,7 +409,7 @@
     A company that makes beer is called either a brewery or a brewing company.
     </rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://rdfs.co/bevon/"/>
-    <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/Brewery"/>
+    <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Brewery"/>
     <status:term_status xml:lang="en">unstable</status:term_status>
     <skos:definition xml:lang="en">
     A brewery is a dedicated building for the making of beer, though beer can

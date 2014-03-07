@@ -527,7 +527,7 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-groups">Terms Grouped by Them
     be made at home, and has been for much of beer's history.
     </p><p class="comment">
     A company that makes beer is called either a brewery or a brewing company.
-    </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/Brewery</td></tr><tr><th>Preferred Label:</th><td>Brewery<span class="lang">@en</span> and 양조장<span class="lang">@ko</span></td></tr><tr><th>Used with:</th><td><a href="#term-brewery" title="http://rdfs.co/bevon/brewery">bevon:brewery</a></td></tr><tr><th>See Also:</th><td><a href="http://dbpedia.org/resource/Brewery">http://dbpedia.org/resource/Brewery</a></td></tr><tr><th>Status:</th><td>Unstable</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>
+    </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/Brewery</td></tr><tr><th>Preferred Label:</th><td>Brewery<span class="lang">@en</span> and 양조장<span class="lang">@ko</span></td></tr><tr><th>Used with:</th><td><a href="#term-brewery" title="http://rdfs.co/bevon/brewery">bevon:brewery</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/Brewery">http://en.wikipedia.org/wiki/Brewery</a></td></tr><tr><th>Status:</th><td>Unstable</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>
               - first issued
             </li></ul></div></div><div class="class"><h3 id="term-CanadianWhisky">Class: CanadianWhisky</h3><div class="description"><p class="definition"><strong>Definition:</strong>
     Canadian whisky is a type of whisky produced in Canada.

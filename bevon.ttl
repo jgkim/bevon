@@ -1325,7 +1325,7 @@ bevon:Brewery a owl:Class ;
   rdfs:comment """
     A company that makes beer is called either a brewery or a brewing company.
     """@en ;
-  rdfs:seeAlso <http://dbpedia.org/resource/Brewery> ;
+  rdfs:seeAlso <http://en.wikipedia.org/wiki/Brewery> ;
   rdfs:isDefinedBy <http://rdfs.co/bevon/> ;
   dcterms:issued "2013-07-04+09:00"^^xsd:date ;
   dcterms:modified "2014-03-01+09:00"^^xsd:date ;
