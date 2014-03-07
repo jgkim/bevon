@@ -96,7 +96,7 @@
 
       #footer { margin-top: 4em; font-size: 0.8em; font-style: italic; text-align: right; }
     </style></head><body><h1>BEVON: Beverage Ontology</h1><dl class="doc-info"><dt>This Version</dt><dd><a href="http://rdfs.co/bevon/0.7">http://rdfs.co/bevon/0.7</a> [<a href="http://rdfs.co/bevon/0.7/html">HTML</a>] [<a href="http://rdfs.co/bevon/0.7/rdf">RDF/XML</a>] [<a href="http://rdfs.co/bevon/0.7/ttl">Turtle</a>]</dd><dt>Latest Version</dt><dd><a href="http://rdfs.co/bevon/">http://rdfs.co/bevon/</a></dd><dt>Previous Version</dt><dd><a href="http://rdfs.co/bevon/0.6">http://rdfs.co/bevon/0.6</a></dd><dt>
-              Author</dt><dd><a href="http://jayg.org/">James G. Kim</a></dd></dl><p class="status">This vocabulary is <em>under development</em>.</p><p class="rights">Copyright © 2013-2014 James G. Kim Some Rights Reserved.</p><p class="license">This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons License</a>.</p><h2 id="toc">Table of Contents</h2><ul class="toc"><li><a href="#sec-introduction">Introduction</a></li><li><a href="#sec-changes">Changes From Previous Version</a></li><li><a href="#sec-namespace">Namespace</a></li><li><a href="#sec-groups">Terms Grouped by Theme</a></li><li><a href="#sec-terms">Summary of Terms</a></li><li><a href="#sec-classes">Vocabulary Classes</a></li><li><a href="#sec-properties">Vocabulary Properties</a></li><li><a href="#sec-license">License</a></li></ul><h2 id="sec-introduction">Introduction</h2><p class="description">
+              Author</dt><dd><a href="http://jayg.org/">James G. Kim</a></dd></dl><p class="status">This vocabulary is <em>under development</em>.</p><p class="rights">Copyright © 2013-2014 James G. Kim Some Rights Reserved.</p><p class="license">This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons License</a>.</p><h2 id="toc">Table of Contents</h2><ul class="toc"><li><a href="#sec-introduction">Introduction</a></li><li><a href="#sec-changes">Changes From Previous Version</a></li><li><a href="#sec-namespace">Namespace</a></li><li><a href="#sec-groups">Terms Grouped by Theme</a></li><li><a href="#sec-terms">Summary of Terms</a></li><li><a href="#sec-classes">Vocabulary Classes</a></li><li><a href="#sec-properties">Vocabulary Properties</a></li><li><a href="#sec-examples">Examples</a></li><li><a href="#sec-license">License</a></li></ul><h2 id="sec-introduction">Introduction</h2><p class="description">
     Beverage Ontology is a Web vocabulary for describing beverages, mainly
     alcoholic.
     </p><p class="comment">
@@ -1009,7 +1009,89 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-groups">Terms Grouped by Them
     This property specifies the volume of the container.
     </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/volume</td></tr><tr><th>Preferred Label:</th><td>volume<span class="lang">@en</span> and 용량<span class="lang">@ko</span></td></tr><tr><th>Domain:</th><td><a href="#term-Container" title="http://rdfs.co/bevon/Container">bevon:Container</a></td></tr><tr><th>Range:</th><td><a href="http://purl.org/goodrelations/v1#QuantitativeValue">gr:QuantitativeValue</a></td></tr><tr><th>Status:</th><td>Unstable</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>
               - first issued
-            </li></ul></div></div><h2 id="sec-license">License</h2><div class="license"><p>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons License</a>.<p>
+            </li></ul></div></div><h2 id="sec-examples">Examples</h2><div class="example"><h3>Glenfiddich 12 Year Old</h3>
+    <pre><code>beverage:Glenfiddich12YearOld
+  a owl:NamedIndividual, bevon:SpeysideSingleMalt , gr:ProductOrServiceModel ;
+  bevon:name "Glenfiddich 12 Year Old"@en , "글렌피딕 12년"@ko ;
+  bevon:description """
+    Carefully matured in the finest American bourbon and Spanish sherry oak
+    casks for at least 12 years. Married and mellowed in oak marrying tuns for
+    complete harmony of aroma and flavor.
+
+    A single malt Scotch whisky with distinctive fresh pear, creamy with subtle
+    oak flavors and a long smooth and mellow finish.
+    """@en ;
+  bevon:origin &lt;http://dbpedia.org/resource/Strathspey,_Scotland&gt; ;
+  bevon:launch "1887"^^xsd:gYear ;
+  bevon:distillery [
+    a bevon:Distillery ;
+    owl:sameAs &lt;http://dbpedia.org/resource/Glenfiddich_distillery&gt; ;
+    whisky:region &lt;http://dbpedia.org/resource/Strathspey,_Scotland&gt; ;
+    whisky:owner &lt;http://dbpedia.org/resource/William_Grant_%26_Sons&gt; ;
+    whisky:waterSource [
+      a whisky:WaterSource ;
+      dcterms:title "Robbie Dhu Springs"@en , "로비 듀 수원지"@ko
+    ]
+  ] ;
+  bevon:manufacturer &lt;http://dbpedia.org/resource/William_Grant_%26_Sons&gt; ;
+  bevon:fermentation_base &lt;http://dbpedia.org/resource/Barley&gt; ;
+  bevon:aging [
+    a bevon:Aging ;
+    bevon:material &lt;http://dbpedia.org/resource/Oak&gt; ;
+    bevon:previous_content
+      &lt;http://dbpedia.org/resource/Bourbon_whiskey&gt; ,
+      &lt;http://dbpedia.org/resource/Sherry&gt; ;
+    bevon:duration [
+      a time:DurationDescription ;
+      time:years "12"^^xsd:decimal
+    ]
+  ] ;
+  bevon:color [
+    a dbpedia:Colour ;
+    owl:sameAs &lt;http://dbpedia.org/resource/Gold_(color)&gt; ;
+    owl:sameAs &lt;http://purl.org/colors/rgb/FFD700&gt; ;
+    dcterms:title "Golden"@en
+  ] ;
+  bevon:abv "40"^^xsd:decimal ;
+  bevon:container container:700mlGlassBottle .
+
+container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
+  skos:prefLabel "700ml Glass Bottle"@en , "700ml 유리병"@ko ;
+  skos:altLabel "70cl Glass Bottle"@en ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT" ;
+    gr:hasValue "700"^^xsd:int
+  ] .</code></pre>
+    </div><div class="example"><h3>Whisky &amp; Soda</h3>
+    <pre><code>beverage:WhiskyAndSoda
+  a owl:NamedIndividual, bevon:Highball , gr:ProductOrServiceModel ;
+  bevon:name "Whisky & Soda"@en , "위스키 소다"@ko ;
+  bevon:description """
+    Whisky & Soda is a kind of mixed drinks that are composed of whisky and
+    carbonated water.
+    """@en ;
+  bevon:ingredient [
+    a food:Ingredient ;
+    bevon:food [
+      a bevon:Whisky ;
+      owl:sameAs <http://dbpedia.org/resource/Whisky> ;
+      dcterms:title "Whisky"@en
+    ] ;
+    bevon:quantity [
+      a gr:QuantitativeValueInteger ;
+      gr:hasUnitOfMeasurement "OZA" ;
+      gr:hasValue "2"^^xsd:int
+    ]
+  ] , [
+    a food:Ingredient ;
+    bevon:food [
+      a bevon:CarbonatedWater ;
+      owl:sameAs <http://dbpedia.org/resource/Carbonated_water> ;
+      dcterms:title "Carbonated Water"@en
+    ]
+  ] .</code></pre>
+    </div><h2 id="sec-license">License</h2><div class="license"><p>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons License</a>.<p>
       The following section is informational only, please refer to the
       <a href="http://creativecommons.org/licenses/by/4.0/legalcode">original license</a>
       for complete license terms.

@@ -55,6 +55,100 @@
     <dcterms:rights>Copyright © 2013-2014 James G. Kim Some Rights Reserved.</dcterms:rights>
     <dcterms:title xml:lang="en">BEVON: Beverage Ontology</dcterms:title>
     <dcterms:type rdf:resource="http://purl.org/adms/assettype/Ontology"/>
+    <vann:example>
+      <rdf:Description>
+        <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
+    &lt;pre&gt;&lt;code&gt;beverage:Glenfiddich12YearOld
+  a owl:NamedIndividual, bevon:SpeysideSingleMalt , gr:ProductOrServiceModel ;
+  bevon:name "Glenfiddich 12 Year Old"@en , "글렌피딕 12년"@ko ;
+  bevon:description """
+    Carefully matured in the finest American bourbon and Spanish sherry oak
+    casks for at least 12 years. Married and mellowed in oak marrying tuns for
+    complete harmony of aroma and flavor.
+
+    A single malt Scotch whisky with distinctive fresh pear, creamy with subtle
+    oak flavors and a long smooth and mellow finish.
+    """@en ;
+  bevon:origin &amp;lt;http://dbpedia.org/resource/Strathspey,_Scotland&amp;gt; ;
+  bevon:launch "1887"^^xsd:gYear ;
+  bevon:distillery [
+    a bevon:Distillery ;
+    owl:sameAs &amp;lt;http://dbpedia.org/resource/Glenfiddich_distillery&amp;gt; ;
+    whisky:region &amp;lt;http://dbpedia.org/resource/Strathspey,_Scotland&amp;gt; ;
+    whisky:owner &amp;lt;http://dbpedia.org/resource/William_Grant_%26_Sons&amp;gt; ;
+    whisky:waterSource [
+      a whisky:WaterSource ;
+      dcterms:title "Robbie Dhu Springs"@en , "로비 듀 수원지"@ko
+    ]
+  ] ;
+  bevon:manufacturer &amp;lt;http://dbpedia.org/resource/William_Grant_%26_Sons&amp;gt; ;
+  bevon:fermentation_base &amp;lt;http://dbpedia.org/resource/Barley&amp;gt; ;
+  bevon:aging [
+    a bevon:Aging ;
+    bevon:material &amp;lt;http://dbpedia.org/resource/Oak&amp;gt; ;
+    bevon:previous_content
+      &amp;lt;http://dbpedia.org/resource/Bourbon_whiskey&amp;gt; ,
+      &amp;lt;http://dbpedia.org/resource/Sherry&amp;gt; ;
+    bevon:duration [
+      a time:DurationDescription ;
+      time:years "12"^^xsd:decimal
+    ]
+  ] ;
+  bevon:color [
+    a dbpedia:Colour ;
+    owl:sameAs &amp;lt;http://dbpedia.org/resource/Gold_(color)&amp;gt; ;
+    owl:sameAs &amp;lt;http://purl.org/colors/rgb/FFD700&amp;gt; ;
+    dcterms:title "Golden"@en
+  ] ;
+  bevon:abv "40"^^xsd:decimal ;
+  bevon:container container:700mlGlassBottle .
+
+container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
+  skos:prefLabel "700ml Glass Bottle"@en , "700ml 유리병"@ko ;
+  skos:altLabel "70cl Glass Bottle"@en ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement "MLT" ;
+    gr:hasValue "700"^^xsd:int
+  ] .&lt;/code&gt;&lt;/pre&gt;
+    </rdfs:comment>
+        <rdfs:label xml:lang="en">Glenfiddich 12 Year Old</rdfs:label>
+      </rdf:Description>
+    </vann:example>
+    <vann:example>
+      <rdf:Description>
+        <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
+    &lt;pre&gt;&lt;code&gt;beverage:WhiskyAndSoda
+  a owl:NamedIndividual, bevon:Highball , gr:ProductOrServiceModel ;
+  bevon:name "Whisky &amp; Soda"@en , "위스키 소다"@ko ;
+  bevon:description """
+    Whisky &amp; Soda is a kind of mixed drinks that are composed of whisky and
+    carbonated water.
+    """@en ;
+  bevon:ingredient [
+    a food:Ingredient ;
+    bevon:food [
+      a bevon:Whisky ;
+      owl:sameAs &lt;http://dbpedia.org/resource/Whisky&gt; ;
+      dcterms:title "Whisky"@en
+    ] ;
+    bevon:quantity [
+      a gr:QuantitativeValueInteger ;
+      gr:hasUnitOfMeasurement "OZA" ;
+      gr:hasValue "2"^^xsd:int
+    ]
+  ] , [
+    a food:Ingredient ;
+    bevon:food [
+      a bevon:CarbonatedWater ;
+      owl:sameAs &lt;http://dbpedia.org/resource/Carbonated_water&gt; ;
+      dcterms:title "Carbonated Water"@en
+    ]
+  ] .&lt;/code&gt;&lt;/pre&gt;
+    </rdfs:comment>
+        <rdfs:label xml:lang="en">Whisky &amp; Soda</rdfs:label>
+      </rdf:Description>
+    </vann:example>
     <vann:preferredNamespacePrefix>bevon</vann:preferredNamespacePrefix>
     <vann:preferredNamespaceUri>http://rdfs.co/bevon/</vann:preferredNamespaceUri>
     <vann:termGroup rdf:resource="http://rdfs.co/bevon/BeerGroup"/>

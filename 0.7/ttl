@@ -53,6 +53,95 @@ whisky:distillery
     dcterms:rights "Copyright © 2013-2014 James G. Kim Some Rights Reserved." ;
     dcterms:title "BEVON: Beverage Ontology"@en ;
     dcterms:type <http://purl.org/adms/assettype/Ontology> ;
+    vann:example [
+        rdfs:comment """
+    <pre><code>beverage:Glenfiddich12YearOld
+  a owl:NamedIndividual, bevon:SpeysideSingleMalt , gr:ProductOrServiceModel ;
+  bevon:name \"Glenfiddich 12 Year Old\"@en , \"글렌피딕 12년\"@ko ;
+  bevon:description \"\"\"
+    Carefully matured in the finest American bourbon and Spanish sherry oak
+    casks for at least 12 years. Married and mellowed in oak marrying tuns for
+    complete harmony of aroma and flavor.
+
+    A single malt Scotch whisky with distinctive fresh pear, creamy with subtle
+    oak flavors and a long smooth and mellow finish.
+    \"\"\"@en ;
+  bevon:origin &lt;http://dbpedia.org/resource/Strathspey,_Scotland&gt; ;
+  bevon:launch \"1887\"^^xsd:gYear ;
+  bevon:distillery [
+    a bevon:Distillery ;
+    owl:sameAs &lt;http://dbpedia.org/resource/Glenfiddich_distillery&gt; ;
+    whisky:region &lt;http://dbpedia.org/resource/Strathspey,_Scotland&gt; ;
+    whisky:owner &lt;http://dbpedia.org/resource/William_Grant_%26_Sons&gt; ;
+    whisky:waterSource [
+      a whisky:WaterSource ;
+      dcterms:title \"Robbie Dhu Springs\"@en , \"로비 듀 수원지\"@ko
+    ]
+  ] ;
+  bevon:manufacturer &lt;http://dbpedia.org/resource/William_Grant_%26_Sons&gt; ;
+  bevon:fermentation_base &lt;http://dbpedia.org/resource/Barley&gt; ;
+  bevon:aging [
+    a bevon:Aging ;
+    bevon:material &lt;http://dbpedia.org/resource/Oak&gt; ;
+    bevon:previous_content
+      &lt;http://dbpedia.org/resource/Bourbon_whiskey&gt; ,
+      &lt;http://dbpedia.org/resource/Sherry&gt; ;
+    bevon:duration [
+      a time:DurationDescription ;
+      time:years \"12\"^^xsd:decimal
+    ]
+  ] ;
+  bevon:color [
+    a dbpedia:Colour ;
+    owl:sameAs &lt;http://dbpedia.org/resource/Gold_(color)&gt; ;
+    owl:sameAs &lt;http://purl.org/colors/rgb/FFD700&gt; ;
+    dcterms:title \"Golden\"@en
+  ] ;
+  bevon:abv \"40\"^^xsd:decimal ;
+  bevon:container container:700mlGlassBottle .
+
+container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
+  skos:prefLabel \"700ml Glass Bottle\"@en , \"700ml 유리병\"@ko ;
+  skos:altLabel \"70cl Glass Bottle\"@en ;
+  bevon:volume [
+    a gr:QuantitativeValueInteger ;
+    gr:hasUnitOfMeasurement \"MLT\" ;
+    gr:hasValue \"700\"^^xsd:int
+  ] .</code></pre>
+    """^^rdf:XMLLiteral ;
+        rdfs:label "Glenfiddich 12 Year Old"@en
+    ], [
+        rdfs:comment """
+    <pre><code>beverage:WhiskyAndSoda
+  a owl:NamedIndividual, bevon:Highball , gr:ProductOrServiceModel ;
+  bevon:name \"Whisky & Soda\"@en , \"위스키 소다\"@ko ;
+  bevon:description \"\"\"
+    Whisky & Soda is a kind of mixed drinks that are composed of whisky and
+    carbonated water.
+    \"\"\"@en ;
+  bevon:ingredient [
+    a food:Ingredient ;
+    bevon:food [
+      a bevon:Whisky ;
+      owl:sameAs <http://dbpedia.org/resource/Whisky> ;
+      dcterms:title \"Whisky\"@en
+    ] ;
+    bevon:quantity [
+      a gr:QuantitativeValueInteger ;
+      gr:hasUnitOfMeasurement \"OZA\" ;
+      gr:hasValue \"2\"^^xsd:int
+    ]
+  ] , [
+    a food:Ingredient ;
+    bevon:food [
+      a bevon:CarbonatedWater ;
+      owl:sameAs <http://dbpedia.org/resource/Carbonated_water> ;
+      dcterms:title \"Carbonated Water\"@en
+    ]
+  ] .</code></pre>
+    """^^rdf:XMLLiteral ;
+        rdfs:label "Whisky & Soda"@en
+    ] ;
     vann:preferredNamespacePrefix "bevon" ;
     vann:preferredNamespaceUri "http://rdfs.co/bevon/" ;
     vann:termGroup bevon:BeerGroup, bevon:CocktailGroup, bevon:ContainerGroup, bevon:CoreGroup, bevon:RelationGroup, bevon:WhiskyGroup, bevon:WineGroup ;
