@@ -894,14 +894,14 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
   <owl:Class rdf:about="http://rdfs.co/bevon/JapaneseWhisky">
     <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-07-04+09:00</dcterms:issued>
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-01+09:00</dcterms:modified>
-    <rdfs:commercial xml:lang="en">
+    <rdfs:comment xml:lang="en">
     Whisky production in Japan began around 1870, but the first commercial
     production was in 1924 upon the opening of the country's first distillery,
     Yamazaki. Broadly speaking the style of Japanese whisky is more similar to
     that of Scotch whisky than Irish, American, or Canadian styles of whisky,
     and thus the spelling typically follows the Scottish convention (omitting
     the letter "e").
-    </rdfs:commercial>
+    </rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://rdfs.co/bevon/"/>
     <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Japanese_whisky"/>
     <rdfs:subClassOf rdf:resource="http://rdfs.co/bevon/Whisky"/>

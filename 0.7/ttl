@@ -836,7 +836,7 @@ bevon:JapaneseWhisky
     dcterms:issued "2013-07-04+09:00"^^xsd:date ;
     dcterms:modified "2014-03-01+09:00"^^xsd:date ;
     a owl:Class ;
-    rdfs:commercial """
+    rdfs:comment """
     Whisky production in Japan began around 1870, but the first commercial
     production was in 1924 upon the opening of the country's first distillery,
     Yamazaki. Broadly speaking the style of Japanese whisky is more similar to

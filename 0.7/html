@@ -654,6 +654,13 @@ http://rdfs.co/bevon/Aging</code></pre><h2 id="sec-groups">Terms Grouped by Them
               - first issued
             </li></ul></div></div><div class="class"><h3 id="term-JapaneseWhisky">Class: JapaneseWhisky</h3><div class="description"><p class="definition"><strong>Definition:</strong>
     Japanese whisky is whisky made in Japan.
+    </p><p class="comment">
+    Whisky production in Japan began around 1870, but the first commercial
+    production was in 1924 upon the opening of the country's first distillery,
+    Yamazaki. Broadly speaking the style of Japanese whisky is more similar to
+    that of Scotch whisky than Irish, American, or Canadian styles of whisky,
+    and thus the spelling typically follows the Scottish convention (omitting
+    the letter "e").
     </p><table class="properties"><tbody><tr><th>URI:</th><td>http://rdfs.co/bevon/JapaneseWhisky</td></tr><tr><th>Preferred Label:</th><td>Japanese Whisky<span class="lang">@en</span> and 재패니즈 위스키<span class="lang">@ko</span></td></tr><tr><th>Alternate Label:</th><td>Japanese Whiskey<span class="lang">@en</span></td></tr><tr><th>Subclass of:</th><td><a href="#term-Whisky" title="http://rdfs.co/bevon/Whisky">bevon:Whisky</a> and <a href="http://www.productontology.org/id/Japanese_whisky">pto:Japanese_whisky</a></td></tr><tr><th>See Also:</th><td><a href="http://en.wikipedia.org/wiki/Japanese_whisky">http://en.wikipedia.org/wiki/Japanese_whisky</a></td></tr><tr><th>Status:</th><td>Unstable</td></tr></tbody></table><h4>History</h4><ul class="historyList"><li><span class="date">2013-07-04</span>
               - first issued
             </li></ul></div></div><div class="class"><h3 id="term-Keg">Class: Keg</h3><div class="description"><p class="definition"><strong>Definition:</strong>

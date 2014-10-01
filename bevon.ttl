@@ -951,7 +951,7 @@ bevon:JapaneseWhisky a owl:Class ;
   skos:definition """
     Japanese whisky is whisky made in Japan.
     """@en ;
-  rdfs:commercial """
+  rdfs:comment """
     Whisky production in Japan began around 1870, but the first commercial
     production was in 1924 upon the opening of the country's first distillery,
     Yamazaki. Broadly speaking the style of Japanese whisky is more similar to
