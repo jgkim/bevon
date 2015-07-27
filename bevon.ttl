@@ -29,6 +29,7 @@
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix status: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -47,7 +48,8 @@
 
 # Ontology ####################################################################
 
-<http://rdfs.co/bevon/0.8> a owl:Ontology , adms:SemanticAsset , cc:Work ;
+<http://rdfs.co/bevon/0.8>
+  a owl:Ontology , adms:SemanticAsset , voaf:Vocabulary , cc:Work ;
   dcterms:title "BEVON: Beverage Ontology"@en ;
   dcterms:description """
     Beverage Ontology is a Web vocabulary for describing beverages, mainly
@@ -74,6 +76,7 @@
     bevon:WineGroup;
   rdfs:seeAlso <https://github.com/jgkim/bevon> ;
   dcterms:creator <http://jayg.me/> ;
+  dcterms:publisher <http://jayg.me/> ;
   vann:preferredNamespaceUri "http://rdfs.co/bevon/" ;
   vann:preferredNamespacePrefix "bevon" ;
   dcterms:type <http://purl.org/adms/assettype/Ontology> ;
@@ -105,9 +108,9 @@
     dcterms:creator <http://jayg.me/>
   ] , [
     rdf:value """
-      Fixed the sameAs relationship of bevon:Whisky
+      Made the vocabulary as a type of voaf:Vocabulary
       """@en ;
-    dcterms:date "2015-07-23+09:00"^^xsd:date ;
+    dcterms:date "2015-07-27+09:00"^^xsd:date ;
     dcterms:creator <http://jayg.me/>
   ] ;
   skos:historyNote [
@@ -128,6 +131,12 @@
       Added bevon:RedWine, bevon:WhiteWine and bevon:FruitWine
       """@en ;
     dcterms:date "2014-03-07+09:00"^^xsd:date ;
+    dcterms:creator <http://jayg.me/>
+  ] , [
+    rdf:value """
+      Fixed the sameAs relationship of bevon:Whisky
+      """@en ;
+    dcterms:date "2015-07-23+09:00"^^xsd:date ;
     dcterms:creator <http://jayg.me/>
   ] ;
   vann:example _:example1 , _:example2 ;

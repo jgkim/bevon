@@ -18,6 +18,7 @@
    xmlns:status="http://www.w3.org/2003/06/sw-vocab-status/ns#"
    xmlns:time="http://www.w3.org/2006/time#"
    xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:voaf="http://purl.org/vocommons/voaf#"
    xmlns:whisky="http://purl.org/vocab/whisky/terms/"
    xmlns:wine="http://www.w3.org/TR/2003/PR-owl-guide-20031209/wine#"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -51,6 +52,7 @@
     <dcterms:isVersionOf rdf:resource="http://rdfs.co/bevon/"/>
     <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-07-04+09:00</dcterms:issued>
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-07-23+09:00</dcterms:modified>
+    <dcterms:publisher rdf:resource="http://jayg.me/"/>
     <dcterms:replaces rdf:resource="http://rdfs.co/bevon/0.7"/>
     <dcterms:rights>Copyright © 2013-2015 James G. Kim Some Rights Reserved.</dcterms:rights>
     <dcterms:title xml:lang="en">BEVON: Beverage Ontology</dcterms:title>
@@ -159,6 +161,7 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
     <vann:termGroup rdf:resource="http://rdfs.co/bevon/WhiskyGroup"/>
     <vann:termGroup rdf:resource="http://rdfs.co/bevon/WineGroup"/>
     <rdf:type rdf:resource="http://creativecommons.org/ns#Work"/>
+    <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/adms#SemanticAsset"/>
     <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
     &lt;div&gt;
@@ -204,9 +207,9 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
     <skos:changeNote>
       <rdf:Description>
         <dcterms:creator rdf:resource="http://jayg.me/"/>
-        <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-07-23+09:00</dcterms:date>
+        <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-07-27+09:00</dcterms:date>
         <rdf:value xml:lang="en">
-      Fixed the sameAs relationship of bevon:Whisky
+      Made the vocabulary as a type of voaf:Vocabulary
       </rdf:value>
       </rdf:Description>
     </skos:changeNote>
@@ -235,6 +238,15 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
         <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-07+09:00</dcterms:date>
         <rdf:value xml:lang="en">
       Added bevon:RedWine, bevon:WhiteWine and bevon:FruitWine
+      </rdf:value>
+      </rdf:Description>
+    </skos:historyNote>
+    <skos:historyNote>
+      <rdf:Description>
+        <dcterms:creator rdf:resource="http://jayg.me/"/>
+        <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-07-23+09:00</dcterms:date>
+        <rdf:value xml:lang="en">
+      Fixed the sameAs relationship of bevon:Whisky
       </rdf:value>
       </rdf:Description>
     </skos:historyNote>

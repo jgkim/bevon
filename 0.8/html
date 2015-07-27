@@ -142,11 +142,16 @@
         <a href="http://jayg.org/">James G. Kim</a>:
       
       Added bevon:RedWine, bevon:WhiteWine and bevon:FruitWine
-      </li><li class="changeNote">2015-07-23
-        - editorial change by
+      </li><li class="historyNote">2015-07-23
+        - semantic change by
         <a href="http://jayg.org/">James G. Kim</a>:
       
       Fixed the sameAs relationship of bevon:Whisky
+      </li><li class="changeNote">2015-07-27
+        - editorial change by
+        <a href="http://jayg.org/">James G. Kim</a>:
+      
+      Made the vocabulary as a type of voaf:Vocabulary
       </li></ul><h2 id="sec-namespace">Namespace</h2><p>The URI for this vocabulary is </p><pre><code>http://rdfs.co/bevon/</code></pre><p>
           When used in XML documents the suggested prefix is
           <code>bevon</code>.
