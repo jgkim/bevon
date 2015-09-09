@@ -5,6 +5,7 @@
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:container="http://rdfs.co/bevon/container/"
    xmlns:dbpedia="http://dbpedia.org/ontology/"
+   xmlns:dcam="http://purl.org/dc/dcam/"
    xmlns:dcterms="http://purl.org/dc/terms/"
    xmlns:foaf="http://xmlns.com/foaf/0.1/"
    xmlns:food="http://data.lirmm.fr/ontologies/food#"
@@ -254,26 +255,32 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
   </owl:Ontology>
   <rdf:Description rdf:about="http://rdfs.co/bevon/0.8/html">
     <dcterms:format>
-      <dcterms:IMT>
+      <dcterms:MediaType>
+        <dcam:memberOf rdf:resource="http://purl.org/dc/terms/IMT"/>
         <rdf:value>text/html</rdf:value>
         <rdfs:label xml:lang="en">HTML</rdfs:label>
-      </dcterms:IMT>
+        <rdfs:seeAlso rdf:resource="http://www.iana.org/assignments/media-types/text/html"/>
+      </dcterms:MediaType>
     </dcterms:format>
   </rdf:Description>
   <rdf:Description rdf:about="http://rdfs.co/bevon/0.8/rdf">
     <dcterms:format>
-      <dcterms:IMT>
+      <dcterms:MediaType>
+        <dcam:memberOf rdf:resource="http://purl.org/dc/terms/IMT"/>
         <rdf:value>application/rdf+xml</rdf:value>
         <rdfs:label xml:lang="en">RDF/XML</rdfs:label>
-      </dcterms:IMT>
+        <rdfs:seeAlso rdf:resource="http://www.iana.org/assignments/media-types/application/rdf+xml"/>
+      </dcterms:MediaType>
     </dcterms:format>
   </rdf:Description>
   <rdf:Description rdf:about="http://rdfs.co/bevon/0.8/ttl">
     <dcterms:format>
-      <dcterms:IMT>
+      <dcterms:MediaType>
+        <dcam:memberOf rdf:resource="http://purl.org/dc/terms/IMT"/>
         <rdf:value>text/turtle</rdf:value>
         <rdfs:label xml:lang="en">Turtle</rdfs:label>
-      </dcterms:IMT>
+        <rdfs:seeAlso rdf:resource="http://www.iana.org/assignments/media-types/text/turtle"/>
+      </dcterms:MediaType>
     </dcterms:format>
   </rdf:Description>
   <owl:Class rdf:about="http://rdfs.co/bevon/Aging">

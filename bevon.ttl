@@ -30,6 +30,7 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix status: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -148,21 +149,27 @@
   cc:license <http://creativecommons.org/licenses/by/4.0/> .
 
 <http://rdfs.co/bevon/0.8/html> dcterms:format [
-  a dcterms:IMT ;
+  a dcterms:MediaType ;
+  dcam:memberOf dcterms:IMT ;
   rdf:value "text/html" ;
-  rdfs:label "HTML"@en
+  rdfs:label "HTML"@en ;
+  rdfs:seeAlso <http://www.iana.org/assignments/media-types/text/html>
 ] .
 
 <http://rdfs.co/bevon/0.8/ttl> dcterms:format [
-  a dcterms:IMT ;
+  a dcterms:MediaType ;
+  dcam:memberOf dcterms:IMT ;
   rdf:value "text/turtle" ;
-  rdfs:label "Turtle"@en
+  rdfs:label "Turtle"@en ;
+  rdfs:seeAlso <http://www.iana.org/assignments/media-types/text/turtle>
 ] .
 
 <http://rdfs.co/bevon/0.8/rdf> dcterms:format [
-  a dcterms:IMT ;
+  a dcterms:MediaType ;
+  dcam:memberOf dcterms:IMT ;
   rdf:value "application/rdf+xml" ;
-  rdfs:label "RDF/XML"@en
+  rdfs:label "RDF/XML"@en ;
+  rdfs:seeAlso <http://www.iana.org/assignments/media-types/application/rdf+xml>
 ] .
 
 <http://jayg.me/> a foaf:Person ;
