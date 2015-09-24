@@ -74,7 +74,7 @@
     bevon:BeerGroup ,
     bevon:WhiskyGroup ,
     bevon:CocktailGroup ,
-    bevon:WineGroup;
+    bevon:WineGroup ;
   rdfs:seeAlso <https://github.com/jgkim/bevon> ;
   dcterms:creator <http://jayg.me/> ;
   dcterms:publisher <http://jayg.me/> ;
@@ -174,7 +174,7 @@
 
 <http://jayg.me/> a foaf:Person ;
   foaf:name "James G. Kim"@en , "김보람"@ko ;
-  foaf:mbox_sha1sum "a637717b7e34b83694018e8fdd3ff334fffcd4f3" ;
+  foaf:mbox_sha1sum "f03421e94730da58e8943d3a1d2c4c6b02898e14" ;
   foaf:homepage <http://jayg.org/> .
 
 # Term Groups #################################################################

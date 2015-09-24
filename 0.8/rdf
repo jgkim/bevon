@@ -26,7 +26,7 @@
    xmlns:yago="http://dbpedia.org/class/yago/">
   <foaf:Person rdf:about="http://jayg.me/">
     <foaf:homepage rdf:resource="http://jayg.org/"/>
-    <foaf:mbox_sha1sum>a637717b7e34b83694018e8fdd3ff334fffcd4f3</foaf:mbox_sha1sum>
+    <foaf:mbox_sha1sum>f03421e94730da58e8943d3a1d2c4c6b02898e14</foaf:mbox_sha1sum>
     <foaf:name xml:lang="en">James G. Kim</foaf:name>
     <foaf:name xml:lang="ko">김보람</foaf:name>
   </foaf:Person>
