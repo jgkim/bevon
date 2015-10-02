@@ -102,8 +102,8 @@
     dcterms:creator <http://jayg.me/>
   ] , [
     rdf:value """
-      Added term groups for core, relation, container, beer, whisky and cocktail
-      terms
+      Added term groups for core, relation, container, beer, whisky and
+      cocktail terms
       """@en ;
     dcterms:date "2014-03-06+09:00"^^xsd:date ;
     dcterms:creator <http://jayg.me/>
@@ -169,7 +169,8 @@
   dcam:memberOf dcterms:IMT ;
   rdf:value "application/rdf+xml" ;
   rdfs:label "RDF/XML"@en ;
-  rdfs:seeAlso <http://www.iana.org/assignments/media-types/application/rdf+xml>
+  rdfs:seeAlso
+    <http://www.iana.org/assignments/media-types/application/rdf+xml>
 ] .
 
 <http://jayg.me/> a foaf:Person ;
@@ -402,8 +403,9 @@ bevon:Cocktail a owl:Class ;
     Cocktails were originally a mixture of spirits, sugar, water, and bitters.
     It is now often used for almost any mixed drink that contains alcohol,
     including mixers, mixed shots, etc. A cocktail today usually contains one
-    or more kinds of spirit and one or more mixers, such as soda or fruit juice.
-    Additional ingredients may be sugar, honey, milk, cream, and various herbs.
+    or more kinds of spirit and one or more mixers, such as soda or fruit
+    juice. Additional ingredients may be sugar, honey, milk, cream, and various
+    herbs.
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Cocktail> ;
   rdfs:isDefinedBy <http://rdfs.co/bevon/> ;
@@ -428,12 +430,12 @@ bevon:Beer a owl:Class ;
   owl:disjointWith bevon:NonAlcoholicBeer ;
   skos:prefLabel "Beer"@en , "맥주"@ko ;
   skos:definition """
-    Beer is an alcoholic beverage produced by the saccharification of starch and
-    fermentation of the resulting sugar.
+    Beer is an alcoholic beverage produced by the saccharification of starch
+    and fermentation of the resulting sugar.
     """@en ;
   rdfs:comment """
-    The starch and saccharification enzymes are often derived from malted cereal
-    grains, most commonly malted barley and malted wheat.
+    The starch and saccharification enzymes are often derived from malted
+    cereal grains, most commonly malted barley and malted wheat.
     """@en ;
   rdfs:seeAlso <http://en.wikipedia.org/wiki/Beer> ;
   rdfs:isDefinedBy <http://rdfs.co/bevon/> ;

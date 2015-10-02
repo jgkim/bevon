@@ -200,8 +200,8 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
         <dcterms:creator rdf:resource="http://jayg.me/"/>
         <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-06+09:00</dcterms:date>
         <rdf:value xml:lang="en">
-      Added term groups for core, relation, container, beer, whisky and cocktail
-      terms
+      Added term groups for core, relation, container, beer, whisky and
+      cocktail terms
       </rdf:value>
       </rdf:Description>
     </skos:changeNote>
@@ -355,8 +355,8 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
     <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-07-04+09:00</dcterms:issued>
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2014-03-01+09:00</dcterms:modified>
     <rdfs:comment xml:lang="en">
-    The starch and saccharification enzymes are often derived from malted cereal
-    grains, most commonly malted barley and malted wheat.
+    The starch and saccharification enzymes are often derived from malted
+    cereal grains, most commonly malted barley and malted wheat.
     </rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://rdfs.co/bevon/"/>
     <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Beer"/>
@@ -365,8 +365,8 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
     <owl:disjointWith rdf:resource="http://rdfs.co/bevon/NonAlcoholicBeer"/>
     <status:term_status xml:lang="en">testing</status:term_status>
     <skos:definition xml:lang="en">
-    Beer is an alcoholic beverage produced by the saccharification of starch and
-    fermentation of the resulting sugar.
+    Beer is an alcoholic beverage produced by the saccharification of starch
+    and fermentation of the resulting sugar.
     </skos:definition>
     <skos:prefLabel xml:lang="en">Beer</skos:prefLabel>
     <skos:prefLabel xml:lang="ko">맥주</skos:prefLabel>
@@ -589,8 +589,9 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
     Cocktails were originally a mixture of spirits, sugar, water, and bitters.
     It is now often used for almost any mixed drink that contains alcohol,
     including mixers, mixed shots, etc. A cocktail today usually contains one
-    or more kinds of spirit and one or more mixers, such as soda or fruit juice.
-    Additional ingredients may be sugar, honey, milk, cream, and various herbs.
+    or more kinds of spirit and one or more mixers, such as soda or fruit
+    juice. Additional ingredients may be sugar, honey, milk, cream, and various
+    herbs.
     </rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="http://rdfs.co/bevon/"/>
     <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Cocktail"/>
