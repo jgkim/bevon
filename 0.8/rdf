@@ -52,7 +52,7 @@
     <dcterms:identifier>http://rdfs.co/bevon/0.8</dcterms:identifier>
     <dcterms:isVersionOf rdf:resource="http://rdfs.co/bevon/"/>
     <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-07-04+09:00</dcterms:issued>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-07-23+09:00</dcterms:modified>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-10-07+09:00</dcterms:modified>
     <dcterms:publisher rdf:resource="http://jayg.me/"/>
     <dcterms:replaces rdf:resource="http://rdfs.co/bevon/0.7"/>
     <dcterms:rights>Copyright © 2013-2015 James G. Kim Some Rights Reserved.</dcterms:rights>
@@ -60,7 +60,7 @@
     <dcterms:type rdf:resource="http://purl.org/adms/assettype/Ontology"/>
     <vann:example>
       <rdf:Description>
-        <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
+        <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">
     &lt;pre&gt;&lt;code&gt;beverage:Glenfiddich12YearOld
   a owl:NamedIndividual, bevon:SpeysideSingleMalt , gr:ProductOrServiceModel ;
   bevon:name "Glenfiddich 12 Year Old"@en , "글렌피딕 12년"@ko ;
@@ -120,7 +120,7 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
     </vann:example>
     <vann:example>
       <rdf:Description>
-        <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
+        <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">
     &lt;pre&gt;&lt;code&gt;beverage:WhiskyAndSoda
   a owl:NamedIndividual, bevon:Highball , gr:ProductOrServiceModel ;
   bevon:name "Whisky &amp;amp; Soda"@en , "위스키 소다"@ko ;
@@ -164,7 +164,7 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
     <rdf:type rdf:resource="http://creativecommons.org/ns#Work"/>
     <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
     <rdf:type rdf:resource="http://www.w3.org/ns/adms#SemanticAsset"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">
+    <rdfs:comment rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#HTML">
     &lt;div&gt;
       The master version of this vocabulary is maintained in &lt;a
       href="https://github.com/jgkim/bevon"&gt;the GitHub repository&lt;/a&gt; so others
@@ -211,6 +211,15 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
         <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-07-27+09:00</dcterms:date>
         <rdf:value xml:lang="en">
       Made the vocabulary as a type of voaf:Vocabulary
+      </rdf:value>
+      </rdf:Description>
+    </skos:changeNote>
+    <skos:changeNote>
+      <rdf:Description>
+        <dcterms:creator rdf:resource="http://jayg.me/"/>
+        <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-10-07+09:00</dcterms:date>
+        <rdf:value xml:lang="en">
+      Fixed the wrong use of rdf:XMLLiteral
       </rdf:value>
       </rdf:Description>
     </skos:changeNote>

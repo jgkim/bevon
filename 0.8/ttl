@@ -62,7 +62,7 @@
       href="https://github.com/jgkim/bevon">the GitHub repository</a> so others
       can contribute edits and improvements.
     </div>
-    """^^rdf:XMLLiteral ;
+    """^^rdf:HTML ;
   rdfs:comment """
     Most of the descriptions given here are from Wikipedia or from the websites
     of the related products.
@@ -83,7 +83,7 @@
   dcterms:type <http://purl.org/adms/assettype/Ontology> ;
   adms:status <http://purl.org/adms/status/UnderDevelopment> ;
   dcterms:issued "2013-07-04+09:00"^^xsd:date ;
-  dcterms:modified "2015-07-23+09:00"^^xsd:date ;
+  dcterms:modified "2015-10-07+09:00"^^xsd:date ;
   dcterms:identifier "http://rdfs.co/bevon/0.8" ;
   dcterms:isVersionOf <http://rdfs.co/bevon/> ;
   dcterms:replaces <http://rdfs.co/bevon/0.7> ;
@@ -112,6 +112,12 @@
       Made the vocabulary as a type of voaf:Vocabulary
       """@en ;
     dcterms:date "2015-07-27+09:00"^^xsd:date ;
+    dcterms:creator <http://jayg.me/>
+  ] , [
+    rdf:value """
+      Fixed the wrong use of rdf:XMLLiteral
+      """@en ;
+    dcterms:date "2015-10-07+09:00"^^xsd:date ;
     dcterms:creator <http://jayg.me/>
   ] ;
   skos:historyNote [
@@ -2220,7 +2226,7 @@ container:700mlGlassBottle a owl:NamedIndividual, bevon:GlassBottle ;
     gr:hasUnitOfMeasurement "MLT" ;
     gr:hasValue "700"^^xsd:int
   ] .</code></pre>
-    '''^^rdf:XMLLiteral .
+    '''^^rdf:HTML .
 
 _:example2 rdfs:label "Whisky & Soda"@en ;
   rdfs:comment '''
@@ -2251,4 +2257,4 @@ _:example2 rdfs:label "Whisky & Soda"@en ;
       dcterms:title "Carbonated Water"@en
     ]
   ] .</code></pre>
-    '''^^rdf:XMLLiteral .
+    '''^^rdf:HTML .
